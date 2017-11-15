@@ -1,9 +1,7 @@
 #ifndef ADC_H
 #define ADC_H
 
-#include <stdint.h>
-#include <stdbool.h>
-#include <xc.h>
+#include "chip_16f18345.h"
 
 #define ADCON0_CHS_ANA0         0x00
 #define ADCON0_CHS_ANA1         0x04

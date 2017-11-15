@@ -12,8 +12,7 @@
 extern "C" {
 #endif
 
-#include <stdlib.h>
-#include <stdio.h>
+#include "chip_16f18345.h"
 #include "pps.h"
 #include "tmr0.h"
 #include "tmr1.h"
@@ -23,8 +22,6 @@ extern "C" {
 #include "eeprom.h"
 #include "eusart.h"
 #include "adc.h"
-
-#define _XTAL_FREQ	16000000
     
 #define GlobleInterruptDisable()        (INTCONbits.GIE = 0)
 #define GlobleInterruptEnable()         (INTCONbits.GIE = 1)

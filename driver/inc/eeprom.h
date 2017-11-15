@@ -11,9 +11,7 @@
 extern "C" {
 #endif
 
-#include <stdint.h>
-#include <stdbool.h>
-#include <xc.h>
+#include "chip_16f18345.h"
 
     extern void DATAEE_WriteByte(uint16_t addr, uint8_t byte);
     extern uint8_t DATAEE_ReadByte(uint16_t addr);

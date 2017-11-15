@@ -26,13 +26,50 @@
 #pragma config CP = OFF    // User NVM Program Memory Code Protection bit->User NVM code protection disabled
 #pragma config CPD = OFF    // Data NVM Memory Code Protection bit->Data NVM code protection disabled
 
+void SYSTEM_Initialize ( );
+void Interrupt_Initialize ( );
+
 void main ( )
 {
 	SYSTEM_Initialize ( );
+	Interrupt_Initialize ();
+	GlobleInterruptEnable();
+	PeripheralInterruptEnable();
+	Led_InitPara ();
+	__delay_ms( 48 );
+	Audio_StopSound ();
+	__delay_ms( 48 );
+	Audio_SetVolume ( gLedPara.mVolOn ? VOLUME[ gLedPara.mVolume ] : 0 );
+	__delay_ms( 48 );
+	Audio_SetPlayMode ();
 
 	while ( 1 )
 	{
 		CLRWDT ( );
+	}
+}
+
+void interrupt ISR ()
+{
+	if ( PIR1bits.TMR1GIF )
+	{
+		TMR1_GATE_ISR ( );
+	}
+	else if ( PIE1bits.TMR2IE && PIR1bits.TMR2IF )
+	{
+		TMR2_ISR ( );
+	}
+	else if ( PIR0bits.TMR0IF )
+	{
+		TMR0_ISR ( );
+	}
+	else if ( PIR2bits.TMR4IF )
+	{
+		TMR4_ISR ( );
+	}
+	else if ( PIE1bits.TXIE && PIR1bits.TXIF )
+	{
+		EUSART_Transmit_ISR ();
 	}
 }
 
@@ -106,5 +143,13 @@ void SYSTEM_Initialize ( )
 	PWM5_Initialize ( );
 	EUSART_Initialize_Default ( );
 	ADC_Initialize_Default ( );
+}
+
+void Interrupt_Initialize ()
+{
+	TMR1_Gate_SetInterruptHandler ( IR_Decode );
+	TMR0_SetInterruptHandler ( RTC_OnSecond );
+	TMR2_SetInterruptHandler ( Led_Run );
+	TMR4_SetInterruptHandler ( Led_Notice );
 }
 

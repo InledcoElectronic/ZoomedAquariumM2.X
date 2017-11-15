@@ -10,10 +10,8 @@
 #ifdef	__cplusplus
 extern "C" {
 #endif
-    
-#include <stdint.h>
-#include <stdbool.h>
-#include <xc.h>
+
+#include "chip_16f18345.h"
     
     //TX1STA
 #define TX1STA_CSRC_BRG     0x80

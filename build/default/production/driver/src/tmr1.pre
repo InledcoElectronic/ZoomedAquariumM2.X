@@ -1,5 +1,5 @@
 
-# 1 "driver/src/tmr0.c"
+# 1 "driver/src/tmr1.c"
 
 # 4 "/Applications/microchip/xc8/v1.44/include/__size_t.h"
 typedef unsigned size_t;
@@ -10135,53 +10135,68 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 
-# 64 "driver/src/../inc/tmr0.h"
-typedef void ( *TMR0_InterruptHandler_t) ();
+# 46 "driver/src/../inc/tmr1.h"
+typedef void ( *TMR1_InterruptHandler_t ) ();
 
+extern void TMR1_Initialize_Default();
+extern void TMR1_StartTimer();
+extern void TMR1_StopTimer();
+extern void TMR1_ISR();
+extern void TMR1_GATE_ISR();
+extern void TMR1_SetInterruptHandler(TMR1_InterruptHandler_t handler);
+extern void TMR1_Gate_SetInterruptHandler(TMR1_InterruptHandler_t handler);
 
-extern void TMR0_Initialize_Default();
-extern void TMR0_StartTimer();
-extern void TMR0_StopTimer();
-extern void TMR0_ISR();
-extern void TMR0_SetInterruptHandler(TMR0_InterruptHandler_t handler);
+# 3 "driver/src/tmr1.c"
+TMR1_InterruptHandler_t tmr1_isr_handler;
+TMR1_InterruptHandler_t tmr1_gate_isr_handler;
 
-# 3 "driver/src/tmr0.c"
-TMR0_InterruptHandler_t tmr0_isr_handler;
-
-void TMR0_Initialize_Default ( )
+# 9
+void TMR1_Initialize_Default ( void )
 {
-T0CON0 = 0x00;
-T0CON1 = 0xC0 | 0x10 | 0x07;
+T1CON = 0x30 | 0x04 | 0x00;
+T1GCON = 0x00 | 0x80 | 0x40 | 0x08;
 
-TMR0H = 0xFF;
-TMR0L = 0x00;
-
-PIR0bits.TMR0IF = 0;
-PIE0bits.TMR0IE = 1;
+TMR1 = 0x00;
+PIR1bits.TMR1IF = 0;
+PIE1bits.TMR1IE = 0;
+PIR1bits.TMR1GIF = 0;
+PIE1bits.TMR1GIE = 1;
 }
 
-void TMR0_StartTimer ( )
+void TMR1_StartTimer ( )
 {
-T0CON0bits.T0EN = 1;
+T1CONbits.TMR1ON = 1;
 }
 
-void TMR0_StopTimer ( )
+void TMR1_StopTimer ( )
 {
-T0CON0bits.T0EN = 0;
+T1CONbits.TMR1ON = 0;
 }
 
-void TMR0_ISR ( )
+void TMR1_ISR ( )
 {
-PIR0bits.TMR0IF = 0;
-
-if ( tmr0_isr_handler )
+PIR1bits.TMR1IF = 0;
+if ( tmr1_isr_handler )
 {
-tmr0_isr_handler ( );
+tmr1_isr_handler ( );
 }
 }
 
-void TMR0_SetInterruptHandler ( TMR0_InterruptHandler_t handler )
+void TMR1_GATE_ISR ( )
 {
-tmr0_isr_handler = handler;
+PIR1bits.TMR1GIF = 0;
+if ( tmr1_gate_isr_handler )
+{
+tmr1_gate_isr_handler ( );
+}
 }
 
+void TMR1_SetInterruptHandler ( TMR1_InterruptHandler_t handler )
+{
+tmr1_isr_handler = handler;
+}
+
+void TMR1_Gate_SetInterruptHandler ( TMR1_InterruptHandler_t handler )
+{
+tmr1_gate_isr_handler = handler;
+}

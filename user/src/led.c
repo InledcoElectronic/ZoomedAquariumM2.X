@@ -1,12 +1,14 @@
 #include "../inc/led.h"
 #include "../inc/rtc.h"
 #include "../inc/audio.h"
+#include "../inc/ir.h"
 
-static Led_LoadDutyValue_t loadDuty[CHANNEL_CNT] = { PWM5_LoadDutyValue,
-	PWM3_LoadDutyValue,
-	PWM4_LoadDutyValue,
-	PWM2_LoadDutyValue,
-	PWM1_LoadDutyValue };
+static Led_LoadDutyValue_t loadDuty[CHANNEL_CNT] = {	PWM5_LoadDutyValue,
+														PWM3_LoadDutyValue,
+														PWM4_LoadDutyValue,
+														PWM2_LoadDutyValue,
+														PWM1_LoadDutyValue };
+const uint8_t VOLUME[VOLUME_CNT] = { 14, 28, 22, 26, 30 };
 volatile LedPara_t gLedPara;
 volatile LedRunPara_t gLedRunPara;
 
@@ -60,7 +62,7 @@ void Led_InitPara ( )
 void Led_Initialize ( )
 {
 	Time_t ct;
-	unsigned char i;
+	uint8_t i;
 	signed char result;
 	if ( !gLedPara.mAuto )
 	{
@@ -72,7 +74,39 @@ void Led_Initialize ( )
 		{
 			if ( gLedPara.mMsc )
 			{
-				initDynamicMusic ( gLedPara.fMsc );
+				gLedRunPara.music_index = gLedPara.mMsc;
+				gLedRunPara.music_state = 1;
+				switch ( gLedPara.mMsc )
+				{
+					case MUSIC_DAY_INDEX:
+						gLedRunPara.mCurrentBright[0] = BRIGHT_MAX;
+						gLedRunPara.mCurrentBright[1] = BRIGHT_MAX;
+						gLedRunPara.mCurrentBright[2] = BRIGHT_MAX;
+						gLedRunPara.mCurrentBright[3] = BRIGHT_MAX;
+						gLedRunPara.mCurrentBright[4] = BRIGHT_MAX;
+						break;
+					case MUSIC_NIGHT_INDEX:
+						gLedRunPara.mCurrentBright[0] = 0;
+						gLedRunPara.mCurrentBright[1] = 0;
+						gLedRunPara.mCurrentBright[2] = BRIGHT_MAX;
+						gLedRunPara.mCurrentBright[3] = 0;
+						gLedRunPara.mCurrentBright[4] = 0;
+						break;
+					case MUSIC_FISH_INDEX:
+						gLedRunPara.mCurrentBright[0] = 0;
+						gLedRunPara.mCurrentBright[1] = 0;
+						gLedRunPara.mCurrentBright[2] = BRIGHT_MAX;
+						gLedRunPara.mCurrentBright[3] = BRIGHT_MAX;
+						gLedRunPara.mCurrentBright[4] = BRIGHT_MAX;
+						break;
+					case MUSIC_PLANT_INDEX:
+						gLedRunPara.mCurrentBright[0] = BRIGHT_MAX;
+						gLedRunPara.mCurrentBright[1] = 0;
+						gLedRunPara.mCurrentBright[2] = BRIGHT_MAX;
+						gLedRunPara.mCurrentBright[3] = BRIGHT_MAX;
+						gLedRunPara.mCurrentBright[4] = BRIGHT_MAX;
+						break;
+				}
 			}
 			else
 			{
@@ -333,5 +367,181 @@ void Led_InitMusic ( uint8_t index )
 	{
 		gLedRunPara.music_index = index;
 		gLedRunPara.music_state = 1;
+	}
+}
+
+void Led_DynamicWave ( uint16_t ptp )
+{
+	uint8_t i;
+	uint16_t val = ptp * 3;
+	uint16_t duty[CHANNEL_CNT] = { 750, 750, 750, 750, 750 };
+	for ( i = 0; i < CHANNEL_CNT; i++ )
+	{
+		if ( duty[i] > val )
+		{
+			duty[i] -= val;
+		}
+		else
+		{
+			duty[i] = 0;
+		}
+		if ( gLedRunPara.mCurrentBright[i] < duty[i] )
+		{
+			gLedRunPara.mCurrentBright[i]++;
+		}
+		else if ( gLedRunPara.mCurrentBright[i] > duty[i] )
+		{
+			gLedRunPara.mCurrentBright[i]--;
+		}
+	}
+	Led_UpdateBright ();
+}
+
+void Led_DynamicMoon ( uint16_t ptp )
+{
+	uint8_t i;
+	uint16_t val = ptp * 3;
+	uint16_t duty[CHANNEL_CNT] = { 0, 0, BRIGHT_MAX, 400, 0 };
+	if ( duty[3] > val )
+	{
+		duty[3] -= val;
+	}
+	else
+	{
+		duty[3] = 0;
+	}
+	for ( i = 0; i < CHANNEL_CNT; i++ )
+	{
+		if ( gLedRunPara.mCurrentBright[i] < duty[i] )
+		{
+			gLedRunPara.mCurrentBright[i]++;
+		}
+		else if ( gLedRunPara.mCurrentBright[i] > duty[i] )
+		{
+			gLedRunPara.mCurrentBright[i]--;
+		}
+	}
+	Led_UpdateBright ( );
+}
+
+void Led_DynamicCloud ( uint16_t ptp )
+{
+	uint8_t i;
+	uint16_t val = ptp * 3;
+	uint16_t duty[CHANNEL_CNT] = { 500, 500, 500, 500, 500 };
+	for ( i = 0; i < CHANNEL_CNT; i++ )
+	{
+		if ( duty[i] > val )
+		{
+			duty[i] -= val;
+		}
+		else
+		{
+			duty[i] = 0;
+		}
+		if ( gLedRunPara.mCurrentBright[i] < duty[i] )
+		{
+			gLedRunPara.mCurrentBright[i]++;
+		}
+		else if ( gLedRunPara.mCurrentBright[i] > duty[i] )
+		{
+			gLedRunPara.mCurrentBright[i]--;
+		}
+	}
+	Led_UpdateBright ( );
+}
+
+void Led_DynamicStorm ( uint16_t ptp )
+{
+	uint8_t i;
+	uint16_t val = ptp * 3;
+	uint16_t duty[CHANNEL_CNT] = { 0, 0, 600, 64, 0 };
+	if ( duty[2] > val )
+	{
+		duty[2] -= val;
+	}
+	else
+	{
+		duty[2] = 0;
+	}
+	duty[3] += val;
+	for ( i = 0; i < CHANNEL_CNT; i++ )
+	{
+		if ( gLedRunPara.mCurrentBright[i] < duty[i] )
+		{
+			gLedRunPara.mCurrentBright[i]++;
+		}
+		else if ( gLedRunPara.mCurrentBright[i] > duty[i] )
+		{
+			gLedRunPara.mCurrentBright[i]--;
+		}
+	}
+	Led_UpdateBright ( );
+}
+
+void Led_RunMusic ( )
+{
+	if ( gLedRunPara.music_state < 32 )
+	{
+		gLedRunPara.music_state++;
+	}
+	else if ( gLedRunPara.music_state == 32 )
+	{
+		Audio_SelectSound ( gLedPara.mMsc );
+		gLedRunPara.music_state++;
+	}
+	else if ( gLedRunPara.music_state < 64 )
+	{
+		gLedRunPara.music_state++;
+	}
+	else if ( gLedRunPara.music_state == 64 )
+	{
+		Audio_PlaySound ();
+		gLedRunPara.music_state++;
+	}
+	if ( gLedPara.mDyn )
+	{
+		switch ( gLedPara.mMsc )
+		{
+			case MUSIC_WAVE_INDEX:
+				Led_DynamicWave ( adc_result );
+				break;
+			case MUSIC_MOON_INDEX:
+				Led_DynamicMoon ( adc_result );
+				break;
+			case MUSIC_CLOUD_INDEX:
+				Led_DynamicCloud ( adc_result );
+				break;
+			case MUSIC_STORM_INDEX:
+				Led_DynamicStorm ( adc_result );
+				break;
+			default:
+				break;
+		}
+	}
+}
+
+void Led_Run()
+{
+	static uint8_t cnt = 0;
+	cnt++;
+	if ( ( cnt & 0x03 ) == 0x00 )
+	{
+		IR_ScanLongPress ();
+	}
+	if ( ( ir_state.mSet == SET_DAYLIGHT ) || ( ir_state.mSet == SET_NIGHTLIGHT ) )
+	{
+		Led_Ramp ();
+	}
+	else if ( !gLedPara.mAuto )
+	{
+		if ( gLedPara.mOn && gLedPara.mMsc )
+		{
+			Led_RunMusic ();
+		}
+		else
+		{
+			Led_Ramp ( );
+		}
 	}
 }

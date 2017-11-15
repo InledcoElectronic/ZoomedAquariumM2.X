@@ -1,4 +1,4 @@
-#include "audio.h"
+#include "../inc/audio.h"
 
 volatile uint16_t audio_value;
 

@@ -12,6 +12,8 @@
 extern "C" {
 #endif
 
+#include "chip_16f18345.h"
+    
 #define PPS_INPUT_RC7   0x17
 #define PPS_INPUT_RC6   0x16
 #define PPS_INPUT_RC5   0x15

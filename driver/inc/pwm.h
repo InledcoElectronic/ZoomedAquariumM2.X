@@ -11,9 +11,7 @@
 extern "C" {
 #endif
 
-#include <stdint.h>
-#include <stdbool.h>
-#include <xc.h>
+#include "chip_16f18345.h"
 
     void PWM1_Initialize();
     void PWM1_LoadDutyValue(uint16_t dutyValue);

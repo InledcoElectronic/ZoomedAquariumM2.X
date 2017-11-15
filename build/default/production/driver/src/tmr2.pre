@@ -1,5 +1,5 @@
 
-# 1 "driver/src/tmr0.c"
+# 1 "driver/src/tmr2.c"
 
 # 4 "/Applications/microchip/xc8/v1.44/include/__size_t.h"
 typedef unsigned size_t;
@@ -10135,53 +10135,61 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 
-# 64 "driver/src/../inc/tmr0.h"
-typedef void ( *TMR0_InterruptHandler_t) ();
+# 38 "driver/src/../inc/tmr2.h"
+typedef void ( *TMR2_InterruptHandler_t ) ();
+
+extern void TMR2_Initialize_Default();
+extern void TMR2_StartTimer();
+extern void TMR2_StopTimer();
+extern void TMR2_ISR();
+extern void TMR2_SetInterruptHandler(TMR2_InterruptHandler_t handler);
+extern void TMR2_DisableInterrupt();
+extern void TMR2_EnableInterrupt();
+
+# 3 "driver/src/tmr2.c"
+TMR2_InterruptHandler_t tmr2_isr_handler;
 
 
-extern void TMR0_Initialize_Default();
-extern void TMR0_StartTimer();
-extern void TMR0_StopTimer();
-extern void TMR0_ISR();
-extern void TMR0_SetInterruptHandler(TMR0_InterruptHandler_t handler);
 
-# 3 "driver/src/tmr0.c"
-TMR0_InterruptHandler_t tmr0_isr_handler;
-
-void TMR0_Initialize_Default ( )
+void TMR2_Initialize_Default ( void )
 {
-T0CON0 = 0x00;
-T0CON1 = 0xC0 | 0x10 | 0x07;
-
-TMR0H = 0xFF;
-TMR0L = 0x00;
-
-PIR0bits.TMR0IF = 0;
-PIE0bits.TMR0IE = 1;
+T2CON = 0x00 | 0x78;
+PR2 = 0xF9;
+TMR2 = 0x00;
+PIR1bits.TMR2IF = 0;
+PIE1bits.TMR2IE = 1;
 }
 
-void TMR0_StartTimer ( )
+void TMR2_StartTimer ( void )
 {
-T0CON0bits.T0EN = 1;
+T2CONbits.TMR2ON = 1;
 }
 
-void TMR0_StopTimer ( )
+void TMR2_StopTimer ( void )
 {
-T0CON0bits.T0EN = 0;
+T2CONbits.TMR2ON = 0;
 }
 
-void TMR0_ISR ( )
+void TMR2_ISR ( )
 {
-PIR0bits.TMR0IF = 0;
-
-if ( tmr0_isr_handler )
+PIR1bits.TMR2IF = 0;
+if ( tmr2_isr_handler )
 {
-tmr0_isr_handler ( );
+tmr2_isr_handler ( );
 }
 }
 
-void TMR0_SetInterruptHandler ( TMR0_InterruptHandler_t handler )
+void TMR2_SetInterruptHandler ( TMR2_InterruptHandler_t handler )
 {
-tmr0_isr_handler = handler;
+tmr2_isr_handler = handler;
 }
 
+void TMR2_DisableInterrupt ( )
+{
+PIE1bits.TMR2IE = 0;
+}
+
+void TMR2_EnableInterrupt ( )
+{
+PIE1bits.TMR2IE = 1;
+}

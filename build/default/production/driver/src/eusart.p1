@@ -1,13 +1,13 @@
 Version 3.2 HI-TECH Software Intermediate Code
-[v F7837 `(v ~T0 @X0 0 tf1`uc ]
+[v F8018 `(v ~T0 @X0 0 tf1`uc ]
 "1733 /Applications/microchip/xc8/v1.44/include/pic16f18345.h
-[s S89 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S89 . TMR1IE TMR2IE BCL1IE SSP1IE TXIE RCIE ADIE TMR1GIE ]
+[s S94 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S94 . TMR1IE TMR2IE BCL1IE SSP1IE TXIE RCIE ADIE TMR1GIE ]
 "1732
-[u S88 `S89 1 ]
-[n S88 . . ]
+[u S93 `S94 1 ]
+[n S93 . . ]
 "1744
-[v _PIE1bits `VS88 ~T0 @X0 0 e@145 ]
+[v _PIE1bits `VS93 ~T0 @X0 0 e@145 ]
 "3696
 [v _BAUD1CON `Vuc ~T0 @X0 0 e@415 ]
 "3336
@@ -20,6 +20,87 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TXREG `Vuc ~T0 @X0 0 e@410 ]
 "3102
 [v _RCREG `Vuc ~T0 @X0 0 e@409 ]
+[; ;__size_t.h: 4: typedef unsigned size_t;
+[; ;stdlib.h: 7: typedef unsigned short wchar_t;
+[; ;stdlib.h: 15: typedef struct {
+[; ;stdlib.h: 16: int rem;
+[; ;stdlib.h: 17: int quot;
+[; ;stdlib.h: 18: } div_t;
+[; ;stdlib.h: 19: typedef struct {
+[; ;stdlib.h: 20: unsigned rem;
+[; ;stdlib.h: 21: unsigned quot;
+[; ;stdlib.h: 22: } udiv_t;
+[; ;stdlib.h: 23: typedef struct {
+[; ;stdlib.h: 24: long quot;
+[; ;stdlib.h: 25: long rem;
+[; ;stdlib.h: 26: } ldiv_t;
+[; ;stdlib.h: 27: typedef struct {
+[; ;stdlib.h: 28: unsigned long quot;
+[; ;stdlib.h: 29: unsigned long rem;
+[; ;stdlib.h: 30: } uldiv_t;
+[; ;stdlib.h: 53: extern double atof(const char *);
+[; ;stdlib.h: 54: extern double strtod(const char *, const char **);
+[; ;stdlib.h: 55: extern int atoi(const char *);
+[; ;stdlib.h: 56: extern unsigned xtoi(const char *);
+[; ;stdlib.h: 57: extern long atol(const char *);
+[; ;stdlib.h: 58: extern long strtol(const char *, char **, int);
+[; ;stdlib.h: 60: extern int rand(void);
+[; ;stdlib.h: 61: extern void srand(unsigned int);
+[; ;stdlib.h: 62: extern void * calloc(size_t, size_t);
+[; ;stdlib.h: 63: extern div_t div(int numer, int denom);
+[; ;stdlib.h: 64: extern udiv_t udiv(unsigned numer, unsigned denom);
+[; ;stdlib.h: 65: extern ldiv_t ldiv(long numer, long denom);
+[; ;stdlib.h: 66: extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
+[; ;stdlib.h: 67: extern unsigned long _lrotl(unsigned long value, unsigned int shift);
+[; ;stdlib.h: 68: extern unsigned long _lrotr(unsigned long value, unsigned int shift);
+[; ;stdlib.h: 69: extern unsigned int _rotl(unsigned int value, unsigned int shift);
+[; ;stdlib.h: 70: extern unsigned int _rotr(unsigned int value, unsigned int shift);
+[; ;stdlib.h: 75: extern void * malloc(size_t);
+[; ;stdlib.h: 76: extern void free(void *);
+[; ;stdlib.h: 77: extern void * realloc(void *, size_t);
+[; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
+[; ;stdlib.h: 86: extern int atexit(void (*)(void));
+[; ;stdlib.h: 87: extern char * getenv(const char *);
+[; ;stdlib.h: 88: extern char ** environ;
+[; ;stdlib.h: 89: extern int system(char *);
+[; ;stdlib.h: 90: extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
+[; ;stdlib.h: 91: extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
+[; ;stdlib.h: 92: extern int abs(int);
+[; ;stdlib.h: 93: extern long labs(long);
+[; ;stdlib.h: 95: extern char * itoa(char * buf, int val, int base);
+[; ;stdlib.h: 96: extern char * utoa(char * buf, unsigned val, int base);
+[; ;stdlib.h: 101: extern char * ltoa(char * buf, long val, int base);
+[; ;stdlib.h: 102: extern char * ultoa(char * buf, unsigned long val, int base);
+[; ;stdlib.h: 104: extern char * ftoa(float f, int * status);
+[; ;stdarg.h: 7: typedef void * va_list[1];
+[; ;stdarg.h: 10: extern void * __va_start(void);
+[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
+[; ;stdio.h: 43: struct __prbuf
+[; ;stdio.h: 44: {
+[; ;stdio.h: 45: char * ptr;
+[; ;stdio.h: 46: void (* func)(char);
+[; ;stdio.h: 47: };
+[; ;errno.h: 29: extern int errno;
+[; ;conio.h: 12: extern void init_uart(void);
+[; ;conio.h: 14: extern char getch(void);
+[; ;conio.h: 15: extern char getche(void);
+[; ;conio.h: 16: extern void putch(char);
+[; ;conio.h: 17: extern void ungetch(char);
+[; ;conio.h: 19: extern __bit kbhit(void);
+[; ;conio.h: 23: extern char * cgets(char *);
+[; ;conio.h: 24: extern void cputs(const char *);
+[; ;stdio.h: 88: extern int cprintf(char *, ...);
+[; ;stdio.h: 93: extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+[; ;stdio.h: 183: extern char * gets(char *);
+[; ;stdio.h: 184: extern int puts(const char *);
+[; ;stdio.h: 185: extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+[; ;stdio.h: 186: extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+[; ;stdio.h: 187: extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+[; ;stdio.h: 188: extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+[; ;stdio.h: 189: extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+[; ;stdio.h: 190: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+[; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
+[; ;stdio.h: 195: extern int printf(const char *, ...);
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
 [; ;stdint.h: 28: typedef signed short long int int24_t;
@@ -51,7 +132,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
-[; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic16f18345.h: 50: extern volatile unsigned char INDF0 @ 0x000;
 "52 /Applications/microchip/xc8/v1.44/include/pic16f18345.h
 [; ;pic16f18345.h: 52: asm("INDF0 equ 00h");
@@ -7561,11 +7641,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 193: extern __bank0 unsigned char __resetbits;
 [; ;pic.h: 194: extern __bank0 __bit __powerdown;
 [; ;pic.h: 195: extern __bank0 __bit __timeout;
-[; ;eusart.h: 44: typedef void ( *EUSART_ReceiveInterruptHandler_t ) ( uint8_t rcv );
-[; ;eusart.h: 46: extern void EUSART_Initialize_Default();
-[; ;eusart.h: 47: extern uint8_t EUSART_Write( uint8_t byte );
-[; ;eusart.h: 48: extern void EUSART_Receive_ISR();
-[; ;eusart.h: 49: extern void EUSART_Transmit_ISR();
+[; ;eusart.h: 42: typedef void ( *EUSART_ReceiveInterruptHandler_t ) ( uint8_t rcv );
+[; ;eusart.h: 44: extern void EUSART_Initialize_Default();
+[; ;eusart.h: 45: extern uint8_t EUSART_Write( uint8_t byte );
+[; ;eusart.h: 46: extern void EUSART_Receive_ISR();
+[; ;eusart.h: 47: extern void EUSART_Transmit_ISR();
 "10 driver/src/eusart.c
 [v _txTail `uc ~T0 @X0 1 e ]
 [; ;eusart.c: 10: uint8_t txTail;
@@ -7579,7 +7659,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _txBuf `uc ~T0 @X0 -> 32 `i e ]
 [; ;eusart.c: 13: uint8_t txBuf[32];
 "15
-[v _eusart_rcv_isr_handler `*F7837 ~T0 @X0 1 e ]
+[v _eusart_rcv_isr_handler `*F8018 ~T0 @X0 1 e ]
 [; ;eusart.c: 15: EUSART_ReceiveInterruptHandler_t eusart_rcv_isr_handler;
 "17
 [v _EUSART_Initialize_Default `(v ~T0 @X0 1 ef ]
@@ -7618,7 +7698,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _txRemain -> -> # _txBuf `ui `uc ]
 [; ;eusart.c: 30: }
 "30
-[e :UE 958 ]
+[e :UE 963 ]
 }
 "32
 [v _EUSART_Write `(uc ~T0 @X0 1 ef1`uc ]
@@ -7633,14 +7713,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;eusart.c: 34: while ( 0 == txRemain );
 "34
-[e $U 960  ]
-[e :U 961 ]
-[e :U 960 ]
-[e $ == -> 0 `i -> _txRemain `i 961  ]
-[e :U 962 ]
+[e $U 965  ]
+[e :U 966 ]
+[e :U 965 ]
+[e $ == -> 0 `i -> _txRemain `i 966  ]
+[e :U 967 ]
 [; ;eusart.c: 36: if ( !PIE1bits.TXIE )
 "36
-[e $ ! ! != -> . . _PIE1bits 0 4 `i -> -> -> 0 `i `Vuc `i 963  ]
+[e $ ! ! != -> . . _PIE1bits 0 4 `i -> -> -> 0 `i `Vuc `i 968  ]
 [; ;eusart.c: 37: {
 "37
 {
@@ -7650,9 +7730,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "39
 }
 [; ;eusart.c: 39: }
-[e $U 964  ]
+[e $U 969  ]
 "40
-[e :U 963 ]
+[e :U 968 ]
 [; ;eusart.c: 40: else
 [; ;eusart.c: 41: {
 "41
@@ -7665,7 +7745,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = *U + &U _txBuf * -> ++ _txHead -> -> 1 `i `uc `ux -> -> # *U &U _txBuf `ui `ux _byte ]
 [; ;eusart.c: 44: if ( sizeof (txBuf ) <= txHead )
 "44
-[e $ ! <= -> # _txBuf `ui -> _txHead `ui 965  ]
+[e $ ! <= -> # _txBuf `ui -> _txHead `ui 970  ]
 [; ;eusart.c: 45: {
 "45
 {
@@ -7674,14 +7754,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _txHead -> -> 0 `i `uc ]
 "47
 }
-[e :U 965 ]
+[e :U 970 ]
 [; ;eusart.c: 47: }
 [; ;eusart.c: 48: txRemain--;
 "48
 [e -- _txRemain -> -> 1 `i `uc ]
 "49
 }
-[e :U 964 ]
+[e :U 969 ]
 [; ;eusart.c: 49: }
 [; ;eusart.c: 50: PIE1bits.TXIE = 1;
 "50
@@ -7689,10 +7769,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eusart.c: 51: return byte;
 "51
 [e ) _byte ]
-[e $UE 959  ]
+[e $UE 964  ]
 [; ;eusart.c: 52: }
 "52
-[e :UE 959 ]
+[e :UE 964 ]
 }
 "54
 [v _EUSART_Receive_ISR `(v ~T0 @X0 1 ef ]
@@ -7708,7 +7788,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _rcv _RCREG ]
 [; ;eusart.c: 57: if ( eusart_rcv_isr_handler )
 "57
-[e $ ! != _eusart_rcv_isr_handler -> -> 0 `i `*F7837 967  ]
+[e $ ! != _eusart_rcv_isr_handler -> -> 0 `i `*F8018 972  ]
 [; ;eusart.c: 58: {
 "58
 {
@@ -7717,11 +7797,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( *U _eusart_rcv_isr_handler (1 _rcv ]
 "60
 }
-[e :U 967 ]
+[e :U 972 ]
 [; ;eusart.c: 60: }
 [; ;eusart.c: 61: }
 "61
-[e :UE 966 ]
+[e :UE 971 ]
 }
 "63
 [v _EUSART_Transmit_ISR `(v ~T0 @X0 1 ef ]
@@ -7733,7 +7813,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;eusart.c: 65: if ( sizeof (txBuf ) > txRemain )
 "65
-[e $ ! > -> # _txBuf `ui -> _txRemain `ui 969  ]
+[e $ ! > -> # _txBuf `ui -> _txRemain `ui 974  ]
 [; ;eusart.c: 66: {
 "66
 {
@@ -7742,7 +7822,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _TXREG *U + &U _txBuf * -> ++ _txTail -> -> 1 `i `uc `ux -> -> # *U &U _txBuf `ui `ux ]
 [; ;eusart.c: 68: if ( sizeof (txBuf ) <= txTail )
 "68
-[e $ ! <= -> # _txBuf `ui -> _txTail `ui 970  ]
+[e $ ! <= -> # _txBuf `ui -> _txTail `ui 975  ]
 [; ;eusart.c: 69: {
 "69
 {
@@ -7751,7 +7831,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _txTail -> -> 0 `i `uc ]
 "71
 }
-[e :U 970 ]
+[e :U 975 ]
 [; ;eusart.c: 71: }
 [; ;eusart.c: 72: txRemain++;
 "72
@@ -7759,9 +7839,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "73
 }
 [; ;eusart.c: 73: }
-[e $U 971  ]
+[e $U 976  ]
 "74
-[e :U 969 ]
+[e :U 974 ]
 [; ;eusart.c: 74: else
 [; ;eusart.c: 75: {
 "75
@@ -7771,9 +7851,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _PIE1bits 0 4 -> -> 0 `i `uc ]
 "77
 }
-[e :U 971 ]
+[e :U 976 ]
 [; ;eusart.c: 77: }
 [; ;eusart.c: 78: }
 "78
-[e :UE 968 ]
+[e :UE 973 ]
 }

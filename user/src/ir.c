@@ -387,7 +387,7 @@ void IR_Decode ( )
 	}
 }
 
-void scanLongPressKey ( )
+void IR_ScanLongPress ( )
 {
 	static unsigned int cnt = 0;
 	uint8_t idx = 0;
@@ -432,7 +432,7 @@ void scanLongPressKey ( )
 				ir_state.mKeyRpt = 0;
 				idx = IR_GetIndex ( keyValue );
 				Led_SetCustom ( idx, gLedRunPara.mTargetBright )
-				prepareToPlayCustomSet ( );
+				Led_StartNotice ( NOTICE_CUSTOM_SET );
 				gLedRunPara.mParaChanged = 1;
 			}
 			break;
@@ -445,7 +445,7 @@ void scanLongPressKey ( )
 				ir_state.mKeyRpt = 0;
 				ir_state.mSet = keyValue - KEY_SUNRISE + SET_SUNRISE;
 				ir_state.tmIdx = 0;
-				prepareToPlayEnterSet ( );
+				Led_StartNotice ( NOTICE_ENTER_SET );
 			}
 			break;
 
@@ -459,7 +459,7 @@ void scanLongPressKey ( )
 				{
 					gLedRunPara.mTargetBright[i] = gLedPara.mDayBright[i];
 				}
-				prepareToPlayEnterSet ( );
+				Led_StartNotice ( NOTICE_ENTER_SET );
 			}
 			break;
 		case KEY_NIGHTLIGHT:
@@ -472,7 +472,7 @@ void scanLongPressKey ( )
 				{
 					gLedRunPara.mTargetBright[i] = gLedPara.mNightBright[i];
 				}
-				prepareToPlayEnterSet ( );
+				Led_StartNotice ( NOTICE_ENTER_SET );
 			}
 			break;
 		case KEY_TIME:
@@ -482,7 +482,7 @@ void scanLongPressKey ( )
 				ir_state.mKeyRpt = 0;
 				ir_state.mSet = SET_TIME;
 				ir_state.tmIdx = 0;
-				prepareToPlayEnterSet ( );
+				Led_StartNotice ( NOTICE_ENTER_SET );
 			}
 			break;
 		default:
@@ -495,6 +495,7 @@ void IR_ExitSet ( )
 	ir_state.mSet = SET_NONE;
 	ir_state.tmIdx = 0;
 	ir_state.mSetDelay = 0;
+	Led_StartNotice ( NOTICE_EXIT_SET );
 	Led_Initialize ( );
 }
 
@@ -503,6 +504,7 @@ void IR_ExitTimeout ( )
 	ir_state.mSet = SET_NONE;
 	ir_state.tmIdx = 0;
 	ir_state.mSetDelay = 0;
+	Led_StartNotice ( NOTICE_TIMEOUT );
 	Led_Initialize ( );
 }
 
@@ -514,7 +516,7 @@ void IR_KeyAction ( )
 	switch ( keyValue )
 	{
 		case KEY_LINK_DAY:
-			Audio_StopSound ();
+			Audio_StopSound ( );
 			gLedPara.mMsc = MUSIC_DAY_INDEX;
 			gLedPara.mDyn = 0;
 			gLedPara.mAuto = 0;
@@ -528,6 +530,7 @@ void IR_KeyAction ( )
 			gLedPara.mAuto = 0;
 			gLedRunPara.music_index = MUSIC_NIGHT_INDEX;
 			gLedRunPara.mParaChanged = 1;
+			Led_Initialize ( );
 			break;
 		case KEY_LINK_FISH:
 			Audio_StopSound ( );
@@ -536,6 +539,7 @@ void IR_KeyAction ( )
 			gLedPara.mAuto = 0;
 			gLedRunPara.music_index = MUSIC_FISH_INDEX;
 			gLedRunPara.mParaChanged = 1;
+			Led_Initialize ( );
 			break;
 		case KEY_LINK_PLANT:
 			Audio_StopSound ( );
@@ -544,6 +548,7 @@ void IR_KeyAction ( )
 			gLedPara.mAuto = 0;
 			gLedRunPara.music_index = MUSIC_PLANT_INDEX;
 			gLedRunPara.mParaChanged = 1;
+			Led_Initialize ( );
 			break;
 		case KEY_LINK_WAVE:
 		case KEY_LINK_MOON:
@@ -555,20 +560,21 @@ void IR_KeyAction ( )
 			gLedPara.mAuto = 0;
 			gLedRunPara.mParaChanged = 1;
 			gLedRunPara.music_index = gLedPara.mMsc;
+			Led_Initialize ( );
 			break;
 		case KEY_ONOFF:
 			Audio_StopSound ( );
 			gLedPara.mOn = !gLedPara.mOn;
 			gLedPara.mAuto = 0;
 			gLedRunPara.mParaChanged = 1;
-			Led_Initialize ();
+			Led_Initialize ( );
 			break;
 		case KEY_AUTO:
 			Audio_StopSound ( )
 			gLedPara.mOn = 1;
 			gLedPara.mAuto = 1;
 			gLedRunPara.mParaChanged = 1;
-			Led_Initialize ();
+			Led_Initialize ( );
 			for ( uint8_t i = 0; i < CHANNEL_CNT; i++ )
 			{
 				gLedRunPara.mCurrentBright[i] = gLedRunPara.mTargetBright[i];
@@ -650,12 +656,12 @@ void IR_KeyAction ( )
 			break;
 		case KEY_VOL_DEC:
 			Util_DecValue ( &gLedPara.mVolume, VOLUME_MIN, 1 );
-			Audio_SetVolume ( gLedPara.mVolume * 5 );
+			Audio_SetVolume ( VOLUME[ gLedPara.mVolume ] );
 			gLedRunPara.mParaChanged = 1;
 			break;
 		case KEY_VOL_INC:
 			Util_IncValue ( &gLedPara.mVolume, VOLUME_MAX, 1 );
-			Audio_SetVolume ( gLedPara.mVolume * 5 );
+			Audio_SetVolume ( VOLUME[ gLedPara.mVolume ] );
 			gLedRunPara.mParaChanged = 1;
 			break;
 		case KEY_NUM_0:
@@ -678,7 +684,7 @@ void IR_KeyAction ( )
 			}
 			if ( IR_IsValidTime ( &ir_state.time[0], ir_state.tmIdx ) == false )
 			{
-				prepareToPlayError ( );
+				Led_StartNotice ( NOTICE_ERROR );
 				IR_ExitSet ( );
 			}
 			else if ( ir_state.tmIdx == 4 )
@@ -693,7 +699,7 @@ void IR_KeyAction ( )
 					gLedPara.mSunrise = ir_state.time[0]*600 + ir_state.time[1]*60 + ir_state.time[2]*10 + ir_state.time[3];
 					gLedRunPara.mParaChanged = 1;
 				}
-				else if ( irPara.fSet == SET_SUNSET )
+				else if ( ir_state.mSet == SET_SUNSET )
 				{
 					gLedPara.mSunset = ir_state.time[0]*600 + ir_state.time[1]*60 + ir_state.time[2]*10 + ir_state.time[3];
 					gLedRunPara.mParaChanged = 1;
@@ -725,7 +731,7 @@ void IR_KeyAction ( )
 			ir_state.mSet = SET_NONE;
 			ir_state.tmIdx = 0;
 			ir_state.mSetDelay = 0;
-			prepareToPlayError ( );
+			Led_StartNotice ( NOTICE_ERROR );
 			break;
 		default:
 			break;
@@ -734,6 +740,9 @@ void IR_KeyAction ( )
 	keyValue = KEY_NONE;
 }
 
+/**
+ * run every second
+ */
 void IR_GetSetStatus ( )
 {
 	if ( ir_state.mSet )

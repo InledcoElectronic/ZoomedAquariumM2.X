@@ -11,9 +11,7 @@
 extern "C" {
 #endif
 
-#include <stdint.h>
-#include <stdbool.h>
-#include <xc.h>
+#include "chip_16f18345.h"
 
 #define T2CON_OUTPS_16      0x78
 #define T2CON_OUTPS_15      0x70

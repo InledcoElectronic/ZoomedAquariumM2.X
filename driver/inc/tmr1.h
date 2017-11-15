@@ -11,9 +11,7 @@
 extern "C" {
 #endif
 
-#include <stdint.h>
-#include <stdbool.h>
-#include <xc.h>
+#include "chip_16f18345.h"
 
 #define isTMR1Overflow()        (PIR1bits.TMR1IF)
 #define TMR1_ResetOverflow()    (PIR1bits.TMR1IF = 0)

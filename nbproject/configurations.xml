@@ -13,6 +13,7 @@
         <itemPath>driver/inc/tmr4.h</itemPath>
         <itemPath>driver/inc/pps.h</itemPath>
         <itemPath>driver/inc/driver.h</itemPath>
+        <itemPath>driver/inc/chip_16f18345.h</itemPath>
       </logicalFolder>
       <logicalFolder name="src" displayName="src" projectFiles="true">
         <itemPath>driver/src/adc.c</itemPath>

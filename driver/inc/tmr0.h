@@ -11,9 +11,7 @@
 extern "C" {
 #endif
 
-#include <stdint.h>
-#include <stdbool.h>
-#include <xc.h>
+#include "chip_16f18345.h"
 
     //T0CON0
 #define T0CON0_EN               0x80

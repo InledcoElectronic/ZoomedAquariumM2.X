@@ -1,40 +1,38 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [v F8018 `(v ~T0 @X0 0 tf ]
-"1106 /Applications/microchip/xc8/v1.44/include/pic16f18345.h
-[v _T0CON0 `Vuc ~T0 @X0 0 e@23 ]
-"1171
-[v _T0CON1 `Vuc ~T0 @X0 0 e@24 ]
-"952
-[v _TMR0H `Vuc ~T0 @X0 0 e@22 ]
-"814
-[v _TMR0L `Vuc ~T0 @X0 0 e@21 ]
-"539
-[s S39 :1 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S39 . INTF . IOCIF TMR0IF ]
-"538
-[u S38 `S39 1 ]
-[n S38 . . ]
-"546
-[v _PIR0bits `VS38 ~T0 @X0 0 e@16 ]
-"1700
-[s S92 :1 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S92 . INTE . IOCIE TMR0IE ]
-"1699
-[u S91 `S92 1 ]
-[n S91 . . ]
-"1707
-[v _PIE0bits `VS91 ~T0 @X0 0 e@144 ]
-"1112
-[s S63 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S63 . T0OUTPS T016BIT T0OUT . T0EN ]
-"1119
-[s S64 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S64 . T0OUTPS0 T0OUTPS1 T0OUTPS2 T0OUTPS3 ]
-"1111
-[u S62 `S63 1 `S64 1 ]
-[n S62 . . . ]
-"1126
-[v _T0CON0bits `VS62 ~T0 @X0 0 e@23 ]
+"1477 /Applications/microchip/xc8/v1.44/include/pic16f18345.h
+[v _T2CON `Vuc ~T0 @X0 0 e@31 ]
+"1457
+[v _PR2 `Vuc ~T0 @X0 0 e@30 ]
+"1437
+[v _TMR2 `Vuc ~T0 @X0 0 e@29 ]
+"572
+[s S41 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S41 . TMR1IF TMR2IF BCL1IF SSP1IF TXIF RCIF ADIF TMR1GIF ]
+"571
+[u S40 `S41 1 ]
+[n S40 . . ]
+"583
+[v _PIR1bits `VS40 ~T0 @X0 0 e@17 ]
+"1733
+[s S94 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S94 . TMR1IE TMR2IE BCL1IE SSP1IE TXIE RCIE ADIE TMR1GIE ]
+"1732
+[u S93 `S94 1 ]
+[n S93 . . ]
+"1744
+[v _PIE1bits `VS93 ~T0 @X0 0 e@145 ]
+"1483
+[s S83 :2 `uc 1 :1 `uc 1 :4 `uc 1 ]
+[n S83 . T2CKPS TMR2ON T2OUTPS ]
+"1488
+[s S84 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S84 . T2CKPS0 T2CKPS1 . T2OUTPS0 T2OUTPS1 T2OUTPS2 T2OUTPS3 ]
+"1482
+[u S82 `S83 1 `S84 1 ]
+[n S82 . . . ]
+"1498
+[v _T2CONbits `VS82 ~T0 @X0 0 e@31 ]
 [; ;__size_t.h: 4: typedef unsigned size_t;
 [; ;stdlib.h: 7: typedef unsigned short wchar_t;
 [; ;stdlib.h: 15: typedef struct {
@@ -7656,118 +7654,147 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 193: extern __bank0 unsigned char __resetbits;
 [; ;pic.h: 194: extern __bank0 __bit __powerdown;
 [; ;pic.h: 195: extern __bank0 __bit __timeout;
-[; ;tmr0.h: 64: typedef void ( *TMR0_InterruptHandler_t) ();
-[; ;tmr0.h: 67: extern void TMR0_Initialize_Default();
-[; ;tmr0.h: 68: extern void TMR0_StartTimer();
-[; ;tmr0.h: 69: extern void TMR0_StopTimer();
-[; ;tmr0.h: 70: extern void TMR0_ISR();
-[; ;tmr0.h: 71: extern void TMR0_SetInterruptHandler(TMR0_InterruptHandler_t handler);
-"3 driver/src/tmr0.c
-[v _tmr0_isr_handler `*F8018 ~T0 @X0 1 e ]
-[; ;tmr0.c: 3: TMR0_InterruptHandler_t tmr0_isr_handler;
-"5
-[v _TMR0_Initialize_Default `(v ~T0 @X0 1 ef ]
-"6
-{
-[; ;tmr0.c: 5: void TMR0_Initialize_Default ( )
-[; ;tmr0.c: 6: {
-[e :U _TMR0_Initialize_Default ]
-[f ]
-[; ;tmr0.c: 7: T0CON0 = 0x00;
+[; ;tmr2.h: 38: typedef void ( *TMR2_InterruptHandler_t ) ();
+[; ;tmr2.h: 40: extern void TMR2_Initialize_Default();
+[; ;tmr2.h: 41: extern void TMR2_StartTimer();
+[; ;tmr2.h: 42: extern void TMR2_StopTimer();
+[; ;tmr2.h: 43: extern void TMR2_ISR();
+[; ;tmr2.h: 44: extern void TMR2_SetInterruptHandler(TMR2_InterruptHandler_t handler);
+[; ;tmr2.h: 45: extern void TMR2_DisableInterrupt();
+[; ;tmr2.h: 46: extern void TMR2_EnableInterrupt();
+"3 driver/src/tmr2.c
+[v _tmr2_isr_handler `*F8018 ~T0 @X0 1 e ]
+[; ;tmr2.c: 3: TMR2_InterruptHandler_t tmr2_isr_handler;
 "7
-[e = _T0CON0 -> -> 0 `i `uc ]
-[; ;tmr0.c: 8: T0CON1 = 0xC0 | 0x10 | 0x07;
+[v _TMR2_Initialize_Default `(v ~T0 @X0 1 ef ]
 "8
-[e = _T0CON1 -> | | -> 192 `i -> 16 `i -> 7 `i `uc ]
-[; ;tmr0.c: 10: TMR0H = 0xFF;
+{
+[; ;tmr2.c: 7: void TMR2_Initialize_Default ( void )
+[; ;tmr2.c: 8: {
+[e :U _TMR2_Initialize_Default ]
+[f ]
+[; ;tmr2.c: 9: T2CON = 0x00 | 0x78;
+"9
+[e = _T2CON -> | -> 0 `i -> 120 `i `uc ]
+[; ;tmr2.c: 10: PR2 = 0xF9;
 "10
-[e = _TMR0H -> -> 255 `i `uc ]
-[; ;tmr0.c: 11: TMR0L = 0x00;
+[e = _PR2 -> -> 249 `i `uc ]
+[; ;tmr2.c: 11: TMR2 = 0x00;
 "11
-[e = _TMR0L -> -> 0 `i `uc ]
-[; ;tmr0.c: 13: PIR0bits.TMR0IF = 0;
+[e = _TMR2 -> -> 0 `i `uc ]
+[; ;tmr2.c: 12: PIR1bits.TMR2IF = 0;
+"12
+[e = . . _PIR1bits 0 1 -> -> 0 `i `uc ]
+[; ;tmr2.c: 13: PIE1bits.TMR2IE = 1;
 "13
-[e = . . _PIR0bits 0 3 -> -> 0 `i `uc ]
-[; ;tmr0.c: 14: PIE0bits.TMR0IE = 1;
+[e = . . _PIE1bits 0 1 -> -> 1 `i `uc ]
+[; ;tmr2.c: 14: }
 "14
-[e = . . _PIE0bits 0 3 -> -> 1 `i `uc ]
-[; ;tmr0.c: 15: }
-"15
 [e :UE 963 ]
 }
+"16
+[v _TMR2_StartTimer `(v ~T0 @X0 1 ef ]
 "17
-[v _TMR0_StartTimer `(v ~T0 @X0 1 ef ]
-"18
 {
-[; ;tmr0.c: 17: void TMR0_StartTimer ( )
-[; ;tmr0.c: 18: {
-[e :U _TMR0_StartTimer ]
+[; ;tmr2.c: 16: void TMR2_StartTimer ( void )
+[; ;tmr2.c: 17: {
+[e :U _TMR2_StartTimer ]
 [f ]
-[; ;tmr0.c: 19: T0CON0bits.T0EN = 1;
+[; ;tmr2.c: 18: T2CONbits.TMR2ON = 1;
+"18
+[e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
+[; ;tmr2.c: 19: }
 "19
-[e = . . _T0CON0bits 0 4 -> -> 1 `i `uc ]
-[; ;tmr0.c: 20: }
-"20
 [e :UE 964 ]
 }
+"21
+[v _TMR2_StopTimer `(v ~T0 @X0 1 ef ]
 "22
-[v _TMR0_StopTimer `(v ~T0 @X0 1 ef ]
-"23
 {
-[; ;tmr0.c: 22: void TMR0_StopTimer ( )
-[; ;tmr0.c: 23: {
-[e :U _TMR0_StopTimer ]
+[; ;tmr2.c: 21: void TMR2_StopTimer ( void )
+[; ;tmr2.c: 22: {
+[e :U _TMR2_StopTimer ]
 [f ]
-[; ;tmr0.c: 24: T0CON0bits.T0EN = 0;
+[; ;tmr2.c: 23: T2CONbits.TMR2ON = 0;
+"23
+[e = . . _T2CONbits 0 1 -> -> 0 `i `uc ]
+[; ;tmr2.c: 24: }
 "24
-[e = . . _T0CON0bits 0 4 -> -> 0 `i `uc ]
-[; ;tmr0.c: 25: }
-"25
 [e :UE 965 ]
 }
+"26
+[v _TMR2_ISR `(v ~T0 @X0 1 ef ]
 "27
-[v _TMR0_ISR `(v ~T0 @X0 1 ef ]
-"28
 {
-[; ;tmr0.c: 27: void TMR0_ISR ( )
-[; ;tmr0.c: 28: {
-[e :U _TMR0_ISR ]
+[; ;tmr2.c: 26: void TMR2_ISR ( )
+[; ;tmr2.c: 27: {
+[e :U _TMR2_ISR ]
 [f ]
-[; ;tmr0.c: 29: PIR0bits.TMR0IF = 0;
+[; ;tmr2.c: 28: PIR1bits.TMR2IF = 0;
+"28
+[e = . . _PIR1bits 0 1 -> -> 0 `i `uc ]
+[; ;tmr2.c: 29: if ( tmr2_isr_handler )
 "29
-[e = . . _PIR0bits 0 3 -> -> 0 `i `uc ]
-[; ;tmr0.c: 31: if ( tmr0_isr_handler )
-"31
-[e $ ! != _tmr0_isr_handler -> -> 0 `i `*F8018 967  ]
-[; ;tmr0.c: 32: {
-"32
+[e $ ! != _tmr2_isr_handler -> -> 0 `i `*F8018 967  ]
+[; ;tmr2.c: 30: {
+"30
 {
-[; ;tmr0.c: 33: tmr0_isr_handler ( );
-"33
-[e ( *U _tmr0_isr_handler ..  ]
-"34
+[; ;tmr2.c: 31: tmr2_isr_handler ( );
+"31
+[e ( *U _tmr2_isr_handler ..  ]
+"32
 }
 [e :U 967 ]
-[; ;tmr0.c: 34: }
-[; ;tmr0.c: 35: }
-"35
+[; ;tmr2.c: 32: }
+[; ;tmr2.c: 33: }
+"33
 [e :UE 966 ]
 }
-"37
-[v _TMR0_SetInterruptHandler `(v ~T0 @X0 1 ef1`*F8018 ]
-"38
+"35
+[v _TMR2_SetInterruptHandler `(v ~T0 @X0 1 ef1`*F8018 ]
+"36
 {
-[; ;tmr0.c: 37: void TMR0_SetInterruptHandler ( TMR0_InterruptHandler_t handler )
-[; ;tmr0.c: 38: {
-[e :U _TMR0_SetInterruptHandler ]
-"37
+[; ;tmr2.c: 35: void TMR2_SetInterruptHandler ( TMR2_InterruptHandler_t handler )
+[; ;tmr2.c: 36: {
+[e :U _TMR2_SetInterruptHandler ]
+"35
 [v _handler `*F8018 ~T0 @X0 1 r1 ]
-"38
+"36
 [f ]
-[; ;tmr0.c: 39: tmr0_isr_handler = handler;
-"39
-[e = _tmr0_isr_handler _handler ]
-[; ;tmr0.c: 40: }
-"40
+[; ;tmr2.c: 37: tmr2_isr_handler = handler;
+"37
+[e = _tmr2_isr_handler _handler ]
+[; ;tmr2.c: 38: }
+"38
 [e :UE 968 ]
+}
+"40
+[v _TMR2_DisableInterrupt `(v ~T0 @X0 1 ef ]
+"41
+{
+[; ;tmr2.c: 40: void TMR2_DisableInterrupt ( )
+[; ;tmr2.c: 41: {
+[e :U _TMR2_DisableInterrupt ]
+[f ]
+[; ;tmr2.c: 42: PIE1bits.TMR2IE = 0;
+"42
+[e = . . _PIE1bits 0 1 -> -> 0 `i `uc ]
+[; ;tmr2.c: 43: }
+"43
+[e :UE 969 ]
+}
+"45
+[v _TMR2_EnableInterrupt `(v ~T0 @X0 1 ef ]
+"46
+{
+[; ;tmr2.c: 45: void TMR2_EnableInterrupt ( )
+[; ;tmr2.c: 46: {
+[e :U _TMR2_EnableInterrupt ]
+[f ]
+[; ;tmr2.c: 47: PIE1bits.TMR2IE = 1;
+"47
+[e = . . _PIE1bits 0 1 -> -> 1 `i `uc ]
+[; ;tmr2.c: 48: }
+"48
+[e :UE 970 ]
 }

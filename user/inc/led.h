@@ -18,8 +18,9 @@ extern "C" {
 #define CUSTOM_CNT          4
 #define BRIGHT_MAX          1000
 #define BRIGHT_MIN          0
-#define VOLUME_MAX          5
-#define VOLUME_MIN          1
+#define VOLUME_CNT          5
+#define VOLUME_MAX          4
+#define VOLUME_MIN          0
 
 #define BRIGHT_STEP_RAMP    1
 #define BRIGHT_STEP_SEG     200
@@ -33,6 +34,12 @@ extern "C" {
 #define MUSIC_MOON_INDEX    6
 #define MUSIC_CLOUD_INDEX   7
 #define MUSIC_STORM_INDEX   8
+    
+#define NOTICE_CUSTOM_SET   1
+#define NOTICE_ENTER_SET    1
+#define NOTICE_EXIT_SET     1
+#define NOTICE_TIMEOUT      2
+#define NOTICE_ERROR        3
     
 #define LEDPARA_EEPROM_ADDR 0x7010
 
@@ -58,11 +65,13 @@ extern "C" {
         unsigned mParaChanged : 1;
         unsigned mNoticeStatus : 1;
         unsigned mNoticeCount : 6;
-        unsigned music_index : 4;
-        unsigned music_state : 4;
+        uint8_t music_index;
+        uint8_t music_state;
     } LedRunPara_t;
     
     typedef void ( *Led_LoadDutyValue_t) (uint16_t duty);
+    
+    extern uint8_t VOLUME[VOLUME_CNT];
 
 #ifdef	__cplusplus
 }
