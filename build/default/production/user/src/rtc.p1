@@ -1,0 +1,249 @@
+Version 3.2 HI-TECH Software Intermediate Code
+"20 user/src/../inc/rtc.h
+[s S2 `uc 1 `uc 1 `uc 1 ]
+[n S2 . hour minute second ]
+"18
+[u S1 `S2 1 `uc -> 3 `i ]
+[n S1 . . time ]
+"4 user/src/rtc.c
+[s S3 :1 `uc 1 :1 `uc 1 :1 `uc 1 :5 `uc 1 ]
+[n S3 . mSec mMin mHour . ]
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
+[; ;stdbool.h: 12: typedef unsigned char bool;
+[; ;rtc.h: 18: typedef union {
+[; ;rtc.h: 20: struct {
+[; ;rtc.h: 21: uint8_t hour;
+[; ;rtc.h: 22: uint8_t minute;
+[; ;rtc.h: 23: uint8_t second;
+[; ;rtc.h: 24: };
+[; ;rtc.h: 25: uint8_t time[3];
+[; ;rtc.h: 26: } Time_t;
+[; ;rtc.h: 28: extern Time_t* RTC_GetTime();
+[; ;rtc.h: 29: extern void RTC_OnSecond();
+[; ;rtc.h: 30: extern bool RTC_SecondReady();
+[; ;rtc.h: 31: extern bool RTC_MinuteReady();
+[; ;rtc.h: 32: extern bool RTC_HourReady();
+[; ;rtc.c: 3: typedef struct
+[; ;rtc.c: 4: {
+[; ;rtc.c: 5: unsigned mSec : 1;
+[; ;rtc.c: 6: unsigned mMin : 1;
+[; ;rtc.c: 7: unsigned mHour : 1;
+[; ;rtc.c: 8: unsigned : 5;
+[; ;rtc.c: 9: }Status_t;
+"11 user/src/rtc.c
+[v _rtc_time `S1 ~T0 @X0 1 s ]
+[; ;rtc.c: 11: static Time_t rtc_time;
+"12
+[v _rtc_status `VS3 ~T0 @X0 1 e ]
+[; ;rtc.c: 12: volatile Status_t rtc_status;
+"14
+[v _RTC_GetTime `(*S1 ~T0 @X0 1 ef ]
+"15
+{
+[; ;rtc.c: 14: Time_t* RTC_GetTime ()
+[; ;rtc.c: 15: {
+[e :U _RTC_GetTime ]
+[f ]
+[; ;rtc.c: 16: return &rtc_time;
+"16
+[e ) &U _rtc_time ]
+[e $UE 4  ]
+[; ;rtc.c: 17: }
+"17
+[e :UE 4 ]
+}
+"19
+[v _RTC_OnSecond `(v ~T0 @X0 1 ef ]
+"20
+{
+[; ;rtc.c: 19: void RTC_OnSecond()
+[; ;rtc.c: 20: {
+[e :U _RTC_OnSecond ]
+[f ]
+[; ;rtc.c: 21: rtc_time.second++;
+"21
+[e ++ . . _rtc_time 0 2 -> -> 1 `i `uc ]
+[; ;rtc.c: 22: if( rtc_time.second > 59 )
+"22
+[e $ ! > -> . . _rtc_time 0 2 `i -> 59 `i 6  ]
+[; ;rtc.c: 23: {
+"23
+{
+[; ;rtc.c: 24: rtc_time.second = 0;
+"24
+[e = . . _rtc_time 0 2 -> -> 0 `i `uc ]
+[; ;rtc.c: 25: rtc_time.minute++;
+"25
+[e ++ . . _rtc_time 0 1 -> -> 1 `i `uc ]
+[; ;rtc.c: 26: if( rtc_time.minute > 59 )
+"26
+[e $ ! > -> . . _rtc_time 0 1 `i -> 59 `i 7  ]
+[; ;rtc.c: 27: {
+"27
+{
+[; ;rtc.c: 28: rtc_time.minute = 0;
+"28
+[e = . . _rtc_time 0 1 -> -> 0 `i `uc ]
+[; ;rtc.c: 29: rtc_time.hour++;
+"29
+[e ++ . . _rtc_time 0 0 -> -> 1 `i `uc ]
+[; ;rtc.c: 30: if( rtc_time.hour > 23 )
+"30
+[e $ ! > -> . . _rtc_time 0 0 `i -> 23 `i 8  ]
+[; ;rtc.c: 31: {
+"31
+{
+[; ;rtc.c: 32: rtc_time.hour = 0;
+"32
+[e = . . _rtc_time 0 0 -> -> 0 `i `uc ]
+"33
+}
+[e :U 8 ]
+[; ;rtc.c: 33: }
+[; ;rtc.c: 34: rtc_status.mHour = 1;
+"34
+[e = . _rtc_status 2 -> -> 1 `i `uc ]
+"35
+}
+[e :U 7 ]
+[; ;rtc.c: 35: }
+[; ;rtc.c: 36: rtc_status.mMin = 1;
+"36
+[e = . _rtc_status 1 -> -> 1 `i `uc ]
+"37
+}
+[e :U 6 ]
+[; ;rtc.c: 37: }
+[; ;rtc.c: 38: rtc_status.mSec = 1;
+"38
+[e = . _rtc_status 0 -> -> 1 `i `uc ]
+[; ;rtc.c: 39: }
+"39
+[e :UE 5 ]
+}
+"41
+[v _RTC_SecondReady `(uc ~T0 @X0 1 ef ]
+"42
+{
+[; ;rtc.c: 41: bool RTC_SecondReady()
+[; ;rtc.c: 42: {
+[e :U _RTC_SecondReady ]
+[f ]
+[; ;rtc.c: 43: if( rtc_status.mSec )
+"43
+[e $ ! != -> . _rtc_status 0 `i -> -> -> 0 `i `Vuc `i 10  ]
+[; ;rtc.c: 44: {
+"44
+{
+[; ;rtc.c: 45: rtc_status.mSec = 0;
+"45
+[e = . _rtc_status 0 -> -> 0 `i `uc ]
+[; ;rtc.c: 46: return 1;
+"46
+[e ) -> -> 1 `i `uc ]
+[e $UE 9  ]
+"47
+}
+[e :U 10 ]
+[; ;rtc.c: 47: }
+[; ;rtc.c: 48: return 0;
+"48
+[e ) -> -> 0 `i `uc ]
+[e $UE 9  ]
+[; ;rtc.c: 49: }
+"49
+[e :UE 9 ]
+}
+"51
+[v _RTC_MinuteReady `(uc ~T0 @X0 1 ef ]
+"52
+{
+[; ;rtc.c: 51: bool RTC_MinuteReady()
+[; ;rtc.c: 52: {
+[e :U _RTC_MinuteReady ]
+[f ]
+[; ;rtc.c: 53: if( rtc_status.mMin )
+"53
+[e $ ! != -> . _rtc_status 1 `i -> -> -> 0 `i `Vuc `i 12  ]
+[; ;rtc.c: 54: {
+"54
+{
+[; ;rtc.c: 55: rtc_status.mMin = 0;
+"55
+[e = . _rtc_status 1 -> -> 0 `i `uc ]
+[; ;rtc.c: 56: return 1;
+"56
+[e ) -> -> 1 `i `uc ]
+[e $UE 11  ]
+"57
+}
+[e :U 12 ]
+[; ;rtc.c: 57: }
+[; ;rtc.c: 58: return 0;
+"58
+[e ) -> -> 0 `i `uc ]
+[e $UE 11  ]
+[; ;rtc.c: 59: }
+"59
+[e :UE 11 ]
+}
+"61
+[v _RTC_HourReady `(uc ~T0 @X0 1 ef ]
+"62
+{
+[; ;rtc.c: 61: bool RTC_HourReady()
+[; ;rtc.c: 62: {
+[e :U _RTC_HourReady ]
+[f ]
+[; ;rtc.c: 63: if( rtc_status.mHour )
+"63
+[e $ ! != -> . _rtc_status 2 `i -> -> -> 0 `i `Vuc `i 14  ]
+[; ;rtc.c: 64: {
+"64
+{
+[; ;rtc.c: 65: rtc_status.mHour = 0;
+"65
+[e = . _rtc_status 2 -> -> 0 `i `uc ]
+[; ;rtc.c: 66: return 1;
+"66
+[e ) -> -> 1 `i `uc ]
+[e $UE 13  ]
+"67
+}
+[e :U 14 ]
+[; ;rtc.c: 67: }
+[; ;rtc.c: 68: return 0;
+"68
+[e ) -> -> 0 `i `uc ]
+[e $UE 13  ]
+[; ;rtc.c: 69: }
+"69
+[e :UE 13 ]
+}

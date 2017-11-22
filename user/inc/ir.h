@@ -56,8 +56,8 @@ extern "C" {
 #define KEY_LINK_NIGHT      0x1D
 #define KEY_LINK_FISH       0x1E
 #define KEY_LINK_PLANT      0x1F
-#define KEY_BRT_INC         0x18
-#define KEY_BRT_DEC         0x19
+#define KEY_BRT_DEC         0x18
+#define KEY_BRT_INC         0x19
 #define KEY_VOL_DEC         0x1A
 #define KEY_VOL_INC         0x1B
 #define KEY_LINK_WAVE       0x14
@@ -108,6 +108,14 @@ extern "C" {
         uint8_t time[4];
         uint8_t mSetDelay;
     } IRState_t;
+    
+    extern volatile IRState_t ir_state;
+    
+    extern void IR_ResetIfTMR1Overflow();
+    extern void IR_Decode();
+    extern void IR_ScanLongPress();
+    extern void IR_KeyAtionIfPressed();
+    extern void IR_UpdateSetStatus();
     
 #ifdef	__cplusplus
 }

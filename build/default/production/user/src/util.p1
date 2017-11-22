@@ -1,0 +1,118 @@
+Version 3.2 HI-TECH Software Intermediate Code
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
+[; ;stdbool.h: 12: typedef unsigned char bool;
+[; ;util.h: 18: extern void Util_IncValue(uint16_t *pSrc, uint16_t max, uint16_t delta);
+[; ;util.h: 19: extern void Util_DecValue(uint16_t *pSrc, uint16_t min, uint16_t delta);
+"3 user/src/util.c
+[v _Util_IncValue `(v ~T0 @X0 1 ef3`*ui`ui`ui ]
+"4
+{
+[; ;util.c: 3: void Util_IncValue ( uint16_t *pSrc, uint16_t max, uint16_t delta )
+[; ;util.c: 4: {
+[e :U _Util_IncValue ]
+"3
+[v _pSrc `*ui ~T0 @X0 1 r1 ]
+[v _max `ui ~T0 @X0 1 r2 ]
+[v _delta `ui ~T0 @X0 1 r3 ]
+"4
+[f ]
+[; ;util.c: 5: if( *pSrc + delta < max )
+"5
+[e $ ! < + *U _pSrc _delta _max 2  ]
+[; ;util.c: 6: {
+"6
+{
+[; ;util.c: 7: (*pSrc) += delta;
+"7
+[e =+ *U _pSrc _delta ]
+"8
+}
+[; ;util.c: 8: }
+[e $U 3  ]
+"9
+[e :U 2 ]
+[; ;util.c: 9: else
+[; ;util.c: 10: {
+"10
+{
+[; ;util.c: 11: *pSrc = max;
+"11
+[e = *U _pSrc _max ]
+"12
+}
+[e :U 3 ]
+[; ;util.c: 12: }
+[; ;util.c: 13: }
+"13
+[e :UE 1 ]
+}
+"15
+[v _Util_DecValue `(v ~T0 @X0 1 ef3`*ui`ui`ui ]
+"16
+{
+[; ;util.c: 15: void Util_DecValue ( uint16_t *pSrc, uint16_t min, uint16_t delta )
+[; ;util.c: 16: {
+[e :U _Util_DecValue ]
+"15
+[v _pSrc `*ui ~T0 @X0 1 r1 ]
+[v _min `ui ~T0 @X0 1 r2 ]
+[v _delta `ui ~T0 @X0 1 r3 ]
+"16
+[f ]
+[; ;util.c: 17: if( *pSrc > min + delta )
+"17
+[e $ ! > *U _pSrc + _min _delta 5  ]
+[; ;util.c: 18: {
+"18
+{
+[; ;util.c: 19: (*pSrc) -= delta;
+"19
+[e =- *U _pSrc _delta ]
+"20
+}
+[; ;util.c: 20: }
+[e $U 6  ]
+"21
+[e :U 5 ]
+[; ;util.c: 21: else
+[; ;util.c: 22: {
+"22
+{
+[; ;util.c: 23: *pSrc = min;
+"23
+[e = *U _pSrc _min ]
+"24
+}
+[e :U 6 ]
+[; ;util.c: 24: }
+[; ;util.c: 25: }
+"25
+[e :UE 4 ]
+}

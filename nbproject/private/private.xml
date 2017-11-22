@@ -4,28 +4,6 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/Users/liruya/MPLABXProjects/ZoomedAquariumM2.X/user/src/main.c</file>
-            <file>file:/Users/liruya/MPLABXProjects/ZoomedAquariumM2.X/driver/inc/pps.h</file>
-            <file>file:/Users/liruya/MPLABXProjects/ZoomedAquariumM2.X/user/src/ir.c</file>
-            <file>file:/Users/liruya/MPLABXProjects/ZoomedAquariumM2.X/driver/inc/eusart.h</file>
-            <file>file:/Users/liruya/MPLABXProjects/ZoomedAquariumM2.X/driver/src/tmr4.c</file>
-            <file>file:/Users/liruya/MPLABXProjects/ZoomedAquariumM2.X/user/src/audio.c</file>
-            <file>file:/Users/liruya/MPLABXProjects/ZoomedAquariumM2.X/driver/inc/tmr2.h</file>
-            <file>file:/Users/liruya/MPLABXProjects/ZoomedAquariumM2.X/driver/inc/adc.h</file>
-            <file>file:/Users/liruya/MPLABXProjects/ZoomedAquariumM2.X/driver/inc/tmr4.h</file>
-            <file>file:/Users/liruya/MPLABXProjects/ZoomedAquariumM2.X/user/inc/audio.h</file>
-            <file>file:/Users/liruya/MPLABXProjects/ZoomedAquariumM2.X/user/inc/led.h</file>
-            <file>file:/Users/liruya/MPLABXProjects/ZoomedAquariumM2.X/user/src/rtc.c</file>
-            <file>file:/Users/liruya/MPLABXProjects/ZoomedAquariumM2.X/driver/inc/chip_16f18345.h</file>
-            <file>file:/Users/liruya/MPLABXProjects/ZoomedAquariumM2.X/driver/inc/driver.h</file>
-            <file>file:/Users/liruya/MPLABXProjects/ZoomedAquariumM2.X/user/inc/ir.h</file>
-            <file>file:/Users/liruya/MPLABXProjects/ZoomedAquariumM2.X/user/inc/util.h</file>
-            <file>file:/Users/liruya/MPLABXProjects/ZoomedAquariumM2.X/driver/inc/pwm.h</file>
-            <file>file:/Users/liruya/MPLABXProjects/ZoomedAquariumM2.X/driver/inc/eeprom.h</file>
-            <file>file:/Users/liruya/MPLABXProjects/ZoomedAquariumM2.X/driver/src/adc.c</file>
-            <file>file:/Users/liruya/MPLABXProjects/ZoomedAquariumM2.X/driver/inc/tmr0.h</file>
-            <file>file:/Users/liruya/MPLABXProjects/ZoomedAquariumM2.X/driver/inc/tmr1.h</file>
-            <file>file:/Users/liruya/MPLABXProjects/ZoomedAquariumM2.X/user/src/led.c</file>
-            <file>file:/Users/liruya/MPLABXProjects/ZoomedAquariumM2.X/user/src/util.c</file>
         </group>
     </open-files>
 </project-private>

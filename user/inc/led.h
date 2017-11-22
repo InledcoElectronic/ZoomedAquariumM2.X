@@ -65,13 +65,33 @@ extern "C" {
         unsigned mParaChanged : 1;
         unsigned mNoticeStatus : 1;
         unsigned mNoticeCount : 6;
+        uint8_t auto_state;
+        uint16_t auto_num;
         uint8_t music_index;
         uint8_t music_state;
     } LedRunPara_t;
     
     typedef void ( *Led_LoadDutyValue_t) (uint16_t duty);
     
-    extern uint8_t VOLUME[VOLUME_CNT];
+    extern volatile LedPara_t gLedPara;
+    extern volatile LedRunPara_t gLedRunPara;
+    extern const uint8_t VOLUME[VOLUME_CNT];
+    
+    extern void Led_InitPara();
+    extern void Led_Initialize();
+    extern void Led_SaveParaIfChanged();
+    extern void Led_UpdateBright();
+    extern void Led_SetCustom(uint8_t idx, uint16_t* pValue);
+    extern void Led_TurnOnDirect();
+    extern void Led_TurnOffDirect();
+    extern void Led_TurnOnRamp();
+    extern void Led_TurnOffRamp();
+    extern void Led_Ramp();
+    extern void Led_CheckAutoStatus();
+    extern void Led_AutoRun();
+    extern void Led_StartNotice(uint8_t cnt);
+    extern void Led_Notice();
+    extern void Led_Run();
 
 #ifdef	__cplusplus
 }

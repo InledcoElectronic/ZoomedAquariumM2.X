@@ -7,7 +7,7 @@ TMR4_InterruptHandler_t tmr4_isr_handler;
 void TMR4_Initialize_Default ( )
 {
 	T4CON = T4CON_CKPS_64 | T4CON_OUTPS_16;
-	PR4 = 0x16;
+	PR4 = 0xF9;
 	TMR4 = 0x00;
 
 	PIR2bits.TMR4IF = 0;

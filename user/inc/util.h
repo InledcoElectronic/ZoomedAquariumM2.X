@@ -15,6 +15,9 @@ extern "C" {
 #include <stdint.h>
 #include <stdbool.h>
 
+    extern void Util_IncValue(uint16_t *pSrc, uint16_t max, uint16_t delta);
+    extern void Util_DecValue(uint16_t *pSrc, uint16_t min, uint16_t delta);
+    
 
 #ifdef	__cplusplus
 }

@@ -8,12 +8,12 @@ typedef struct
 	unsigned : 5;
 }Status_t;
 
-volatile static Time_t rtc_time;
-volatile static Status_t rtc_status;
+static Time_t rtc_time;
+volatile Status_t rtc_status;
 
 Time_t* RTC_GetTime ()
 {
-	return rtc_time;
+	return &rtc_time;
 }
 
 void RTC_OnSecond()

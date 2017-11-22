@@ -1,4 +1,9 @@
 #include "../../driver/inc/driver.h"
+#include "../inc/ir.h"
+#include "../inc/audio.h"
+#include "../inc/led.h"
+#include "../inc/rtc.h"
+
 
 // CONFIG1
 #pragma config FEXTOSC = OFF    // FEXTOSC External Oscillator mode Selection bits->Oscillator not enabled
@@ -26,130 +31,135 @@
 #pragma config CP = OFF    // User NVM Program Memory Code Protection bit->User NVM code protection disabled
 #pragma config CPD = OFF    // Data NVM Memory Code Protection bit->Data NVM code protection disabled
 
-void SYSTEM_Initialize ( );
-void Interrupt_Initialize ( );
+void SYSTEM_Initialize();
+void Interrupt_Initialize();
 
-void main ( )
-{
-	SYSTEM_Initialize ( );
-	Interrupt_Initialize ();
-	GlobleInterruptEnable();
-	PeripheralInterruptEnable();
-	Led_InitPara ();
-	__delay_ms( 48 );
-	Audio_StopSound ();
-	__delay_ms( 48 );
-	Audio_SetVolume ( gLedPara.mVolOn ? VOLUME[ gLedPara.mVolume ] : 0 );
-	__delay_ms( 48 );
-	Audio_SetPlayMode ();
+void main() {
+    SYSTEM_Initialize();
+    Interrupt_Initialize();
+    GlobleInterruptEnable();
+    PeripheralInterruptEnable();
+    Led_InitPara();
+    Led_Initialize();
+    TMR0_StartTimer();
+    TMR1_StartTimer();
+    TMR2_StartTimer();
 
-	while ( 1 )
-	{
-		CLRWDT ( );
-	}
+    while (1) {
+        CLRWDT();
+
+        if (!gLedPara.mAuto && gLedPara.mOn && gLedPara.mDyn) {
+            Audio_GetValue();
+        }
+        IR_KeyAtionIfPressed();
+        IR_ResetIfTMR1Overflow();
+        Led_SaveParaIfChanged();
+
+        if (RTC_HourReady()) {
+        }
+        if (RTC_MinuteReady()) {
+            if (gLedPara.mAuto) {
+                Led_CheckAutoStatus();
+            }
+        }
+        if (RTC_SecondReady()) {
+            if (gLedPara.mAuto && ir_state.mState != SET_DAYLIGHT && ir_state.mState != SET_NIGHTLIGHT) {
+                Led_AutoRun();
+            }
+            IR_UpdateSetStatus();
+        }
+    }
 }
 
-void interrupt ISR ()
-{
-	if ( PIR1bits.TMR1GIF )
-	{
-		TMR1_GATE_ISR ( );
-	}
-	else if ( PIE1bits.TMR2IE && PIR1bits.TMR2IF )
-	{
-		TMR2_ISR ( );
-	}
-	else if ( PIR0bits.TMR0IF )
-	{
-		TMR0_ISR ( );
-	}
-	else if ( PIR2bits.TMR4IF )
-	{
-		TMR4_ISR ( );
-	}
-	else if ( PIE1bits.TXIE && PIR1bits.TXIF )
-	{
-		EUSART_Transmit_ISR ();
-	}
+void interrupt ISR() {
+    if (PIR1bits.TMR1GIF) {
+        TMR1_GATE_ISR();
+    } else if (PIE1bits.TMR2IE && PIR1bits.TMR2IF) {
+        TMR2_ISR();
+    } else if (PIR0bits.TMR0IF) {
+        TMR0_ISR();
+    } else if (PIR2bits.TMR4IF) {
+        TMR4_ISR();
+    } else if (PIE1bits.TXIE && PIR1bits.TXIF) {
+        EUSART_Transmit_ISR();
+    }
 }
 
-void OSCILLATOR_Initialize ( void )
-{
-	// NOSC HFINTOSC; NDIV 1; 
-	OSCCON1 = 0x60;
-	// CSWHOLD may proceed; SOSCPWR Low power; SOSCBE crystal oscillator; 
-	OSCCON3 = 0x00;
-	// LFOEN disabled; ADOEN disabled; SOSCEN enabled; EXTOEN disabled; HFOEN enabled; 
-	OSCEN = 0x48;
-	// HFFRQ 16_MHz; 
-	OSCFRQ = 0x06;
-	// HFTUN 0; 
-	OSCTUNE = 0x00;
+void OSCILLATOR_Initialize(void) {
+    // NOSC HFINTOSC; NDIV 1; 
+    OSCCON1 = 0x60;
+    // CSWHOLD may proceed; SOSCPWR Low power; SOSCBE crystal oscillator; 
+    OSCCON3 = 0x00;
+    // LFOEN disabled; ADOEN disabled; SOSCEN enabled; EXTOEN disabled; HFOEN enabled; 
+    OSCEN = 0x48;
+    // HFFRQ 16_MHz; 
+    OSCFRQ = 0x06;
+    // HFTUN 0; 
+    OSCTUNE = 0x00;
 }
 
-void PIN_Initialize ( )
-{
-	LATA = 0x00;
-	LATB = 0x00;
-	LATC = 0x00;
+void PIN_Initialize() {
+    LATA = 0x00;
+    LATB = 0x80;
+    LATC = 0x00;
 
-	TRISA = 0x20;
-	TRISB = 0x80;
-	TRISC = 0x05;
+    TRISA = 0x30;
+    TRISB = 0x60;
+    TRISC = 0x05;
 
-	ANSELC = 0x04;
-	ANSELB = 0x00;
-	ANSELA = 0x00;
+    ANSELC = 0x04;
+    ANSELB = 0x00;
+    ANSELA = 0x00;
 
-	WPUB = 0x80;
-	WPUA = 0x00;
-	WPUC = 0x01;
+    WPUB = 0x60;
+    WPUA = 0x00;
+    WPUC = 0x01;
 
-	ODCONA = 0x00;
-	ODCONB = 0x00;
-	ODCONC = 0x00;
+    ODCONA = 0x00;
+    ODCONB = 0x00;
+    ODCONC = 0x00;
 
-	unsigned char state = GIE;
-	GIE = 0;
-	PPSLOCK = 0x55;
-	PPSLOCK = 0xAA;
-	PPSLOCKbits.PPSLOCKED = 0x00; // unlock PPS
+    uint8_t state = GIE;
+    GIE = 0;
+    PPSLOCK = 0x55;
+    PPSLOCK = 0xAA;
+    PPSLOCKbits.PPSLOCKED = 0x00; // unlock PPS
 
-	RC5PPSbits.RC5PPS = PPS_OUTPUT_CCP1; //RC3->CCP1;
-	RC4PPSbits.RC4PPS = PPS_OUTPUT_CCP2; //RC4->CCP2;
-	RC3PPSbits.RC3PPS = PPS_OUTPUT_CCP3; //RC5->CCP3;
-	RC6PPSbits.RC6PPS = PPS_OUTPUT_CCP4; //RC1->CCP4;
-	RA0PPSbits.RA0PPS = PPS_OUTPUT_PWM5; //RA0->PWM5;
-	T1GPPSbits.T1GPPS = PPS_INPUT_RC0; //RC0->T1G; 
-	RB4PPSbits.RB4PPS = PPS_OUTPUT_TX; //TX->RB4
+    RC5PPSbits.RC5PPS = PPS_OUTPUT_CCP1; //RC5->CCP1;
+    RC3PPSbits.RC3PPS = PPS_OUTPUT_CCP2; //RC3->CCP2;
+    RA2PPSbits.RA2PPS = PPS_OUTPUT_CCP3; //RA2->CCP3;
+    RC1PPSbits.RC1PPS = PPS_OUTPUT_CCP4; //RC1->CCP4;
+    RC7PPSbits.RC7PPS = PPS_OUTPUT_PWM5; //RC7->PWM5;
+    T1GPPSbits.T1GPPS = PPS_INPUT_RC0; //RC0->T1G; 
+    RB7PPSbits.RB7PPS = PPS_OUTPUT_TX; //TX->RB7
 
-	PPSLOCK = 0x55;
-	PPSLOCK = 0xAA;
-	PPSLOCKbits.PPSLOCKED = 0x01; // lock PPS
+    PPSLOCK = 0x55;
+    PPSLOCK = 0xAA;
+    PPSLOCKbits.PPSLOCKED = 0x01; // lock PPS
 
-	GIE = state;
+    GIE = state;
 }
 
-void SYSTEM_Initialize ( )
-{
-	PIN_Initialize ( );
-	OSCILLATOR_Initialize ( );
-	TMR0_Initialize_Default ( );
-	TMR2_Initialize_Default ( );
-	PWM1_Initialize ( );
-	PWM2_Initialize ( );
-	PWM3_Initialize ( );
-	PWM4_Initialize ( );
-	PWM5_Initialize ( );
-	EUSART_Initialize_Default ( );
-	ADC_Initialize_Default ( );
+void SYSTEM_Initialize() {
+    PIN_Initialize();
+    OSCILLATOR_Initialize();
+    TMR0_Initialize_Default();
+    TMR1_Initialize_Default();
+    TMR2_Initialize_Default();
+    TMR4_Initialize_Default();
+    PWM1_Initialize();
+    PWM2_Initialize();
+    PWM3_Initialize();
+    PWM4_Initialize();
+    PWM5_Initialize();
+    EUSART_Initialize_Default();
+    ADC_Initialize_Default();
 }
 
-void Interrupt_Initialize ()
-{
-	TMR1_Gate_SetInterruptHandler ( IR_Decode );
-	TMR0_SetInterruptHandler ( RTC_OnSecond );
-	TMR2_SetInterruptHandler ( Led_Run );
-	TMR4_SetInterruptHandler ( Led_Notice );
+void Interrupt_Initialize() {
+    TMR1_Gate_SetInterruptHandler(IR_Decode);
+    TMR0_SetInterruptHandler(RTC_OnSecond);
+    TMR2_SetInterruptHandler(Led_Run);
+    TMR4_SetInterruptHandler(Led_Notice);
 }
 

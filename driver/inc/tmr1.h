@@ -19,7 +19,7 @@ extern "C" {
     //T1CON
 #define T1CON_TMR1CS_LFINTOSC       0xC0
 #define T1CON_TMR1CS_T1CKI_SOSC     0x80
-#define T1CON_TMR1CS_FOSC           0x20
+#define T1CON_TMR1CS_FOSC           0x40
 #define T1CON_TMR1CS_FOSC_4         0x00
 #define T1CON_T1CKPS_1              0x00
 #define T1CON_T1CKPS_2              0x10

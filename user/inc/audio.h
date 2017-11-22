@@ -32,11 +32,14 @@ extern "C" {
 
 #define ADCHS_AUDIO         ADCHS_ANC2
     
+    extern volatile uint16_t audio_value;
+    
     extern void Audio_PlaySound();
     extern void Audio_StopSound();
     extern void Audio_SelectSound(uint8_t index);
     extern void Audio_SetPlayMode(uint8_t type);
     extern void Audio_SetVolume(uint8_t vol);
+    extern void Audio_GetValue();
 
 #ifdef	__cplusplus
 }

@@ -63,7 +63,7 @@ void Audio_GetValue ( )
 	static uint16_t cnt = 0;
 	uint16_t value;
 
-	value = ADC_Conversion ( ADCHS_ANC2 );
+	value = ADC_Conversion ( ADCHS_AUDIO );
 	if ( cnt == 0 )
 	{
 		max = value;
@@ -85,7 +85,7 @@ void Audio_GetValue ( )
 	{
 		cnt = 0;
 		GlobleInterruptDisable();
-		audio_value = ( audio_value * 7 + max - min ) >> 3;
+		audio_value = ( audio_value * 15 + max - min ) >> 4;
 		GlobleInterruptEnable();
 	}
 }
