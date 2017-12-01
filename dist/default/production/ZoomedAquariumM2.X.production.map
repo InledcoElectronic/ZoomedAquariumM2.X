@@ -1,11 +1,11 @@
-Microchip MPLAB XC8 Compiler V1.40 ()
+Microchip MPLAB XC8 Compiler V1.41 ()
 
 Linker command line:
 
--W-3 --edf=/Applications/microchip/xc8/v1.40/dat/en_msgs.txt -cs \
-  -h+dist/default/production/ZoomedAquariumM2.X.production.sym \
-  --cmf=dist/default/production/ZoomedAquariumM2.X.production.cmf -z \
-  -Q16F18345 -o/tmp/xcyWY2pOj \
+-W-3 --edf=D:\Program Files\Microchip\xc8\v1.41\dat\en_msgs.txt -cs \
+  -h+dist/default/production\ZoomedAquariumM2.X.production.sym \
+  --cmf=dist/default/production\ZoomedAquariumM2.X.production.cmf -z \
+  -Q16F18345 -oC:\Users\liruya\AppData\Local\Temp\s5m0.2 \
   -Mdist/default/production/ZoomedAquariumM2.X.production.map -E1 -ver=XC8 \
   -ASTACK=0212Ch-023efh -pstack=STACK -ACODE=00h-07FFhx4 \
   -ASTRCODE=00h-01FFFh -ASTRING=00h-0FFhx32 -ACONST=00h-0FFhx32 \
@@ -31,8 +31,9 @@ Linker command line:
   -ppowerup=CODE -pcinit=CODE -pfunctab=CODE -ACONFIG=08007h-0800Ah \
   -pconfig=CONFIG -DCONFIG=2 -AIDLOC=08000h-08003h -pidloc=IDLOC -DIDLOC=2 \
   -AEEDATA=00h-0FFh/0F000h -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 \
-  -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k /tmp/xcs02u28I.obj \
-  dist/default/production/ZoomedAquariumM2.X.production.obj 
+  -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k \
+  C:\Users\liruya\AppData\Local\Temp\s5m0.obj \
+  dist/default/production\ZoomedAquariumM2.X.production.obj 
 
 Object code version is 3.11
 
@@ -41,78 +42,74 @@ Machine type is 16F18345
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-/tmp/xcs02u28I.obj
+C:\Users\liruya\AppData\Local\Temp\s5m0.obj
                 end_init                             2E       2E        2        8       0
                 reset_vec                             0        0        2        0       0
                 config                             8007     8007        4    1000E       0
-dist/default/production/ZoomedAquariumM2.X.production.obj
-                cinit                               80A      80A      7F6     1014       0
+dist/default/production\ZoomedAquariumM2.X.production.obj
+                cinit                               805      805      7FB     100A       0
                 intentry                              4        4       2A        8       0
-                text106                            1539     1539       17     2A72       0
-                text105                            1523     1523       16     2A46       0
-                text104                            14AB     14AB        C     2956       0
-                text100                             5EA      5EA      1F0        8       0
-                text99                             14B7     14B7        C     296E       0
-                text74                              35E      35E      28C        8       0
-                text73                             14C3     14C3        C     2986       0
-                text69                             1578     1578       3C     2AF0       0
-                text68                             14CF     14CF        C     299E       0
-                text57                              7DA      7DA       24        8       0
-                text56                             14DB     14DB       12     29B6       0
-                text55                             14ED     14ED       12     29DA       0
-                text54                             14FF     14FF       12     29FE       0
-                text53                             1511     1511       12     2A22       0
-                text27                               30       30      32E        8       0
-                text26                             15B4     15B4       84     2B68       0
-                text23                             1638     1638       D7     2C70       0
-                text3                              170F     170F       F1     2E1E       0
+                text107                            1508     1508       17     2A10       0
+                text106                            14F2     14F2       16     29E4       0
+                text105                            147A     147A        C     28F4       0
+                text101                            1610     1610      1F0     2C20       0
+                text100                            1486     1486        C     290C       0
+                text75                               30       30      63A        8       0
+                text74                             1492     1492        C     2924       0
+                text70                              774      774       3C        8       0
+                text69                             149E     149E        C     293C       0
+                text58                              7D8      7D8       24        8       0
+                text57                             14AA     14AA       12     2954       0
+                text56                             14BC     14BC       12     2978       0
+                text55                             14CE     14CE       12     299C       0
+                text54                             14E0     14E0       12     29C0       0
+                text23                              66A      66A      10A        8       0
+                text3                              151F     151F       F1     2A3E       0
                 cstackBANK0                          40       40       1E       20       1
                 cstackCOMMON                         70       70        E       70       1
                 cstackBANK3                         1C0      1C0       12      1A0       1
-                clrtext                            149F     149F        6     293E       0
-                inittext                           14A5     14A5        6     294A       0
+                clrtext                            1464     1464        6     28C8       0
+                inittext                           146A     146A        6     28D4       0
                 dataBANK3                           1D2      1D2        A      1A0       1
                 bssBANK3                            1A0      1A0       20      1A0       1
-                bssBANK2                            120      120       4C      120       1
+                bssBANK2                            120      120       4E      120       1
                 dataBANK1                            A0       A0       28       A0       1
                 bssBANK1                             C8       C8       1A       A0       1
                 bssBANK0                             20       20       20       20       1
                 nvBANK1                              E2       E2        8       A0       1
                 nvBANK0                              5E       5E        1       20       1
                 stringtext                         1800     1800        A     3000       0
-                idataBANK3                          800      800        A     1000       0
-                idataBANK1                         1550     1550       28     2AA0       0
+                idataBANK3                         1470     1470        A     28E0       0
+                idataBANK1                          7B0      7B0       28        8       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   STACK          
 
         CLASS   CODE           
                 end_init                             2E       2E        2         0
-                cinit                               80A      80A      7F6         0
+                cinit                               805      805      7FB         0
                 intentry                              4        4       2A         0
                 reset_vec                             0        0        2         0
-                text106                            1539     1539       17         0
-                text105                            1523     1523       16         0
-                text104                            14AB     14AB        C         0
-                text100                             5EA      5EA      1F0         0
-                text99                             14B7     14B7        C         0
-                text74                              35E      35E      28C         0
-                text73                             14C3     14C3        C         0
-                text69                             1578     1578       3C         0
-                text68                             14CF     14CF        C         0
-                text57                              7DA      7DA       24         0
-                text56                             14DB     14DB       12         0
-                text55                             14ED     14ED       12         0
-                text54                             14FF     14FF       12         0
-                text53                             1511     1511       12         0
-                text27                               30       30      32E         0
-                text26                             15B4     15B4       84         0
-                text23                             1638     1638       D7         0
-                text3                              170F     170F       F1         0
-                clrtext                            149F     149F        6         0
-                inittext                           14A5     14A5        6         0
-                idataBANK3                          800      800        A         0
-                idataBANK1                         1550     1550       28         0
+                text107                            1508     1508       17         0
+                text106                            14F2     14F2       16         0
+                text105                            147A     147A        C         0
+                text101                            1610     1610      1F0         0
+                text100                            1486     1486        C         0
+                text75                               30       30      63A         0
+                text74                             1492     1492        C         0
+                text70                              774      774       3C         0
+                text69                             149E     149E        C         0
+                text58                              7D8      7D8       24         0
+                text57                             14AA     14AA       12         0
+                text56                             14BC     14BC       12         0
+                text55                             14CE     14CE       12         0
+                text54                             14E0     14E0       12         0
+                text23                              66A      66A      10A         0
+                text3                              151F     151F       F1         0
+                clrtext                            1464     1464        6         0
+                inittext                           146A     146A        6         0
+                idataBANK3                         1470     1470        A         0
+                idataBANK1                          7B0      7B0       28         0
 
         CLASS   STRCODE        
                 stringtext                         1800     1800        A         0
@@ -137,7 +134,7 @@ TOTAL           Name                               Link     Load   Length     Sp
                 nvBANK1                              E2       E2        8         1
 
         CLASS   BANK2          
-                bssBANK2                            120      120       4C         1
+                bssBANK2                            120      120       4E         1
 
         CLASS   BANK3          
                 cstackBANK3                         1C0      1C0       12         1
@@ -283,31 +280,28 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
 
                 reset_vec                      000000  000002  000002         0       0  CODE        2
-                intentry                       000004  0007FA  0007FE         8       0  CODE        2
+                intentry                       000004  0007F8  0007FC         8       0  CODE        2
                 bssBANK0                       000020  00003F  00005F        20       1  BANK0       1
                 cstackCOMMON                   000070  00000E  00007E        70       1  COMMON      1
                 dataBANK1                      0000A0  00004A  0000EA        A0       1  BANK1       1
-                bssBANK2                       000120  00004C  00016C       120       1  BANK2       1
+                bssBANK2                       000120  00004E  00016E       120       1  BANK2       1
                 bssBANK3                       0001A0  00003C  0001DC       1A0       1  BANK3       1
-                idataBANK3                     000800  00000A  00080A      1000       0  CODE        2
-                cinit                          00080A  0007F6  001000      1014       0  CODE        2
-                clrtext                        00149F  000006  0014A5      293E       0  CODE        2
-                inittext                       0014A5  000006  0014AB      294A       0  CODE        2
-                text104                        0014AB  00000C  0014B7      2956       0  CODE        2
-                text99                         0014B7  00000C  0014C3      296E       0  CODE        2
-                text73                         0014C3  00000C  0014CF      2986       0  CODE        2
-                text68                         0014CF  00000C  0014DB      299E       0  CODE        2
-                text56                         0014DB  000012  0014ED      29B6       0  CODE        2
-                text55                         0014ED  000012  0014FF      29DA       0  CODE        2
-                text54                         0014FF  000012  001511      29FE       0  CODE        2
-                text53                         001511  000012  001523      2A22       0  CODE        2
-                text105                        001523  000016  001539      2A46       0  CODE        2
-                text106                        001539  000017  001550      2A72       0  CODE        2
-                idataBANK1                     001550  000028  001578      2AA0       0  CODE        2
-                text69                         001578  00003C  0015B4      2AF0       0  CODE        2
-                text26                         0015B4  000084  001638      2B68       0  CODE        2
-                text23                         001638  0000D7  00170F      2C70       0  CODE        2
-                text3                          00170F  0000F1  001800      2E1E       0  CODE        2
+                cinit                          000805  0007FB  001000      100A       0  CODE        2
+                clrtext                        001464  000006  00146A      28C8       0  CODE        2
+                inittext                       00146A  000006  001470      28D4       0  CODE        2
+                idataBANK3                     001470  00000A  00147A      28E0       0  CODE        2
+                text105                        00147A  00000C  001486      28F4       0  CODE        2
+                text100                        001486  00000C  001492      290C       0  CODE        2
+                text74                         001492  00000C  00149E      2924       0  CODE        2
+                text69                         00149E  00000C  0014AA      293C       0  CODE        2
+                text57                         0014AA  000012  0014BC      2954       0  CODE        2
+                text56                         0014BC  000012  0014CE      2978       0  CODE        2
+                text55                         0014CE  000012  0014E0      299C       0  CODE        2
+                text54                         0014E0  000012  0014F2      29C0       0  CODE        2
+                text106                        0014F2  000016  001508      29E4       0  CODE        2
+                text107                        001508  000017  00151F      2A10       0  CODE        2
+                text3                          00151F  0000F1  001610      2A3E       0  CODE        2
+                text101                        001610  0001F0  001800      2C20       0  CODE        2
                 stringtext                     001800  00000A  00180A      3000       0  STRCODE     2
                 config                         008007  000004  00800B     1000E       0  CONFIG      2
 
@@ -320,7 +314,7 @@ UNUSED ADDRESS RANGES
         BANK10           00520-0056F              50           1
         BANK11           005A0-005EF              50           1
         BANK12           00620-0064F              30           1
-        BANK2            0016C-0016F               4           1
+        BANK2            0016E-0016F               2           1
         BANK3            001DC-001EF              14           1
         BANK4            00220-0026F              50           1
         BANK5            002A0-002EF              50           1
@@ -330,22 +324,22 @@ UNUSED ADDRESS RANGES
         BANK9            004A0-004EF              50           1
         BIGRAM           02000-023EF             3F0           1
         CODE             00002-00003               2           2
-                         007FE-007FF               2
-                         01000-0149E             49F
+                         007FC-00804               4
+                         01000-01463             464
                          0180A-01FFF             7F6
         CONST            00002-00003               2           2
-                         007FE-007FF               2
-                         01000-0149E             100
+                         007FC-00804               4
+                         01000-01463             100
                          0180A-01FFF             100
         EEDATA           0F000-0F0FF             100           2
         ENTRY            00002-00003               2           2
-                         007FE-007FF               2
-                         01000-0149E             100
+                         007FC-00804               4
+                         01000-01463             100
                          0180A-01FFF             100
         IDLOC            08000-08003               4           2
         RAM              0005F-0006F              11           1
                          000EA-000EF               6
-                         0016C-0016F               4
+                         0016E-0016F               2
                          001DC-001EF              14
                          00220-0026F              50
                          002A0-002EF              50
@@ -390,12 +384,12 @@ UNUSED ADDRESS RANGES
         SFR9             00480-0049F              20           1
         STACK            0212C-023EF             2C4           1
         STRCODE          00002-00003               2           2
-                         007FE-007FF               2
-                         01000-0149E             49F
+                         007FC-00804               9
+                         01000-01463             464
                          0180A-01FFF             7F6
         STRING           00002-00003               2           2
-                         007FE-007FF               2
-                         01000-0149E             100
+                         007FC-00804               4
+                         01000-01463             100
                          0180A-01FFF             100
 
                                   Symbol Table
@@ -404,9 +398,9 @@ UNUSED ADDRESS RANGES
 ?___wmul                                cstackBANK0  0004E
 ?i1___wmul                              cstackCOMMON 00070
 ADC_Conversion@chn                      cstackBANK0  00051
-Audio_GetValue@cnt                      bssBANK0     00020
-Audio_GetValue@max                      bssBANK0     00022
-Audio_GetValue@min                      bssBANK0     00024
+Audio_GetValue@cnt                      bssBANK0     00024
+Audio_GetValue@max                      bssBANK0     00028
+Audio_GetValue@min                      bssBANK0     00026
 Audio_GetValue@value                    cstackBANK0  00058
 Audio_PlaySound@checksum                cstackCOMMON 00071
 Audio_SelectSound@checksum              cstackCOMMON 00072
@@ -429,12 +423,12 @@ DATAEE_WriteByte@GIEBitValue            cstackBANK0  00051
 DATAEE_WriteByte@addr                   cstackBANK0  0004E
 DATAEE_WriteByte@byte                   cstackBANK0  00050
 EUSART_Write@byte                       cstackBANK0  0004E
-IR_Decode@codeVal                       bssBANK0     00026
+IR_Decode@codeVal                       bssBANK0     00022
 IR_Decode@hVal                          cstackCOMMON 0007A
 IR_Decode@keyNum                        cstackCOMMON 00079
-IR_Decode@nBit                          bssBANK0     0002E
+IR_Decode@nBit                          bssBANK0     0002F
 IR_Decode@revKeyNum                     cstackCOMMON 00077
-IR_Decode@rptCnt                        bssBANK0     0002F
+IR_Decode@rptCnt                        bssBANK0     0002E
 IR_Decode@type                          cstackCOMMON 00078
 IR_GetIndex@idx                         cstackBANK0  0004E
 IR_GetIndex@keynum                      cstackBANK0  0004F
@@ -446,52 +440,53 @@ IR_IsValidTime@min                      cstackBANK0  00052
 IR_IsValidTime@result                   cstackBANK0  00053
 IR_IsValidTime@tm                       cstackBANK0  00055
 IR_KeyAction@i                          cstackBANK3  001CA
-IR_KeyAction@i_1421                     cstackBANK3  001CB
-IR_KeyAction@i_1422                     cstackBANK3  001CC
-IR_KeyAction@i_1423                     cstackBANK3  001CF
-IR_KeyAction@i_1424                     cstackBANK3  001D0
-IR_KeyAction@i_1427                     cstackBANK3  001CD
-IR_KeyAction@i_1428                     cstackBANK3  001CE
+IR_KeyAction@i_1428                     cstackBANK3  001CB
+IR_KeyAction@i_1429                     cstackBANK3  001CC
+IR_KeyAction@i_1430                     cstackBANK3  001CF
+IR_KeyAction@i_1431                     cstackBANK3  001D0
+IR_KeyAction@i_1434                     cstackBANK3  001CD
+IR_KeyAction@i_1435                     cstackBANK3  001CE
 IR_KeyAction@idx                        cstackBANK3  001D1
-IR_ScanLongPress@cnt                    bssBANK0     00028
+IR_ScanLongPress@cnt                    bssBANK0     00020
 IR_ScanLongPress@i                      cstackCOMMON 0007B
-IR_ScanLongPress@i_1415                 cstackCOMMON 0007C
+IR_ScanLongPress@i_1422                 cstackCOMMON 0007C
 IR_ScanLongPress@idx                    cstackCOMMON 0007D
 Led_AutoRun@i                           cstackBANK0  0005C
 Led_CheckAutoStatus@ct                  cstackBANK0  00059
 Led_CheckAutoStatus@i                   cstackBANK0  0005D
-Led_CheckAutoStatus@i_1230              cstackBANK0  0005B
-Led_CheckAutoStatus@i_1231              cstackBANK0  0005C
+Led_CheckAutoStatus@i_1236              cstackBANK0  0005B
+Led_CheckAutoStatus@i_1237              cstackBANK0  0005C
 Led_CheckAutoStatus@sunrise             cstackBANK0  00055
 Led_CheckAutoStatus@sunset              cstackBANK0  00057
-Led_DynamicCloud@F8326                  dataBANK1    000A0
+Led_DynamicCloud@F8332                  dataBANK1    000A0
 Led_DynamicCloud@duty                   cstackBANK0  00040
 Led_DynamicCloud@i                      cstackBANK0  0004C
 Led_DynamicCloud@ptp                    cstackCOMMON 00076
 Led_DynamicCloud@val                    cstackBANK0  0004A
-Led_DynamicMoon@F8316                   dataBANK1    000AA
+Led_DynamicMoon@F8322                   dataBANK1    000AA
 Led_DynamicMoon@duty                    cstackBANK0  00040
 Led_DynamicMoon@i                       cstackBANK0  0004C
 Led_DynamicMoon@ptp                     cstackCOMMON 00076
 Led_DynamicMoon@val                     cstackBANK0  0004A
-Led_DynamicStorm@F8336                  dataBANK3    001D2
+Led_DynamicStorm@F8342                  dataBANK3    001D2
 Led_DynamicStorm@duty                   cstackBANK0  00040
 Led_DynamicStorm@i                      cstackBANK0  0004C
 Led_DynamicStorm@ptp                    cstackCOMMON 00076
 Led_DynamicStorm@val                    cstackBANK0  0004A
-Led_DynamicWave@F8306                   dataBANK1    000B4
+Led_DynamicWave@F8312                   dataBANK1    000B4
 Led_DynamicWave@duty                    cstackBANK0  00040
 Led_DynamicWave@i                       cstackBANK0  0004C
 Led_DynamicWave@ptp                     cstackCOMMON 00076
 Led_DynamicWave@val                     cstackBANK0  0004A
+Led_FirstPowerUp@i                      cstackBANK0  00050
 Led_InitPara@i                          cstackBANK0  0005B
 Led_InitPara@j                          cstackBANK0  0005A
 Led_Initialize@ct                       cstackBANK0  00059
 Led_Initialize@i                        cstackBANK0  0005B
 Led_Initialize@result                   cstackBANK0  00058
-Led_Notice@cnt                          bssBANK0     00030
+Led_Notice@cnt                          bssBANK0     00033
 Led_Ramp@i                              cstackCOMMON 0007A
-Led_Run@cnt                             bssBANK0     00031
+Led_Run@cnt                             bssBANK0     00032
 Led_SetCustom@i                         cstackCOMMON 0007A
 Led_SetCustom@idx                       cstackCOMMON 00077
 Led_SetCustom@pValue                    cstackCOMMON 00073
@@ -501,62 +496,62 @@ Led_TurnOffRamp@i                       cstackBANK0  0004E
 Led_TurnOnRamp@i                        cstackBANK0  0004E
 Led_UpdateBright@i                      cstackBANK0  00052
 PIN_Initialize@state                    cstackBANK0  0004E
-PL10                                    text27       002E6
-PL100                                   text74       005E5
-PL102                                   cinit        00F73
-PL104                                   text100      007CB
-PL106                                   text100      007D0
-PL108                                   cinit        00F78
-PL110                                   cinit        00F7D
-PL112                                   text100      007D5
-PL12                                    text74       005B7
-PL14                                    cinit        00EC7
-PL16                                    text23       016F9
-PL18                                    text74       005C9
-PL2                                     cinit        00EB7
-PL20                                    cinit        00ED9
-PL22                                    text27       002F1
-PL24                                    cinit        00EEA
-PL26                                    cinit        00EEF
-PL28                                    cinit        00EF9
-PL30                                    cinit        00F08
-PL32                                    cinit        00F11
-PL34                                    cinit        00F1E
-PL36                                    text27       002F8
-PL38                                    text27       00304
-PL4                                     text27       002DC
-PL40                                    cinit        00F23
-PL42                                    text27       00310
-PL44                                    cinit        00F28
-PL46                                    text27       0009B
-PL48                                    text27       0031C
-PL50                                    cinit        00F34
-PL52                                    cinit        00F3F
-PL54                                    cinit        00F49
-PL56                                    text27       000A7
-PL58                                    cinit        00F53
-PL6                                     text74       005B0
-PL60                                    text100      007C5
-PL62                                    text27       00328
-PL64                                    text27       00330
-PL66                                    text27       00338
-PL68                                    text27       00340
-PL70                                    text27       00348
-PL72                                    text27       00350
-PL74                                    text27       000B1
-PL76                                    text74       005D0
-PL78                                    text74       005D8
-PL8                                     cinit        00EBF
-PL80                                    text23       01703
-PL82                                    text23       01709
-PL84                                    cinit        00F5A
-PL86                                    cinit        00F60
-PL88                                    text27       00358
-PL90                                    text3        017F5
-PL92                                    cinit        00F67
-PL94                                    cinit        00F6D
-PL96                                    text3        017FA
-PL98                                    text74       005E0
+PL10                                    text75       005F2
+PL100                                   cinit        00F61
+PL102                                   text101      017F1
+PL104                                   cinit        00F66
+PL106                                   text101      017F6
+PL108                                   text101      017FB
+PL110                                   cinit        00F6B
+PL112                                   cinit        00F70
+PL12                                    text75       00285
+PL14                                    cinit        00EBA
+PL16                                    text23       0075E
+PL18                                    text75       00297
+PL2                                     text75       0032C
+PL20                                    cinit        00ECC
+PL22                                    text75       005FD
+PL24                                    cinit        00EDD
+PL26                                    cinit        00EE2
+PL28                                    cinit        00EEC
+PL30                                    cinit        00EFB
+PL32                                    cinit        00F04
+PL34                                    cinit        00F11
+PL36                                    text75       00604
+PL38                                    text75       00610
+PL4                                     text75       005E8
+PL40                                    cinit        00F16
+PL42                                    text75       0061C
+PL44                                    cinit        00F1B
+PL46                                    text75       003A9
+PL48                                    text75       00628
+PL50                                    cinit        00F27
+PL52                                    cinit        00F32
+PL54                                    text75       00334
+PL56                                    text75       003B5
+PL58                                    cinit        00F3C
+PL6                                     text75       0027E
+PL60                                    text101      017EB
+PL62                                    text75       0029E
+PL64                                    text75       00634
+PL66                                    text75       0063C
+PL68                                    text75       00644
+PL70                                    text75       0064C
+PL72                                    text75       00654
+PL74                                    text75       0065C
+PL76                                    text75       003BF
+PL78                                    text75       002A6
+PL8                                     cinit        00EB2
+PL80                                    text23       00768
+PL82                                    text23       0076E
+PL84                                    cinit        00F43
+PL86                                    cinit        00F49
+PL88                                    text75       00664
+PL90                                    text3        01605
+PL92                                    cinit        00F50
+PL94                                    cinit        00F56
+PL96                                    text3        0160A
+PL98                                    cinit        00F5C
 PWM1_LoadDutyValue@dutyValue            cstackBANK0  0004E
 PWM2_LoadDutyValue@dutyValue            cstackBANK0  0004E
 PWM3_LoadDutyValue@dutyValue            cstackBANK0  0004E
@@ -576,20 +571,20 @@ _ADACT                                  (abs)        0009F
 _ADCON0                                 (abs)        0009D
 _ADCON0bits                             (abs)        0009D
 _ADCON1                                 (abs)        0009E
-_ADC_Conversion                         cinit        008DD
-_ADC_Initialize_Default                 text3        017D9
+_ADC_Conversion                         cinit        008D8
+_ADC_Initialize_Default                 text3        015E9
 _ADRES                                  (abs)        0009B
 _ADRESH                                 (abs)        0009C
 _ADRESL                                 (abs)        0009B
 _ANSELA                                 (abs)        0018C
 _ANSELB                                 (abs)        0018D
 _ANSELC                                 (abs)        0018E
-_Audio_GetValue                         cinit        0088D
-_Audio_PlaySound                        text27       00150
-_Audio_SelectSound                      text27       00162
-_Audio_SetPlayMode                      cinit        009F6
-_Audio_SetVolume                        cinit        00A0D
-_Audio_StopSound                        cinit        00CBF
+_Audio_GetValue                         cinit        00888
+_Audio_PlaySound                        text75       0045E
+_Audio_SelectSound                      text75       00470
+_Audio_SetPlayMode                      cinit        009FF
+_Audio_SetVolume                        cinit        00A16
+_Audio_StopSound                        cinit        00CC7
 _BAUD1CON                               (abs)        0019F
 _CCP1CON                                (abs)        00293
 _CCP2CON                                (abs)        00297
@@ -600,53 +595,54 @@ _CCPR2                                  (abs)        00295
 _CCPR3                                  (abs)        00311
 _CCPR4                                  (abs)        00315
 _CCPTMRSbits                            (abs)        0029F
-_DATAEE_ReadBuffer                      text23       016D4
-_DATAEE_ReadByte                        text23       016EB
-_DATAEE_WriteBuffer                     cinit        00FA0
-_DATAEE_WriteByte                       cinit        00FB7
-_EUSART_Initialize_Default              text3        017E1
-_EUSART_Transmit_ISR                    text106      01539
-_EUSART_Write                           cinit        00CE6
+_DATAEE_ReadBuffer                      text23       00708
+_DATAEE_ReadByte                        text23       0071F
+_DATAEE_WriteBuffer                     cinit        00FC8
+_DATAEE_WriteByte                       cinit        00FDF
+_EUSART_Initialize_Default              text3        015F1
+_EUSART_Transmit_ISR                    text107      01508
+_EUSART_Write                           cinit        00CEE
 _GAIN                                   stringtext   01800
 _GIE                                    (abs)        0005F
 _INTCONbits                             (abs)        0000B
-_IR_Decode                              text100      005EA
-_IR_ExitSet                             cinit        00DED
-_IR_ExitTimeout                         cinit        00FE8
-_IR_GetIndex                            cinit        00D6A
-_IR_GetKeyType                          text100      006B8
-_IR_IsValidTime                         cinit        00DF6
-_IR_KeyAction                           cinit        00A5F
-_IR_KeyAtionIfPressed                   cinit        00E44
-_IR_ResetIfTMR1Overflow                 cinit        00E4B
-_IR_ScanLongPress                       text74       0037F
-_IR_UpdateSetStatus                     cinit        00E8E
+_IR_Decode                              text101      01610
+_IR_ExitSet                             cinit        00DF5
+_IR_ExitTimeout                         cinit        00FC0
+_IR_GetIndex                            cinit        00D72
+_IR_GetKeyType                          text101      016DE
+_IR_IsValidTime                         cinit        00DFE
+_IR_KeyAction                           cinit        00A69
+_IR_KeyAtionIfPressed                   cinit        00E4C
+_IR_ResetIfTMR1Overflow                 cinit        00E53
+_IR_ScanLongPress                       text75       00051
+_IR_UpdateSetStatus                     cinit        00E96
 _ISR                                    intentry     00004
-_Interrupt_Initialize                   cinit        00E9A
+_Interrupt_Initialize                   cinit        00F75
 _LATA                                   (abs)        0010C
 _LATB                                   (abs)        0010D
 _LATC                                   (abs)        0010E
-_Led_AutoRun                            text27       00030
-_Led_CheckAutoStatus                    text26       015B4
-_Led_DynamicCloud                       text27       00244
-_Led_DynamicMoon                        text27       00191
-_Led_DynamicStorm                       text27       001E3
-_Led_DynamicWave                        text27       000B9
-_Led_InitPara                           text23       01638
-_Led_Initialize                         cinit        008FE
-_Led_Initialize$1200                    cstackBANK0  00056
-_Led_Notice                             text69       01578
-_Led_Ramp                               text74       00579
-_Led_Run                                text74       0035E
-_Led_RunMusic                           text27       0010B
-_Led_SaveParaIfChanged                  cinit        00F92
-_Led_SetCustom                          text74       004EE
-_Led_StartNotice                        cinit        00D57
-_Led_TurnOffDirect                      text69       0159F
-_Led_TurnOffRamp                        cinit        00A24
-_Led_TurnOnDirect                       text69       015A8
-_Led_TurnOnRamp                         cinit        00A34
-_Led_UpdateBright                       cinit        00A46
+_Led_AutoRun                            text75       0033E
+_Led_CheckAutoStatus                    text75       002AE
+_Led_DynamicCloud                       text75       00552
+_Led_DynamicMoon                        text75       0049F
+_Led_DynamicStorm                       text75       004F1
+_Led_DynamicWave                        text75       003C7
+_Led_FirstPowerUp                       text23       0072D
+_Led_InitPara                           text23       0066A
+_Led_Initialize                         cinit        008F9
+_Led_Initialize$1206                    cstackBANK0  00056
+_Led_Notice                             text70       00774
+_Led_Ramp                               text75       00249
+_Led_Run                                text75       00030
+_Led_RunMusic                           text75       00419
+_Led_SaveParaIfChanged                  cinit        00EA2
+_Led_SetCustom                          text75       001BE
+_Led_StartNotice                        cinit        00D5F
+_Led_TurnOffDirect                      text70       0079B
+_Led_TurnOffRamp                        cinit        00A2D
+_Led_TurnOnDirect                       text70       007A4
+_Led_TurnOnRamp                         cinit        00A3D
+_Led_UpdateBright                       cinit        00A50
 _NVMADRH                                (abs)        00892
 _NVMADRL                                (abs)        00891
 _NVMCON1bits                            (abs)        00895
@@ -659,12 +655,12 @@ _OSCCON1                                (abs)        00919
 _OSCCON3                                (abs)        0091B
 _OSCEN                                  (abs)        0091D
 _OSCFRQ                                 (abs)        0091F
-_OSCILLATOR_Initialize                  text3        01728
+_OSCILLATOR_Initialize                  text3        01538
 _OSCTUNE                                (abs)        0091E
 _PIE0bits                               (abs)        00090
 _PIE1bits                               (abs)        00091
 _PIE2bits                               (abs)        00092
-_PIN_Initialize                         text3        01732
+_PIN_Initialize                         text3        01542
 _PIR0bits                               (abs)        00010
 _PIR1bits                               (abs)        00011
 _PIR2bits                               (abs)        00012
@@ -672,23 +668,23 @@ _PPSLOCK                                (abs)        00E0F
 _PPSLOCKbits                            (abs)        00E0F
 _PR2                                    (abs)        0001E
 _PR4                                    (abs)        00416
-_PWM1_Initialize                        text3        0177F
-_PWM1_LoadDutyValue                     text56       014DB
-_PWM1_LoadDutyValue$intlevel0           text56       014DE
-_PWM2_Initialize                        text3        01785
-_PWM2_LoadDutyValue                     text55       014ED
-_PWM2_LoadDutyValue$intlevel0           text55       014F0
-_PWM3_Initialize                        text3        0178E
-_PWM3_LoadDutyValue                     text54       014FF
-_PWM3_LoadDutyValue$intlevel0           text54       01502
-_PWM4_Initialize                        text3        01799
-_PWM4_LoadDutyValue                     text53       01511
-_PWM4_LoadDutyValue$intlevel0           text53       01514
+_PWM1_Initialize                        text3        0158F
+_PWM1_LoadDutyValue                     text57       014AA
+_PWM1_LoadDutyValue$intlevel0           text57       014AD
+_PWM2_Initialize                        text3        01595
+_PWM2_LoadDutyValue                     text56       014BC
+_PWM2_LoadDutyValue$intlevel0           text56       014BF
+_PWM3_Initialize                        text3        0159E
+_PWM3_LoadDutyValue                     text55       014CE
+_PWM3_LoadDutyValue$intlevel0           text55       014D1
+_PWM4_Initialize                        text3        015A9
+_PWM4_LoadDutyValue                     text54       014E0
+_PWM4_LoadDutyValue$intlevel0           text54       014E3
 _PWM5CON                                (abs)        00619
 _PWM5DC                                 (abs)        00617
-_PWM5_Initialize                        text3        017A4
-_PWM5_LoadDutyValue                     text57       007DA
-_PWM5_LoadDutyValue$intlevel0           text57       007DD
+_PWM5_Initialize                        text3        015B4
+_PWM5_LoadDutyValue                     text58       007D8
+_PWM5_LoadDutyValue$intlevel0           text58       007DB
 _PWMTMRSbits                            (abs)        0061F
 _RA2PPSbits                             (abs)        00E92
 _RB7PPSbits                             (abs)        00E9F
@@ -697,13 +693,13 @@ _RC1STA                                 (abs)        0019D
 _RC3PPSbits                             (abs)        00EA3
 _RC5PPSbits                             (abs)        00EA5
 _RC7PPSbits                             (abs)        00EA7
-_RTC_GetTime                            cinit        00D56
-_RTC_HourReady                          cinit        00FD8
-_RTC_MinuteReady                        cinit        00FDD
-_RTC_OnSecond                           text105      01523
-_RTC_SecondReady                        cinit        00FE1
+_RTC_GetTime                            cinit        00D5E
+_RTC_HourReady                          cinit        00FB0
+_RTC_MinuteReady                        cinit        00FB5
+_RTC_OnSecond                           text106      014F2
+_RTC_SecondReady                        cinit        00FB9
 _SP1BRG                                 (abs)        0019B
-_SYSTEM_Initialize                      text3        0170F
+_SYSTEM_Initialize                      text3        0151F
 _T0CON0                                 (abs)        00017
 _T0CON0bits                             (abs)        00017
 _T0CON1                                 (abs)        00018
@@ -717,36 +713,36 @@ _T4CON                                  (abs)        00417
 _T4CONbits                              (abs)        00417
 _TMR0H                                  (abs)        00016
 _TMR0L                                  (abs)        00015
-_TMR0_ISR                               text104      014AB
-_TMR0_Initialize_Default                text3        017AA
-_TMR0_SetInterruptHandler               cinit        00F82
-_TMR0_StartTimer                        cinit        00EB5
+_TMR0_ISR                               text105      0147A
+_TMR0_Initialize_Default                text3        015BA
+_TMR0_SetInterruptHandler               cinit        00F90
+_TMR0_StartTimer                        cinit        00EB0
 _TMR1                                   (abs)        00019
-_TMR1_GATE_ISR                          text99       014B7
-_TMR1_Gate_SetInterruptHandler          cinit        00F8A
-_TMR1_Initialize_Default                text3        017B5
-_TMR1_StartTimer                        cinit        00E48
-_TMR1_StopTimer                         cinit        00E8C
+_TMR1_GATE_ISR                          text100      01486
+_TMR1_Gate_SetInterruptHandler          cinit        00F98
+_TMR1_Initialize_Default                text3        015C5
+_TMR1_StartTimer                        cinit        00E50
+_TMR1_StopTimer                         cinit        00E94
 _TMR2                                   (abs)        0001D
-_TMR2_DisableInterrupt                  cinit        00D64
-_TMR2_EnableInterrupt                   cinit        00E89
-_TMR2_ISR                               text73       014C3
-_TMR2_Initialize_Default                text3        017C4
-_TMR2_SetInterruptHandler               cinit        00FF0
-_TMR2_StartTimer                        cinit        00FE6
+_TMR2_DisableInterrupt                  cinit        00D6C
+_TMR2_EnableInterrupt                   cinit        00E91
+_TMR2_ISR                               text74       01492
+_TMR2_Initialize_Default                text3        015D4
+_TMR2_SetInterruptHandler               cinit        00FA0
+_TMR2_StartTimer                        cinit        00FBE
 _TMR4                                   (abs)        00415
-_TMR4_ISR                               text68       014CF
-_TMR4_Initialize_Default                text3        017CE
-_TMR4_SetInterruptHandler               cinit        00FF8
-_TMR4_StartTimer                        cinit        00D67
-_TMR4_StopTimer                         text69       015B1
+_TMR4_ISR                               text69       0149E
+_TMR4_Initialize_Default                text3        015DE
+_TMR4_SetInterruptHandler               cinit        00FA8
+_TMR4_StartTimer                        cinit        00D6F
+_TMR4_StopTimer                         text70       007AD
 _TRISA                                  (abs)        0008C
 _TRISB                                  (abs)        0008D
 _TRISC                                  (abs)        0008E
 _TX1STA                                 (abs)        0019E
 _TXREG                                  (abs)        0019A
-_Util_DecValue                          cinit        00D0A
-_Util_IncValue                          cinit        00D30
+_Util_DecValue                          cinit        00D12
+_Util_IncValue                          cinit        00D38
 _VOLUME                                 stringtext   01805
 _WPUA                                   (abs)        0020C
 _WPUB                                   (abs)        0020D
@@ -829,7 +825,7 @@ __Hintentry                             intentry     0002E
 __Hmaintext                             maintext     00000
 __HnvBANK0                              nvBANK0      00000
 __HnvBANK1                              nvBANK1      00000
-__Hpa_nodes                             pa_nodes     00000
+__Hpa_nodes0                            pa_nodes0    00000
 __Hpowerup                              powerup      00000
 __Hram                                  ram          00000
 __Hreset_vec                            reset_vec    00002
@@ -911,7 +907,7 @@ __LbssBANK0                             bssBANK0     00000
 __LbssBANK1                             bssBANK1     00000
 __LbssBANK2                             bssBANK2     00000
 __LbssBANK3                             bssBANK3     00000
-__Lcinit                                cinit        0080A
+__Lcinit                                cinit        00805
 __Lclrtext                              clrtext      00000
 __Lcode                                 code         00000
 __Lcommon                               common       00000
@@ -933,7 +929,7 @@ __Lintentry                             intentry     00004
 __Lmaintext                             maintext     00000
 __LnvBANK0                              nvBANK0      00000
 __LnvBANK1                              nvBANK1      00000
-__Lpa_nodes                             pa_nodes     00000
+__Lpa_nodes0                            pa_nodes0    00000
 __Lpowerup                              powerup      00000
 __Lram                                  ram          00000
 __Lreset_vec                            reset_vec    00000
@@ -981,184 +977,185 @@ __S0                                    (abs)        0800B
 __S1                                    (abs)        001DC
 __S2                                    (abs)        00000
 __S3                                    (abs)        00000
-___bmul                                 cinit        00CFD
+___bmul                                 cinit        00D05
 ___bmul@multiplicand                    cstackBANK0  0004E
 ___bmul@multiplier                      cstackBANK0  00050
 ___bmul@product                         cstackBANK0  0004F
 ___int_sp                               stack        00000
 ___latbits                              (abs)        00002
 ___sp                                   stack        00000
-___wmul                                 cinit        00CD1
+___wmul                                 cinit        00CD9
 ___wmul@multiplicand                    cstackBANK0  00050
 ___wmul@multiplier                      cstackBANK0  0004E
 ___wmul@product                         cstackBANK0  00052
-__end_ofPL10                            text27       002F1
-__end_ofPL100                           text74       005EA
-__end_ofPL102                           cinit        00F78
-__end_ofPL104                           text100      007D0
-__end_ofPL106                           text100      007D5
-__end_ofPL108                           cinit        00F7D
-__end_ofPL110                           cinit        00F82
-__end_ofPL112                           text100      007DA
-__end_ofPL12                            text74       005C9
-__end_ofPL14                            cinit        00ED9
-__end_ofPL16                            text23       01703
-__end_ofPL18                            text74       005D0
-__end_ofPL2                             cinit        00EBF
-__end_ofPL20                            cinit        00EEA
-__end_ofPL22                            text27       002F8
-__end_ofPL24                            cinit        00EEF
-__end_ofPL26                            cinit        00EF9
-__end_ofPL28                            cinit        00F08
-__end_ofPL30                            cinit        00F11
-__end_ofPL32                            cinit        00F1E
-__end_ofPL34                            cinit        00F23
-__end_ofPL36                            text27       00304
-__end_ofPL38                            text27       00310
-__end_ofPL4                             text27       002E6
-__end_ofPL40                            cinit        00F28
-__end_ofPL42                            text27       0031C
-__end_ofPL44                            cinit        00F34
-__end_ofPL46                            text27       000A7
-__end_ofPL48                            text27       00328
-__end_ofPL50                            cinit        00F3F
-__end_ofPL52                            cinit        00F49
-__end_ofPL54                            cinit        00F53
-__end_ofPL56                            text27       000B1
-__end_ofPL58                            cinit        00F5A
-__end_ofPL6                             text74       005B7
-__end_ofPL60                            text100      007CB
-__end_ofPL62                            text27       00330
-__end_ofPL64                            text27       00338
-__end_ofPL66                            text27       00340
-__end_ofPL68                            text27       00348
-__end_ofPL70                            text27       00350
-__end_ofPL72                            text27       00358
-__end_ofPL74                            text27       000B9
-__end_ofPL76                            text74       005D8
-__end_ofPL78                            text74       005E0
-__end_ofPL8                             cinit        00EC7
-__end_ofPL80                            text23       01709
-__end_ofPL82                            text23       0170F
-__end_ofPL84                            cinit        00F60
-__end_ofPL86                            cinit        00F67
-__end_ofPL88                            text27       0035E
-__end_ofPL90                            text3        017FA
-__end_ofPL92                            cinit        00F6D
-__end_ofPL94                            cinit        00F73
-__end_ofPL96                            text3        01800
-__end_ofPL98                            text74       005E5
-__end_of_ADC_Conversion                 cinit        008FE
-__end_of_ADC_Initialize_Default         text3        017E1
-__end_of_Audio_GetValue                 cinit        008DD
-__end_of_Audio_PlaySound                text27       00162
-__end_of_Audio_SelectSound              text27       0017D
-__end_of_Audio_SetPlayMode              cinit        00A0D
-__end_of_Audio_SetVolume                cinit        00A24
-__end_of_Audio_StopSound                cinit        00CD1
-__end_of_DATAEE_ReadBuffer              text23       016EB
-__end_of_DATAEE_ReadByte                text23       016F9
-__end_of_DATAEE_WriteBuffer             cinit        00FB7
-__end_of_DATAEE_WriteByte               cinit        00FD8
-__end_of_EUSART_Initialize_Default      text3        017F5
-__end_of_EUSART_Transmit_ISR            text106      01550
-__end_of_EUSART_Write                   cinit        00CFD
+__end_ofPL10                            text75       005FD
+__end_ofPL100                           cinit        00F66
+__end_ofPL102                           text101      017F6
+__end_ofPL104                           cinit        00F6B
+__end_ofPL106                           text101      017FB
+__end_ofPL108                           text101      01800
+__end_ofPL110                           cinit        00F70
+__end_ofPL112                           cinit        00F75
+__end_ofPL12                            text75       00297
+__end_ofPL14                            cinit        00ECC
+__end_ofPL16                            text23       00768
+__end_ofPL18                            text75       0029E
+__end_ofPL2                             text75       00334
+__end_ofPL20                            cinit        00EDD
+__end_ofPL22                            text75       00604
+__end_ofPL24                            cinit        00EE2
+__end_ofPL26                            cinit        00EEC
+__end_ofPL28                            cinit        00EFB
+__end_ofPL30                            cinit        00F04
+__end_ofPL32                            cinit        00F11
+__end_ofPL34                            cinit        00F16
+__end_ofPL36                            text75       00610
+__end_ofPL38                            text75       0061C
+__end_ofPL4                             text75       005F2
+__end_ofPL40                            cinit        00F1B
+__end_ofPL42                            text75       00628
+__end_ofPL44                            cinit        00F27
+__end_ofPL46                            text75       003B5
+__end_ofPL48                            text75       00634
+__end_ofPL50                            cinit        00F32
+__end_ofPL52                            cinit        00F3C
+__end_ofPL54                            text75       0033E
+__end_ofPL56                            text75       003BF
+__end_ofPL58                            cinit        00F43
+__end_ofPL6                             text75       00285
+__end_ofPL60                            text101      017F1
+__end_ofPL62                            text75       002A6
+__end_ofPL64                            text75       0063C
+__end_ofPL66                            text75       00644
+__end_ofPL68                            text75       0064C
+__end_ofPL70                            text75       00654
+__end_ofPL72                            text75       0065C
+__end_ofPL74                            text75       00664
+__end_ofPL76                            text75       003C7
+__end_ofPL78                            text75       002AE
+__end_ofPL8                             cinit        00EBA
+__end_ofPL80                            text23       0076E
+__end_ofPL82                            text23       00774
+__end_ofPL84                            cinit        00F49
+__end_ofPL86                            cinit        00F50
+__end_ofPL88                            text75       0066A
+__end_ofPL90                            text3        0160A
+__end_ofPL92                            cinit        00F56
+__end_ofPL94                            cinit        00F5C
+__end_ofPL96                            text3        01610
+__end_ofPL98                            cinit        00F61
+__end_of_ADC_Conversion                 cinit        008F9
+__end_of_ADC_Initialize_Default         text3        015F1
+__end_of_Audio_GetValue                 cinit        008D8
+__end_of_Audio_PlaySound                text75       00470
+__end_of_Audio_SelectSound              text75       0048B
+__end_of_Audio_SetPlayMode              cinit        00A16
+__end_of_Audio_SetVolume                cinit        00A2D
+__end_of_Audio_StopSound                cinit        00CD9
+__end_of_DATAEE_ReadBuffer              text23       0071F
+__end_of_DATAEE_ReadByte                text23       0072D
+__end_of_DATAEE_WriteBuffer             cinit        00FDF
+__end_of_DATAEE_WriteByte               cinit        01000
+__end_of_EUSART_Initialize_Default      text3        01605
+__end_of_EUSART_Transmit_ISR            text107      0151F
+__end_of_EUSART_Write                   cinit        00D05
 __end_of_GAIN                           stringtext   01805
-__end_of_IR_Decode                      text100      006B8
-__end_of_IR_ExitSet                     cinit        00DF6
-__end_of_IR_ExitTimeout                 cinit        00FF0
-__end_of_IR_GetIndex                    cinit        00DED
-__end_of_IR_GetKeyType                  text100      007BF
-__end_of_IR_IsValidTime                 cinit        00E44
-__end_of_IR_KeyAction                   cinit        00CBF
-__end_of_IR_KeyAtionIfPressed           cinit        00E48
-__end_of_IR_ResetIfTMR1Overflow         cinit        00E89
-__end_of_IR_ScanLongPress               text74       0045F
-__end_of_IR_UpdateSetStatus             cinit        00E9A
+__end_of_IR_Decode                      text101      016DE
+__end_of_IR_ExitSet                     cinit        00DFE
+__end_of_IR_ExitTimeout                 cinit        00FC8
+__end_of_IR_GetIndex                    cinit        00DF5
+__end_of_IR_GetKeyType                  text101      017E5
+__end_of_IR_IsValidTime                 cinit        00E4C
+__end_of_IR_KeyAction                   cinit        00CC7
+__end_of_IR_KeyAtionIfPressed           cinit        00E50
+__end_of_IR_ResetIfTMR1Overflow         cinit        00E91
+__end_of_IR_ScanLongPress               text75       0012F
+__end_of_IR_UpdateSetStatus             cinit        00EA2
 __end_of_ISR                            intentry     0002E
-__end_of_Interrupt_Initialize           cinit        00EB5
-__end_of_Led_AutoRun                    text27       0009B
-__end_of_Led_CheckAutoStatus            text26       01638
-__end_of_Led_DynamicCloud               text27       002B4
-__end_of_Led_DynamicMoon                text27       001E3
-__end_of_Led_DynamicStorm               text27       00244
-__end_of_Led_DynamicWave                text27       0010B
-__end_of_Led_InitPara                   text23       016D4
-__end_of_Led_Initialize                 cinit        009F6
-__end_of_Led_Notice                     text69       0159F
-__end_of_Led_Ramp                       text74       005B0
-__end_of_Led_Run                        text74       0037F
-__end_of_Led_RunMusic                   text27       00150
-__end_of_Led_SaveParaIfChanged          cinit        00FA0
-__end_of_Led_SetCustom                  text74       0051E
-__end_of_Led_StartNotice                cinit        00D64
-__end_of_Led_TurnOffDirect              text69       015A8
-__end_of_Led_TurnOffRamp                cinit        00A34
-__end_of_Led_TurnOnDirect               text69       015B1
-__end_of_Led_TurnOnRamp                 cinit        00A46
-__end_of_Led_UpdateBright               cinit        00A5F
-__end_of_OSCILLATOR_Initialize          text3        01732
-__end_of_PIN_Initialize                 text3        0177F
-__end_of_PWM1_Initialize                text3        01785
-__end_of_PWM1_LoadDutyValue             text56       014E7
-__end_of_PWM2_Initialize                text3        0178E
-__end_of_PWM2_LoadDutyValue             text55       014F9
-__end_of_PWM3_Initialize                text3        01799
-__end_of_PWM3_LoadDutyValue             text54       0150B
-__end_of_PWM4_Initialize                text3        017A4
-__end_of_PWM4_LoadDutyValue             text53       0151D
-__end_of_PWM5_Initialize                text3        017AA
-__end_of_PWM5_LoadDutyValue             text57       007EF
-__end_of_RTC_GetTime                    cinit        00D57
-__end_of_RTC_HourReady                  cinit        00FDD
-__end_of_RTC_MinuteReady                cinit        00FE1
-__end_of_RTC_OnSecond                   text105      01539
-__end_of_RTC_SecondReady                cinit        00FE6
-__end_of_SYSTEM_Initialize              text3        01728
-__end_of_TMR0_ISR                       text104      014B7
-__end_of_TMR0_Initialize_Default        text3        017B5
-__end_of_TMR0_SetInterruptHandler       cinit        00F8A
-__end_of_TMR0_StartTimer                cinit        00EB7
-__end_of_TMR1_GATE_ISR                  text99       014C3
-__end_of_TMR1_Gate_SetInterruptHandler  cinit        00F92
-__end_of_TMR1_Initialize_Default        text3        017C4
-__end_of_TMR1_StartTimer                cinit        00E4B
-__end_of_TMR1_StopTimer                 cinit        00E8E
-__end_of_TMR2_DisableInterrupt          cinit        00D67
-__end_of_TMR2_EnableInterrupt           cinit        00E8C
-__end_of_TMR2_ISR                       text73       014CF
-__end_of_TMR2_Initialize_Default        text3        017CE
-__end_of_TMR2_SetInterruptHandler       cinit        00FF8
-__end_of_TMR2_StartTimer                cinit        00FE8
-__end_of_TMR4_ISR                       text68       014DB
-__end_of_TMR4_Initialize_Default        text3        017D9
-__end_of_TMR4_SetInterruptHandler       cinit        01000
-__end_of_TMR4_StartTimer                cinit        00D6A
-__end_of_TMR4_StopTimer                 text69       015B4
-__end_of_Util_DecValue                  cinit        00D30
-__end_of_Util_IncValue                  cinit        00D56
+__end_of_Interrupt_Initialize           cinit        00F90
+__end_of_Led_AutoRun                    text75       003A9
+__end_of_Led_CheckAutoStatus            text75       0032C
+__end_of_Led_DynamicCloud               text75       005C2
+__end_of_Led_DynamicMoon                text75       004F1
+__end_of_Led_DynamicStorm               text75       00552
+__end_of_Led_DynamicWave                text75       00419
+__end_of_Led_FirstPowerUp               text23       0075E
+__end_of_Led_InitPara                   text23       00708
+__end_of_Led_Initialize                 cinit        009FF
+__end_of_Led_Notice                     text70       0079B
+__end_of_Led_Ramp                       text75       0027E
+__end_of_Led_Run                        text75       00051
+__end_of_Led_RunMusic                   text75       0045E
+__end_of_Led_SaveParaIfChanged          cinit        00EB0
+__end_of_Led_SetCustom                  text75       001EE
+__end_of_Led_StartNotice                cinit        00D6C
+__end_of_Led_TurnOffDirect              text70       007A4
+__end_of_Led_TurnOffRamp                cinit        00A3D
+__end_of_Led_TurnOnDirect               text70       007AD
+__end_of_Led_TurnOnRamp                 cinit        00A50
+__end_of_Led_UpdateBright               cinit        00A69
+__end_of_OSCILLATOR_Initialize          text3        01542
+__end_of_PIN_Initialize                 text3        0158F
+__end_of_PWM1_Initialize                text3        01595
+__end_of_PWM1_LoadDutyValue             text57       014B6
+__end_of_PWM2_Initialize                text3        0159E
+__end_of_PWM2_LoadDutyValue             text56       014C8
+__end_of_PWM3_Initialize                text3        015A9
+__end_of_PWM3_LoadDutyValue             text55       014DA
+__end_of_PWM4_Initialize                text3        015B4
+__end_of_PWM4_LoadDutyValue             text54       014EC
+__end_of_PWM5_Initialize                text3        015BA
+__end_of_PWM5_LoadDutyValue             text58       007ED
+__end_of_RTC_GetTime                    cinit        00D5F
+__end_of_RTC_HourReady                  cinit        00FB5
+__end_of_RTC_MinuteReady                cinit        00FB9
+__end_of_RTC_OnSecond                   text106      01508
+__end_of_RTC_SecondReady                cinit        00FBE
+__end_of_SYSTEM_Initialize              text3        01538
+__end_of_TMR0_ISR                       text105      01486
+__end_of_TMR0_Initialize_Default        text3        015C5
+__end_of_TMR0_SetInterruptHandler       cinit        00F98
+__end_of_TMR0_StartTimer                cinit        00EB2
+__end_of_TMR1_GATE_ISR                  text100      01492
+__end_of_TMR1_Gate_SetInterruptHandler  cinit        00FA0
+__end_of_TMR1_Initialize_Default        text3        015D4
+__end_of_TMR1_StartTimer                cinit        00E53
+__end_of_TMR1_StopTimer                 cinit        00E96
+__end_of_TMR2_DisableInterrupt          cinit        00D6F
+__end_of_TMR2_EnableInterrupt           cinit        00E94
+__end_of_TMR2_ISR                       text74       0149E
+__end_of_TMR2_Initialize_Default        text3        015DE
+__end_of_TMR2_SetInterruptHandler       cinit        00FA8
+__end_of_TMR2_StartTimer                cinit        00FC0
+__end_of_TMR4_ISR                       text69       014AA
+__end_of_TMR4_Initialize_Default        text3        015E9
+__end_of_TMR4_SetInterruptHandler       cinit        00FB0
+__end_of_TMR4_StartTimer                cinit        00D72
+__end_of_TMR4_StopTimer                 text70       007B0
+__end_of_Util_DecValue                  cinit        00D38
+__end_of_Util_IncValue                  cinit        00D5E
 __end_of_VOLUME                         stringtext   0180A
-__end_of___bmul                         cinit        00D0A
-__end_of___wmul                         cinit        00CE6
-__end_of__initialization                cinit        00842
-__end_of_main                           cinit        0088D
-__end_ofi1_EUSART_Write                 text27       00191
-__end_ofi1_IR_GetIndex                  text74       004E2
-__end_ofi1_Led_StartNotice              text74       004EE
-__end_ofi1_Led_UpdateBright             text27       002DC
-__end_ofi1_PWM1_LoadDutyValue           text56       014ED
-__end_ofi1_PWM2_LoadDutyValue           text55       014FF
-__end_ofi1_PWM3_LoadDutyValue           text54       01511
-__end_ofi1_PWM4_LoadDutyValue           text53       01523
-__end_ofi1_PWM5_LoadDutyValue           text57       007FE
-__end_ofi1_TMR2_DisableInterrupt        text100      007C5
-__end_ofi1_TMR2_EnableInterrupt         text100      007C2
-__end_ofi1_TMR4_StartTimer              text74       00579
-__end_ofi1_Util_DecValue                text74       00550
-__end_ofi1_Util_IncValue                text74       00576
-__end_ofi1___bmul                       text74       0052A
-__end_ofi1___wmul                       text27       002C9
-__initialization                        cinit        0080A
+__end_of___bmul                         cinit        00D12
+__end_of___wmul                         cinit        00CEE
+__end_of__initialization                cinit        0083D
+__end_of_main                           cinit        00888
+__end_ofi1_EUSART_Write                 text75       0049F
+__end_ofi1_IR_GetIndex                  text75       001B2
+__end_ofi1_Led_StartNotice              text75       001BE
+__end_ofi1_Led_UpdateBright             text75       005E8
+__end_ofi1_PWM1_LoadDutyValue           text57       014BC
+__end_ofi1_PWM2_LoadDutyValue           text56       014CE
+__end_ofi1_PWM3_LoadDutyValue           text55       014E0
+__end_ofi1_PWM4_LoadDutyValue           text54       014F2
+__end_ofi1_PWM5_LoadDutyValue           text58       007FC
+__end_ofi1_TMR2_DisableInterrupt        text101      017EB
+__end_ofi1_TMR2_EnableInterrupt         text101      017E8
+__end_ofi1_TMR4_StartTimer              text75       00249
+__end_ofi1_Util_DecValue                text75       00220
+__end_ofi1_Util_IncValue                text75       00246
+__end_ofi1___bmul                       text75       001FA
+__end_ofi1___wmul                       text75       005D7
+__initialization                        cinit        00805
 __pbssBANK0                             bssBANK0     00020
 __pbssBANK1                             bssBANK1     000C8
 __pbssBANK2                             bssBANK2     00120
@@ -1168,118 +1165,119 @@ __pcstackBANK3                          cstackBANK3  001C0
 __pcstackCOMMON                         cstackCOMMON 00070
 __pdataBANK1                            dataBANK1    000A0
 __pdataBANK3                            dataBANK3    001D2
-__pidataBANK1                           idataBANK1   01550
-__pidataBANK3                           idataBANK3   00800
+__pidataBANK1                           idataBANK1   007B0
+__pidataBANK3                           idataBANK3   01470
 __pintentry                             intentry     00004
-__pmaintext                             cinit        00845
+__pmaintext                             cinit        00840
 __pnvBANK0                              nvBANK0      0005E
 __pnvBANK1                              nvBANK1      000E2
 __pstringtext                           stringtext   01800
-__ptext1                                cinit        00FE6
-__ptext10                               text3        0178E
-__ptext100                              text100      005EA
-__ptext101                              text100      007BF
-__ptext102                              text100      007C2
-__ptext103                              text100      006B8
-__ptext104                              text104      014AB
-__ptext105                              text105      01523
-__ptext106                              text106      01539
-__ptext11                               text3        01785
-__ptext12                               text3        0177F
-__ptext13                               text3        01732
-__ptext14                               text3        01728
-__ptext15                               text3        017E1
-__ptext16                               text3        017D9
-__ptext17                               cinit        00FE1
-__ptext18                               cinit        00FDD
-__ptext19                               cinit        00FD8
-__ptext2                                cinit        00EB5
-__ptext20                               cinit        00F92
-__ptext21                               cinit        00FA0
-__ptext22                               cinit        00FB7
-__ptext23                               text23       01638
-__ptext24                               text23       016D4
-__ptext25                               text23       016EB
-__ptext26                               text26       015B4
-__ptext27                               text27       00030
-__ptext28                               cinit        00E9A
-__ptext29                               cinit        00FF8
-__ptext3                                text3        0170F
-__ptext30                               cinit        00FF0
-__ptext31                               cinit        00F8A
-__ptext32                               cinit        00F82
-__ptext33                               cinit        00E8E
-__ptext34                               cinit        00FE8
-__ptext35                               cinit        00E4B
-__ptext36                               cinit        00E8C
-__ptext37                               cinit        00E48
-__ptext38                               cinit        00E44
-__ptext39                               cinit        00A5F
-__ptext4                                text3        017CE
-__ptext40                               cinit        00D30
-__ptext41                               cinit        00D0A
-__ptext42                               cinit        00E89
-__ptext43                               cinit        00D64
-__ptext44                               cinit        00DF6
-__ptext45                               cinit        00CFD
-__ptext46                               cinit        00D6A
-__ptext47                               cinit        00DED
-__ptext48                               cinit        00D57
-__ptext49                               cinit        00D67
-__ptext5                                text3        017C4
-__ptext50                               cinit        008FE
-__ptext51                               cinit        00D56
-__ptext52                               cinit        00A46
-__ptext53                               text53       01511
-__ptext54                               text54       014FF
-__ptext55                               text55       014ED
-__ptext56                               text56       014DB
-__ptext57                               text57       007DA
-__ptext58                               cinit        00A34
-__ptext59                               cinit        00A24
-__ptext6                                text3        017B5
-__ptext60                               cinit        00CBF
-__ptext61                               cinit        00A0D
-__ptext62                               cinit        009F6
-__ptext63                               cinit        00CE6
-__ptext64                               cinit        0088D
-__ptext65                               cinit        00CD1
-__ptext66                               cinit        008DD
-__ptext68                               text68       014CF
-__ptext69                               text69       01578
-__ptext7                                text3        017AA
-__ptext70                               text69       015B1
-__ptext71                               text69       015A8
-__ptext72                               text69       0159F
-__ptext73                               text73       014C3
-__ptext74                               text74       0035E
-__ptext75                               text27       0010B
-__ptext76                               text27       000B9
-__ptext77                               text27       001E3
-__ptext78                               text27       00191
-__ptext79                               text27       00244
-__ptext8                                text3        017A4
-__ptext80                               text27       002B4
-__ptext81                               text27       002C9
-__ptext82                               text27       00162
-__ptext83                               text27       00150
-__ptext84                               text27       0017D
-__ptext85                               text74       00579
-__ptext86                               text53       0151D
-__ptext87                               text54       0150B
-__ptext88                               text55       014F9
-__ptext89                               text56       014E7
-__ptext9                                text3        01799
-__ptext90                               text57       007EF
-__ptext91                               text74       0037F
-__ptext92                               text74       00550
-__ptext93                               text74       0052A
-__ptext94                               text74       004E2
-__ptext95                               text74       00576
-__ptext96                               text74       0045F
-__ptext97                               text74       004EE
-__ptext98                               text74       0051E
-__ptext99                               text99       014B7
+__ptext1                                cinit        00FBE
+__ptext10                               text3        0159E
+__ptext100                              text100      01486
+__ptext101                              text101      01610
+__ptext102                              text101      017E5
+__ptext103                              text101      017E8
+__ptext104                              text101      016DE
+__ptext105                              text105      0147A
+__ptext106                              text106      014F2
+__ptext107                              text107      01508
+__ptext11                               text3        01595
+__ptext12                               text3        0158F
+__ptext13                               text3        01542
+__ptext14                               text3        01538
+__ptext15                               text3        015F1
+__ptext16                               text3        015E9
+__ptext17                               cinit        00FB9
+__ptext18                               cinit        00FB5
+__ptext19                               cinit        00FB0
+__ptext2                                cinit        00EB0
+__ptext20                               cinit        00EA2
+__ptext21                               cinit        00FC8
+__ptext22                               cinit        00FDF
+__ptext23                               text23       0066A
+__ptext24                               text23       0072D
+__ptext25                               text23       00708
+__ptext26                               text23       0071F
+__ptext27                               text75       002AE
+__ptext28                               text75       0033E
+__ptext29                               cinit        00F75
+__ptext3                                text3        0151F
+__ptext30                               cinit        00FA8
+__ptext31                               cinit        00FA0
+__ptext32                               cinit        00F98
+__ptext33                               cinit        00F90
+__ptext34                               cinit        00E96
+__ptext35                               cinit        00FC0
+__ptext36                               cinit        00E53
+__ptext37                               cinit        00E94
+__ptext38                               cinit        00E50
+__ptext39                               cinit        00E4C
+__ptext4                                text3        015DE
+__ptext40                               cinit        00A69
+__ptext41                               cinit        00D38
+__ptext42                               cinit        00D12
+__ptext43                               cinit        00E91
+__ptext44                               cinit        00D6C
+__ptext45                               cinit        00DFE
+__ptext46                               cinit        00D05
+__ptext47                               cinit        00D72
+__ptext48                               cinit        00DF5
+__ptext49                               cinit        00D5F
+__ptext5                                text3        015D4
+__ptext50                               cinit        00D6F
+__ptext51                               cinit        008F9
+__ptext52                               cinit        00D5E
+__ptext53                               cinit        00A50
+__ptext54                               text54       014E0
+__ptext55                               text55       014CE
+__ptext56                               text56       014BC
+__ptext57                               text57       014AA
+__ptext58                               text58       007D8
+__ptext59                               cinit        00A3D
+__ptext6                                text3        015C5
+__ptext60                               cinit        00A2D
+__ptext61                               cinit        00CC7
+__ptext62                               cinit        00A16
+__ptext63                               cinit        009FF
+__ptext64                               cinit        00CEE
+__ptext65                               cinit        00888
+__ptext66                               cinit        00CD9
+__ptext67                               cinit        008D8
+__ptext69                               text69       0149E
+__ptext7                                text3        015BA
+__ptext70                               text70       00774
+__ptext71                               text70       007AD
+__ptext72                               text70       007A4
+__ptext73                               text70       0079B
+__ptext74                               text74       01492
+__ptext75                               text75       00030
+__ptext76                               text75       00419
+__ptext77                               text75       003C7
+__ptext78                               text75       004F1
+__ptext79                               text75       0049F
+__ptext8                                text3        015B4
+__ptext80                               text75       00552
+__ptext81                               text75       005C2
+__ptext82                               text75       005D7
+__ptext83                               text75       00470
+__ptext84                               text75       0045E
+__ptext85                               text75       0048B
+__ptext86                               text75       00249
+__ptext87                               text54       014EC
+__ptext88                               text55       014DA
+__ptext89                               text56       014C8
+__ptext9                                text3        015A9
+__ptext90                               text57       014B6
+__ptext91                               text58       007ED
+__ptext92                               text75       00051
+__ptext93                               text75       00220
+__ptext94                               text75       001FA
+__ptext95                               text75       001B2
+__ptext96                               text75       00246
+__ptext97                               text75       0012F
+__ptext98                               text75       001BE
+__ptext99                               text75       001EE
 __size_of_ADC_Conversion                (abs)        00000
 __size_of_ADC_Initialize_Default        (abs)        00000
 __size_of_Audio_GetValue                (abs)        00000
@@ -1314,6 +1312,7 @@ __size_of_Led_DynamicCloud              (abs)        00000
 __size_of_Led_DynamicMoon               (abs)        00000
 __size_of_Led_DynamicStorm              (abs)        00000
 __size_of_Led_DynamicWave               (abs)        00000
+__size_of_Led_FirstPowerUp              (abs)        00000
 __size_of_Led_InitPara                  (abs)        00000
 __size_of_Led_Initialize                (abs)        00000
 __size_of_Led_Notice                    (abs)        00000
@@ -1387,27 +1386,27 @@ __size_ofi1_Util_DecValue               (abs)        00000
 __size_ofi1_Util_IncValue               (abs)        00000
 __size_ofi1___bmul                      (abs)        00000
 __size_ofi1___wmul                      (abs)        00000
-_adc_result                             bssBANK0     0002A
-_audio_value                            bssBANK0     0002C
+_adc_result                             bssBANK0     0002C
+_audio_value                            bssBANK0     0002A
 _gLedPara                               bssBANK2     00120
 _gLedRunPara                            bssBANK1     000C8
 _ir_state                               bssBANK0     00036
-_keyValue                               bssBANK0     00032
+_keyValue                               bssBANK0     00030
 _loadDuty                               dataBANK1    000BE
-_main                                   cinit        00845
-_rtc_status                             bssBANK0     00033
+_main                                   cinit        00840
+_rtc_status                             bssBANK0     00031
 _rtc_time                               bssBANK0     0003D
-_tmr0_isr_handler                       nvBANK1      000E2
-_tmr1_gate_isr_handler                  nvBANK1      000E4
-_tmr2_isr_handler                       nvBANK1      000E6
-_tmr4_isr_handler                       nvBANK1      000E8
+_tmr0_isr_handler                       nvBANK1      000E8
+_tmr1_gate_isr_handler                  nvBANK1      000E6
+_tmr2_isr_handler                       nvBANK1      000E4
+_tmr4_isr_handler                       nvBANK1      000E2
 _txBuf                                  bssBANK3     001A0
 _txHead                                 bssBANK0     00034
 _txRemain                               nvBANK0      0005E
 _txTail                                 bssBANK0     00035
 btemp                                   (abs)        0007E
-clear_ram0                              clrtext      0149F
-end_of_initialization                   cinit        00842
+clear_ram0                              clrtext      01464
+end_of_initialization                   cinit        0083D
 i1EUSART_Write@byte                     cstackCOMMON 00070
 i1IR_GetIndex@idx                       cstackCOMMON 00070
 i1IR_GetIndex@keynum                    cstackCOMMON 00071
@@ -1424,29 +1423,29 @@ i1Util_DecValue@pSrc                    cstackCOMMON 00070
 i1Util_IncValue@delta                   cstackCOMMON 00074
 i1Util_IncValue@max                     cstackCOMMON 00072
 i1Util_IncValue@pSrc                    cstackCOMMON 00070
-i1_EUSART_Write                         text27       0017D
-i1_IR_GetIndex                          text74       0045F
-i1_Led_StartNotice                      text74       004E2
-i1_Led_UpdateBright                     text27       002C9
-i1_PWM1_LoadDutyValue                   text56       014E7
-i1_PWM2_LoadDutyValue                   text55       014F9
-i1_PWM3_LoadDutyValue                   text54       0150B
-i1_PWM4_LoadDutyValue                   text53       0151D
-i1_PWM5_LoadDutyValue                   text57       007EF
-i1_TMR2_DisableInterrupt                text100      007C2
-i1_TMR2_EnableInterrupt                 text100      007BF
-i1_TMR4_StartTimer                      text74       00576
-i1_Util_DecValue                        text74       0052A
-i1_Util_IncValue                        text74       00550
-i1___bmul                               text74       0051E
+i1_EUSART_Write                         text75       0048B
+i1_IR_GetIndex                          text75       0012F
+i1_Led_StartNotice                      text75       001B2
+i1_Led_UpdateBright                     text75       005D7
+i1_PWM1_LoadDutyValue                   text57       014B6
+i1_PWM2_LoadDutyValue                   text56       014C8
+i1_PWM3_LoadDutyValue                   text55       014DA
+i1_PWM4_LoadDutyValue                   text54       014EC
+i1_PWM5_LoadDutyValue                   text58       007ED
+i1_TMR2_DisableInterrupt                text101      017E8
+i1_TMR2_EnableInterrupt                 text101      017E5
+i1_TMR4_StartTimer                      text75       00246
+i1_Util_DecValue                        text75       001FA
+i1_Util_IncValue                        text75       00220
+i1___bmul                               text75       001EE
 i1___bmul@multiplicand                  cstackCOMMON 00070
 i1___bmul@multiplier                    cstackCOMMON 00071
 i1___bmul@product                       cstackCOMMON 00072
-i1___wmul                               text27       002B4
+i1___wmul                               text75       005C2
 i1___wmul@multiplicand                  cstackCOMMON 00072
 i1___wmul@multiplier                    cstackCOMMON 00070
 i1___wmul@product                       cstackCOMMON 00074
-init_ram                                inittext     014A5
+init_ram                                inittext     0146A
 int$flags                               (abs)        0007E
 intlevel0                               functab      00000
 intlevel1                               functab      00000
@@ -1458,7 +1457,7 @@ reset_vec                               reset_vec    00000
 stackhi                                 (abs)        023EF
 stacklo                                 (abs)        0212C
 start                                   init         0002E
-start_initialization                    cinit        0080A
+start_initialization                    cinit        00805
 wtemp0                                  (abs)        0007E
 
 
@@ -2093,7 +2092,7 @@ Total ram usage:        0 bytes
 
  *************** function _Led_SaveParaIfChanged *****************
  Defined at:
-		line 137 in file "user/src/led.c"
+		line 153 in file "user/src/led.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -2127,7 +2126,7 @@ Total ram usage:        0 bytes
  Parameters:    Size  Location     Type
   addr            2   18[BANK0 ] unsigned int 
   buf             1   20[BANK0 ] PTR unsigned char 
-		 -> gLedPara(76), 
+		 -> gLedPara(78), 
   len             1   21[BANK0 ] unsigned char 
  Auto vars:     Size  Location     Type
   i               1   22[BANK0 ] unsigned char 
@@ -2187,7 +2186,7 @@ Total ram usage:        4 bytes
 
  *************** function _Led_InitPara *****************
  Defined at:
-		line 17 in file "user/src/led.c"
+		line 31 in file "user/src/led.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -2211,9 +2210,40 @@ Total ram usage:        7 bytes
  Hardware stack levels required when called:    9
  This function calls:
 		_DATAEE_ReadBuffer
+		_Led_FirstPowerUp
 		___bmul
  This function is called by:
 		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _Led_FirstPowerUp *****************
+ Defined at:
+		line 17 in file "user/src/led.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+  i               1   16[BANK0 ] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, fsr1l, fsr1h, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       1       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       2       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       3       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        3 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    7
+ This function calls:
+		Nothing
+ This function is called by:
+		_Led_InitPara
  This function uses a non-reentrant model
 
 
@@ -2223,7 +2253,7 @@ Total ram usage:        7 bytes
  Parameters:    Size  Location     Type
   addr            2   16[BANK0 ] unsigned int 
   buf             1   18[BANK0 ] PTR unsigned char 
-		 -> gLedPara(76), 
+		 -> gLedPara(78), 
   len             1   19[BANK0 ] unsigned char 
  Auto vars:     Size  Location     Type
   i               1   20[BANK0 ] unsigned char 
@@ -2282,7 +2312,7 @@ Total ram usage:        2 bytes
 
  *************** function _Led_CheckAutoStatus *****************
  Defined at:
-		line 300 in file "user/src/led.c"
+		line 316 in file "user/src/led.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -2319,7 +2349,7 @@ Total ram usage:       10 bytes
 
  *************** function _Led_AutoRun *****************
  Defined at:
-		line 332 in file "user/src/led.c"
+		line 348 in file "user/src/led.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -2745,7 +2775,7 @@ Total ram usage:       18 bytes
  Parameters:    Size  Location     Type
   pSrc            2   14[BANK0 ] PTR unsigned int 
 		 -> gLedRunPara.mTargetBright(10), gLedRunPara.mCurrentBright(10), gLedRunPara(26), gLedPara.mVolume(1), 
-		 -> gLedPara(76), 
+		 -> gLedPara(78), 
   max             2   16[BANK0 ] unsigned int 
   delta           2   18[BANK0 ] unsigned int 
  Auto vars:     Size  Location     Type
@@ -2779,7 +2809,7 @@ Total ram usage:       10 bytes
 		line 15 in file "user/src/util.c"
  Parameters:    Size  Location     Type
   pSrc            2   14[BANK0 ] PTR unsigned int 
-		 -> gLedRunPara.mTargetBright(10), gLedRunPara(26), gLedPara.mVolume(1), gLedPara(76), 
+		 -> gLedRunPara.mTargetBright(10), gLedRunPara(26), gLedPara.mVolume(1), gLedPara(78), 
   min             2   16[BANK0 ] unsigned int 
   delta           2   18[BANK0 ] unsigned int 
  Auto vars:     Size  Location     Type
@@ -2906,7 +2936,7 @@ Total ram usage:        5 bytes
 
  *************** function ___bmul *****************
  Defined at:
-		line 4 in file "/Applications/microchip/xc8/v1.40/sources/common/Umul8.c"
+		line 4 in file "D:\Program Files\Microchip\xc8\v1.41\sources\common\Umul8.c"
  Parameters:    Size  Location     Type
   multiplier      1    wreg     unsigned char 
   multiplicand    1   14[BANK0 ] unsigned char 
@@ -3003,7 +3033,7 @@ Total ram usage:        0 bytes
 
  *************** function _Led_StartNotice *****************
  Defined at:
-		line 381 in file "user/src/led.c"
+		line 397 in file "user/src/led.c"
  Parameters:    Size  Location     Type
   cnt             1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -3065,7 +3095,7 @@ Total ram usage:        0 bytes
 
  *************** function _Led_Initialize *****************
  Defined at:
-		line 54 in file "user/src/led.c"
+		line 69 in file "user/src/led.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -3139,7 +3169,7 @@ Total ram usage:        0 bytes
 
  *************** function _Led_UpdateBright *****************
  Defined at:
-		line 144 in file "user/src/led.c"
+		line 160 in file "user/src/led.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -3335,7 +3365,7 @@ Total ram usage:        4 bytes
 
  *************** function _Led_TurnOnRamp *****************
  Defined at:
-		line 166 in file "user/src/led.c"
+		line 182 in file "user/src/led.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -3365,7 +3395,7 @@ Total ram usage:        1 bytes
 
  *************** function _Led_TurnOffRamp *****************
  Defined at:
-		line 173 in file "user/src/led.c"
+		line 189 in file "user/src/led.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -3552,7 +3582,7 @@ Total ram usage:        6 bytes
 
  *************** function ___wmul *****************
  Defined at:
-		line 15 in file "/Applications/microchip/xc8/v1.40/sources/common/Umul16.c"
+		line 15 in file "D:\Program Files\Microchip\xc8\v1.41\sources\common\Umul16.c"
  Parameters:    Size  Location     Type
   multiplier      2   14[BANK0 ] unsigned int 
   multiplicand    2   16[BANK0 ] unsigned int 
@@ -3681,7 +3711,7 @@ Total ram usage:        0 bytes
 
  *************** function _Led_Notice *****************
  Defined at:
-		line 386 in file "user/src/led.c"
+		line 402 in file "user/src/led.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -3743,7 +3773,7 @@ Total ram usage:        0 bytes
 
  *************** function _Led_TurnOnDirect *****************
  Defined at:
-		line 150 in file "user/src/led.c"
+		line 166 in file "user/src/led.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -3772,7 +3802,7 @@ Total ram usage:        0 bytes
 
  *************** function _Led_TurnOffDirect *****************
  Defined at:
-		line 158 in file "user/src/led.c"
+		line 174 in file "user/src/led.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -3832,7 +3862,7 @@ Total ram usage:        0 bytes
 
  *************** function _Led_Run *****************
  Defined at:
-		line 526 in file "user/src/led.c"
+		line 542 in file "user/src/led.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -3865,7 +3895,7 @@ Total ram usage:        1 bytes
 
  *************** function _Led_RunMusic *****************
  Defined at:
-		line 494 in file "user/src/led.c"
+		line 510 in file "user/src/led.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -3900,7 +3930,7 @@ Total ram usage:        1 bytes
 
  *************** function _Led_DynamicWave *****************
  Defined at:
-		line 406 in file "user/src/led.c"
+		line 422 in file "user/src/led.c"
  Parameters:    Size  Location     Type
   ptp             2    6[COMMON] unsigned int 
  Auto vars:     Size  Location     Type
@@ -3933,7 +3963,7 @@ Total ram usage:       19 bytes
 
  *************** function _Led_DynamicStorm *****************
  Defined at:
-		line 470 in file "user/src/led.c"
+		line 486 in file "user/src/led.c"
  Parameters:    Size  Location     Type
   ptp             2    6[COMMON] unsigned int 
  Auto vars:     Size  Location     Type
@@ -3966,7 +3996,7 @@ Total ram usage:       19 bytes
 
  *************** function _Led_DynamicMoon *****************
  Defined at:
-		line 424 in file "user/src/led.c"
+		line 440 in file "user/src/led.c"
  Parameters:    Size  Location     Type
   ptp             2    6[COMMON] unsigned int 
  Auto vars:     Size  Location     Type
@@ -3999,7 +4029,7 @@ Total ram usage:       19 bytes
 
  *************** function _Led_DynamicCloud *****************
  Defined at:
-		line 443 in file "user/src/led.c"
+		line 459 in file "user/src/led.c"
  Parameters:    Size  Location     Type
   ptp             2    6[COMMON] unsigned int 
  Auto vars:     Size  Location     Type
@@ -4032,7 +4062,7 @@ Total ram usage:       19 bytes
 
  *************** function i1___wmul *****************
  Defined at:
-		line 15 in file "/Applications/microchip/xc8/v1.40/sources/common/Umul16.c"
+		line 15 in file "D:\Program Files\Microchip\xc8\v1.41\sources\common\Umul16.c"
  Parameters:    Size  Location     Type
   multiplier      2    0[COMMON] unsigned int 
   multiplicand    2    2[COMMON] unsigned int 
@@ -4065,7 +4095,7 @@ Total ram usage:        6 bytes
 
  *************** function i1_Led_UpdateBright *****************
  Defined at:
-		line 144 in file "user/src/led.c"
+		line 160 in file "user/src/led.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -4193,7 +4223,7 @@ Total ram usage:        1 bytes
 
  *************** function _Led_Ramp *****************
  Defined at:
-		line 258 in file "user/src/led.c"
+		line 274 in file "user/src/led.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -4407,7 +4437,7 @@ Total ram usage:        3 bytes
  Parameters:    Size  Location     Type
   pSrc            2    0[COMMON] PTR unsigned int 
 		 -> gLedRunPara.mTargetBright(10), gLedRunPara.mCurrentBright(10), gLedRunPara(26), gLedPara.mVolume(1), 
-		 -> gLedPara(76), 
+		 -> gLedPara(78), 
   max             2    2[COMMON] unsigned int 
   delta           2    4[COMMON] unsigned int 
  Auto vars:     Size  Location     Type
@@ -4439,7 +4469,7 @@ Total ram usage:       10 bytes
 		line 15 in file "user/src/util.c"
  Parameters:    Size  Location     Type
   pSrc            2    0[COMMON] PTR unsigned int 
-		 -> gLedRunPara.mTargetBright(10), gLedRunPara(26), gLedPara.mVolume(1), gLedPara(76), 
+		 -> gLedRunPara.mTargetBright(10), gLedRunPara(26), gLedPara.mVolume(1), gLedPara(78), 
   min             2    2[COMMON] unsigned int 
   delta           2    4[COMMON] unsigned int 
  Auto vars:     Size  Location     Type
@@ -4468,7 +4498,7 @@ Total ram usage:       10 bytes
 
  *************** function i1_Led_StartNotice *****************
  Defined at:
-		line 381 in file "user/src/led.c"
+		line 397 in file "user/src/led.c"
  Parameters:    Size  Location     Type
   cnt             1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -4557,7 +4587,7 @@ Total ram usage:        2 bytes
 
  *************** function _Led_SetCustom *****************
  Defined at:
-		line 240 in file "user/src/led.c"
+		line 256 in file "user/src/led.c"
  Parameters:    Size  Location     Type
   idx             1    wreg     unsigned char 
   pValue          1    3[COMMON] PTR unsigned int 
@@ -4591,7 +4621,7 @@ Total ram usage:        8 bytes
 
  *************** function i1___bmul *****************
  Defined at:
-		line 4 in file "/Applications/microchip/xc8/v1.40/sources/common/Umul8.c"
+		line 4 in file "D:\Program Files\Microchip\xc8\v1.41\sources\common\Umul8.c"
  Parameters:    Size  Location     Type
   multiplier      1    wreg     unsigned char 
   multiplicand    1    0[COMMON] unsigned char 
@@ -4870,236 +4900,237 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 driver/src/tmr1.c
-		_TMR1_Initialize_Default		CODE           	17B5	0000	16
-		_TMR1_StopTimer		CODE           	0E8C	0000	3
-		_TMR1_Gate_SetInterruptHandler		CODE           	0F8A	0000	9
-		_TMR1_StartTimer		CODE           	0E48	0000	4
-		_TMR1_GATE_ISR 		CODE           	14B7	0000	13
+		_TMR1_Initialize_Default		CODE           	15C5	0000	16
+		_TMR1_StopTimer		CODE           	0E94	0000	3
+		_TMR1_Gate_SetInterruptHandler		CODE           	0F98	0000	9
+		_TMR1_StartTimer		CODE           	0E50	0000	4
+		_TMR1_GATE_ISR 		CODE           	1486	0000	13
 
 driver/src/tmr1.c estimated size: 45
 
 driver/src/eusart.c
-		_EUSART_Write  		CODE           	0CE6	0000	24
-		_EUSART_Transmit_ISR		CODE           	1539	0000	24
-		_EUSART_Initialize_Default		CODE           	17E1	0000	21
+		_EUSART_Write  		CODE           	0CEE	0000	24
+		_EUSART_Transmit_ISR		CODE           	1508	0000	24
+		_EUSART_Initialize_Default		CODE           	15F1	0000	21
 
 driver/src/eusart.c estimated size: 69
 
 user/src/rtc.c
-		_RTC_HourReady 		CODE           	0FD8	0000	6
-		_RTC_OnSecond  		CODE           	1523	0000	23
-		_RTC_MinuteReady		CODE           	0FDD	0000	5
-		_RTC_SecondReady		CODE           	0FE1	0000	6
-		_RTC_GetTime   		CODE           	0D56	0000	2
+		_RTC_HourReady 		CODE           	0FB0	0000	6
+		_RTC_OnSecond  		CODE           	14F2	0000	23
+		_RTC_MinuteReady		CODE           	0FB5	0000	5
+		_RTC_SecondReady		CODE           	0FB9	0000	6
+		_RTC_GetTime   		CODE           	0D5E	0000	2
 
 user/src/rtc.c estimated size: 42
 
 user/src/util.c
-		_Util_IncValue 		CODE           	0D30	0000	39
-		_Util_DecValue 		CODE           	0D0A	0000	39
+		_Util_IncValue 		CODE           	0D38	0000	39
+		_Util_DecValue 		CODE           	0D12	0000	39
 
 user/src/util.c estimated size: 78
 
-user/src/led.c
-		_Led_SaveParaIfChanged		CODE           	0F92	0000	15
-		_Led_DynamicWave		CODE           	00B9	0000	83
-		_Led_DynamicMoon		CODE           	0191	0000	83
-		_Led_CheckAutoStatus		CODE           	15B4	0000	133
-		_Led_TurnOffRamp		CODE           	0A24	0000	17
-		_Led_InitPara  		CODE           	1638	0000	157
-		_Led_Initialize		CODE           	08FE	0000	249
-		_Led_SetCustom 		CODE           	04EE	0000	49
-		_Led_Run       		CODE           	035E	0000	34
-		_Led_RunMusic  		CODE           	010B	0000	70
-		_Led_UpdateBright		CODE           	0A46	0000	26
-		_Led_DynamicCloud		CODE           	0244	0000	113
-		_Led_DynamicStorm		CODE           	01E3	0000	98
-		_Led_AutoRun   		CODE           	0030	0000	108
-		_Led_TurnOnDirect		CODE           	15A8	0000	10
-		_Led_TurnOnRamp		CODE           	0A34	0000	19
-		_Led_Notice    		CODE           	1578	0000	40
-		_Led_TurnOffDirect		CODE           	159F	0000	10
-		_Led_StartNotice		CODE           	0D57	0000	14
-		_Led_Ramp      		CODE           	0579	0000	56
+D:\Program Files\Microchip\xc8\v1.41\sources\common\Umul8.c
+		___bmul        		CODE           	0D05	0000	14
 
-user/src/led.c estimated size: 1384
+D:\Program Files\Microchip\xc8\v1.41\sources\common\Umul8.c estimated size: 14
+
+D:\Program Files\Microchip\xc8\v1.41\sources\common\Umul16.c
+		___wmul        		CODE           	0CD9	0000	22
+
+D:\Program Files\Microchip\xc8\v1.41\sources\common\Umul16.c estimated size: 22
+
+user/src/led.c
+		_Led_SaveParaIfChanged		CODE           	0EA2	0000	15
+		_Led_DynamicWave		CODE           	03C7	0000	83
+		_Led_DynamicMoon		CODE           	049F	0000	83
+		_Led_CheckAutoStatus		CODE           	02AE	0000	127
+		_Led_TurnOffRamp		CODE           	0A2D	0000	17
+		_Led_InitPara  		CODE           	066A	0000	159
+		_Led_FirstPowerUp		CODE           	072D	0000	50
+		_Led_Initialize		CODE           	08F9	0000	263
+		_Led_SetCustom 		CODE           	01BE	0000	49
+		_Led_Run       		CODE           	0030	0000	34
+		_Led_RunMusic  		CODE           	0419	0000	70
+		_Led_UpdateBright		CODE           	0A50	0000	26
+		_Led_DynamicCloud		CODE           	0552	0000	113
+		_Led_DynamicStorm		CODE           	04F1	0000	98
+		_Led_AutoRun   		CODE           	033E	0000	108
+		_Led_TurnOnDirect		CODE           	07A4	0000	10
+		_Led_TurnOnRamp		CODE           	0A3D	0000	20
+		_Led_Notice    		CODE           	0774	0000	40
+		_Led_TurnOffDirect		CODE           	079B	0000	10
+		_Led_StartNotice		CODE           	0D5F	0000	14
+		_Led_Ramp      		CODE           	0249	0000	54
+
+user/src/led.c estimated size: 1443
 
 user/src/ir.c
-		_IR_ScanLongPress		CODE           	037F	0000	225
-		_IR_ExitSet    		CODE           	0DED	0000	10
-		_IR_UpdateSetStatus		CODE           	0E8E	0000	13
-		_IR_GetIndex   		CODE           	0D6A	0000	132
-		_IR_Decode     		CODE           	05EA	0000	207
-		_IR_IsValidTime		CODE           	0DF6	0000	79
-		_IR_ResetIfTMR1Overflow		CODE           	0E4B	0000	63
-		_IR_ExitTimeout		CODE           	0FE8	0000	9
-		_IR_KeyAtionIfPressed		CODE           	0E44	0000	5
-		_IR_GetKeyType 		CODE           	06B8	0000	264
-		_IR_KeyAction  		CODE           	0A5F	0000	609
+		_IR_ScanLongPress		CODE           	0051	0000	223
+		_IR_ExitSet    		CODE           	0DF5	0000	10
+		_IR_UpdateSetStatus		CODE           	0E96	0000	13
+		_IR_GetIndex   		CODE           	0D72	0000	132
+		_IR_Decode     		CODE           	1610	0000	207
+		_IR_IsValidTime		CODE           	0DFE	0000	79
+		_IR_ResetIfTMR1Overflow		CODE           	0E53	0000	63
+		_IR_ExitTimeout		CODE           	0FC0	0000	9
+		_IR_KeyAtionIfPressed		CODE           	0E4C	0000	5
+		_IR_GetKeyType 		CODE           	16DE	0000	264
+		_IR_KeyAction  		CODE           	0A69	0000	607
 
-user/src/ir.c estimated size: 1616
+user/src/ir.c estimated size: 1612
 
 user/src/main.c
 		_ISR           		CODE           	0004	0000	43
-		_main          		CODE           	0845	0000	73
-		_Interrupt_Initialize		CODE           	0E9A	0000	28
-		_OSCILLATOR_Initialize		CODE           	1728	0000	11
-		_SYSTEM_Initialize		CODE           	170F	0000	26
-		_PIN_Initialize		CODE           	1732	0000	78
+		_main          		CODE           	0840	0000	73
+		_Interrupt_Initialize		CODE           	0F75	0000	28
+		_OSCILLATOR_Initialize		CODE           	1538	0000	11
+		_SYSTEM_Initialize		CODE           	151F	0000	26
+		_PIN_Initialize		CODE           	1542	0000	78
 
 user/src/main.c estimated size: 259
 
 driver/src/tmr4.c
-		_TMR4_ISR      		CODE           	14CF	0000	13
-		_TMR4_SetInterruptHandler		CODE           	0FF8	0000	9
-		_TMR4_Initialize_Default		CODE           	17CE	0000	12
-		_TMR4_StopTimer		CODE           	15B1	0000	4
-		_TMR4_StartTimer		CODE           	0D67	0000	4
+		_TMR4_ISR      		CODE           	149E	0000	13
+		_TMR4_SetInterruptHandler		CODE           	0FA8	0000	9
+		_TMR4_Initialize_Default		CODE           	15DE	0000	12
+		_TMR4_StopTimer		CODE           	07AD	0000	4
+		_TMR4_StartTimer		CODE           	0D6F	0000	4
 
 driver/src/tmr4.c estimated size: 42
 
 driver/src/tmr2.c
-		_TMR2_ISR      		CODE           	14C3	0000	13
-		_TMR2_SetInterruptHandler		CODE           	0FF0	0000	9
-		_TMR2_Initialize_Default		CODE           	17C4	0000	11
-		_TMR2_StartTimer		CODE           	0FE6	0000	3
-		_TMR2_DisableInterrupt		CODE           	0D64	0000	4
-		_TMR2_EnableInterrupt		CODE           	0E89	0000	4
+		_TMR2_ISR      		CODE           	1492	0000	13
+		_TMR2_SetInterruptHandler		CODE           	0FA0	0000	9
+		_TMR2_Initialize_Default		CODE           	15D4	0000	11
+		_TMR2_StartTimer		CODE           	0FBE	0000	3
+		_TMR2_DisableInterrupt		CODE           	0D6C	0000	4
+		_TMR2_EnableInterrupt		CODE           	0E91	0000	4
 
 driver/src/tmr2.c estimated size: 44
 
 driver/src/tmr0.c
-		_TMR0_SetInterruptHandler		CODE           	0F82	0000	9
-		_TMR0_Initialize_Default		CODE           	17AA	0000	12
-		_TMR0_StartTimer		CODE           	0EB5	0000	3
-		_TMR0_ISR      		CODE           	14AB	0000	13
+		_TMR0_SetInterruptHandler		CODE           	0F90	0000	9
+		_TMR0_Initialize_Default		CODE           	15BA	0000	12
+		_TMR0_StartTimer		CODE           	0EB0	0000	3
+		_TMR0_ISR      		CODE           	147A	0000	13
 
 driver/src/tmr0.c estimated size: 37
 
-/Applications/microchip/xc8/v1.40/sources/common/Umul16.c
-		___wmul        		CODE           	0CD1	0000	22
-
-/Applications/microchip/xc8/v1.40/sources/common/Umul16.c estimated size: 22
-
 driver/src/pwm.c
-		_PWM1_Initialize		CODE           	177F	0000	7
-		_PWM5_LoadDutyValue		CODE           	07DA	0000	22
-		_PWM2_Initialize		CODE           	1785	0000	10
-		_PWM3_Initialize		CODE           	178E	0000	12
-		_PWM4_Initialize		CODE           	1799	0000	12
-		_PWM5_Initialize		CODE           	17A4	0000	7
-		_PWM1_LoadDutyValue		CODE           	14DB	0000	13
-		_PWM2_LoadDutyValue		CODE           	14ED	0000	13
-		_PWM3_LoadDutyValue		CODE           	14FF	0000	13
-		_PWM4_LoadDutyValue		CODE           	1511	0000	13
+		_PWM1_Initialize		CODE           	158F	0000	7
+		_PWM5_LoadDutyValue		CODE           	07D8	0000	22
+		_PWM2_Initialize		CODE           	1595	0000	10
+		_PWM3_Initialize		CODE           	159E	0000	12
+		_PWM4_Initialize		CODE           	15A9	0000	12
+		_PWM5_Initialize		CODE           	15B4	0000	7
+		_PWM1_LoadDutyValue		CODE           	14AA	0000	13
+		_PWM2_LoadDutyValue		CODE           	14BC	0000	13
+		_PWM3_LoadDutyValue		CODE           	14CE	0000	13
+		_PWM4_LoadDutyValue		CODE           	14E0	0000	13
 
 driver/src/pwm.c estimated size: 122
 
 driver/src/eeprom.c
-		_DATAEE_WriteByte		CODE           	0FB7	0000	34
-		_DATAEE_ReadBuffer		CODE           	16D4	0000	24
-		_DATAEE_ReadByte		CODE           	16EB	0000	15
-		_DATAEE_WriteBuffer		CODE           	0FA0	0000	24
+		_DATAEE_WriteByte		CODE           	0FDF	0000	34
+		_DATAEE_ReadBuffer		CODE           	0708	0000	24
+		_DATAEE_ReadByte		CODE           	071F	0000	15
+		_DATAEE_WriteBuffer		CODE           	0FC8	0000	24
 
 driver/src/eeprom.c estimated size: 97
 
 shared
-		PL12           		CODE           	05B7	0000	19
-		PL50           		CODE           	0F34	0000	12
-		PL8            		CODE           	0EBF	0000	9
-		PL22           		CODE           	02F1	0000	8
-		PL60           		CODE           	07C5	0000	7
-		PL100          		CODE           	05E5	0000	6
-		PL32           		CODE           	0F11	0000	14
-		PL70           		CODE           	0348	0000	9
-		PL42           		CODE           	0310	0000	13
-		PL80           		CODE           	1703	0000	7
+		PL12           		CODE           	0285	0000	19
+		PL50           		CODE           	0F27	0000	12
+		PL8            		CODE           	0EB2	0000	9
+		PL22           		CODE           	05FD	0000	8
+		PL60           		CODE           	17EB	0000	7
+		PL100          		CODE           	0F61	0000	6
+		PL32           		CODE           	0F04	0000	14
+		PL70           		CODE           	064C	0000	9
+		PL42           		CODE           	061C	0000	13
+		PL80           		CODE           	0768	0000	7
 		_GAIN          		STRCODE        	1800	0000	6
-		PL110          		CODE           	0F7D	0000	6
-		PL14           		CODE           	0EC7	0000	19
-		PL52           		CODE           	0F3F	0000	11
-		PL90           		CODE           	17F5	0000	6
-		PL24           		CODE           	0EEA	0000	6
-		PL62           		CODE           	0328	0000	9
-		PL34           		CODE           	0F1E	0000	6
-		PL72           		CODE           	0350	0000	9
-		PL44           		CODE           	0F28	0000	13
-		PL82           		CODE           	1709	0000	7
-		PL16           		CODE           	16F9	0000	11
-		PL54           		CODE           	0F49	0000	11
-		PL92           		CODE           	0F67	0000	7
-		PL26           		CODE           	0EEF	0000	11
-		PL64           		CODE           	0330	0000	9
-		PL102          		CODE           	0F73	0000	6
-		PL36           		CODE           	02F8	0000	13
-		PL74           		CODE           	00B1	0000	9
-		i1_TMR2_DisableInterrupt		CODE           	07C2	0000	4
-		i1_PWM1_LoadDutyValue		CODE           	14E7	0000	7
-		PL46           		CODE           	009B	0000	13
-		PL84           		CODE           	0F5A	0000	7
+		PL110          		CODE           	0F6B	0000	6
+		PL14           		CODE           	0EBA	0000	19
+		PL52           		CODE           	0F32	0000	11
+		PL90           		CODE           	1605	0000	6
+		PL24           		CODE           	0EDD	0000	6
+		PL62           		CODE           	029E	0000	9
+		PL34           		CODE           	0F11	0000	6
+		PL72           		CODE           	0654	0000	9
+		PL44           		CODE           	0F1B	0000	13
+		PL82           		CODE           	076E	0000	7
+		PL16           		CODE           	075E	0000	11
+		PL54           		CODE           	0334	0000	11
+		PL92           		CODE           	0F50	0000	7
+		PL26           		CODE           	0EE2	0000	11
+		PL64           		CODE           	0634	0000	9
+		PL102          		CODE           	17F1	0000	6
+		PL36           		CODE           	0604	0000	13
+		PL74           		CODE           	065C	0000	9
+		i1_TMR2_DisableInterrupt		CODE           	17E8	0000	4
+		i1_PWM1_LoadDutyValue		CODE           	14B6	0000	7
+		PL46           		CODE           	03A9	0000	13
+		PL84           		CODE           	0F43	0000	7
 		_VOLUME        		STRCODE        	1805	0000	6
-		i1_PWM4_LoadDutyValue		CODE           	151D	0000	7
-		PL112          		CODE           	07D5	0000	6
-		PL18           		CODE           	05C9	0000	8
-		PL56           		CODE           	00A7	0000	11
-		PL94           		CODE           	0F6D	0000	7
-		i1_IR_GetIndex 		CODE           	045F	0000	132
-		PL28           		CODE           	0EF9	0000	16
-		PL66           		CODE           	0338	0000	9
-		i1_EUSART_Write		CODE           	017D	0000	21
-		PL38           		CODE           	0304	0000	13
-		PL76           		CODE           	05D0	0000	9
-		PL48           		CODE           	031C	0000	13
-		PL86           		CODE           	0F60	0000	8
-		PL58           		CODE           	0F53	0000	8
-		PL96           		CODE           	17FA	0000	7
-		PL68           		CODE           	0340	0000	9
-		PL104          		CODE           	07CB	0000	6
-		PL78           		CODE           	05D8	0000	9
-		i1___wmul      		CODE           	02B4	0000	22
-		i1_TMR2_EnableInterrupt		CODE           	07BF	0000	4
-		PL88           		CODE           	0358	0000	7
-		PL98           		CODE           	05E0	0000	6
-		i1_Util_DecValue		CODE           	052A	0000	39
-		i1_Util_IncValue		CODE           	0550	0000	39
-		__initialization		CODE           	080A	0000	57
-		PL106          		CODE           	07D0	0000	6
-		i1_PWM2_LoadDutyValue		CODE           	14F9	0000	7
-		i1_PWM5_LoadDutyValue		CODE           	07EF	0000	16
-		i1_TMR4_StartTimer		CODE           	0576	0000	4
-		i1_Led_UpdateBright		CODE           	02C9	0000	20
-		PL108          		CODE           	0F78	0000	6
-		i1___bmul      		CODE           	051E	0000	13
-		i1_Led_StartNotice		CODE           	04E2	0000	13
-		PL2            		CODE           	0EB7	0000	9
-		i1_PWM3_LoadDutyValue		CODE           	150B	0000	7
-		PL10           		CODE           	02E6	0000	12
-		PL4            		CODE           	02DC	0000	11
-		PL20           		CODE           	0ED9	0000	18
-		PL30           		CODE           	0F08	0000	10
-		PL6            		CODE           	05B0	0000	8
-		PL40           		CODE           	0F23	0000	6
+		i1_PWM4_LoadDutyValue		CODE           	14EC	0000	7
+		PL112          		CODE           	0F70	0000	6
+		PL18           		CODE           	0297	0000	8
+		PL56           		CODE           	03B5	0000	11
+		PL94           		CODE           	0F56	0000	7
+		i1_IR_GetIndex 		CODE           	012F	0000	132
+		PL28           		CODE           	0EEC	0000	16
+		PL66           		CODE           	063C	0000	9
+		i1_EUSART_Write		CODE           	048B	0000	21
+		PL38           		CODE           	0610	0000	13
+		PL76           		CODE           	03BF	0000	9
+		PL48           		CODE           	0628	0000	13
+		PL86           		CODE           	0F49	0000	8
+		PL58           		CODE           	0F3C	0000	8
+		PL96           		CODE           	160A	0000	7
+		PL68           		CODE           	0644	0000	9
+		PL104          		CODE           	0F66	0000	6
+		PL78           		CODE           	02A6	0000	9
+		i1___wmul      		CODE           	05C2	0000	22
+		i1_TMR2_EnableInterrupt		CODE           	17E5	0000	4
+		PL88           		CODE           	0664	0000	7
+		PL98           		CODE           	0F5C	0000	6
+		i1_Util_DecValue		CODE           	01FA	0000	39
+		i1_Util_IncValue		CODE           	0220	0000	39
+		__initialization		CODE           	0805	0000	57
+		PL106          		CODE           	17F6	0000	6
+		i1_PWM2_LoadDutyValue		CODE           	14C8	0000	7
+		i1_PWM5_LoadDutyValue		CODE           	07ED	0000	16
+		i1_TMR4_StartTimer		CODE           	0246	0000	4
+		i1_Led_UpdateBright		CODE           	05D7	0000	18
+		PL108          		CODE           	17FB	0000	6
+		i1___bmul      		CODE           	01EE	0000	13
+		i1_Led_StartNotice		CODE           	01B2	0000	13
+		PL2            		CODE           	032C	0000	9
+		i1_PWM3_LoadDutyValue		CODE           	14DA	0000	7
+		PL10           		CODE           	05F2	0000	12
+		PL4            		CODE           	05E8	0000	11
+		PL20           		CODE           	0ECC	0000	18
+		PL30           		CODE           	0EFB	0000	10
+		PL6            		CODE           	027E	0000	8
+		PL40           		CODE           	0F16	0000	6
 
-shared estimated size: 955
-
-/Applications/microchip/xc8/v1.40/sources/common/Umul8.c
-		___bmul        		CODE           	0CFD	0000	14
-
-/Applications/microchip/xc8/v1.40/sources/common/Umul8.c estimated size: 14
+shared estimated size: 953
 
 driver/src/adc.c
-		_ADC_Initialize_Default		CODE           	17D9	0000	9
-		_ADC_Conversion		CODE           	08DD	0000	34
+		_ADC_Initialize_Default		CODE           	15E9	0000	9
+		_ADC_Conversion		CODE           	08D8	0000	34
 
 driver/src/adc.c estimated size: 43
 
 user/src/audio.c
-		_Audio_StopSound		CODE           	0CBF	0000	19
-		_Audio_SetVolume		CODE           	0A0D	0000	24
-		_Audio_GetValue		CODE           	088D	0000	81
-		_Audio_SetPlayMode		CODE           	09F6	0000	24
-		_Audio_SelectSound		CODE           	0162	0000	28
-		_Audio_PlaySound		CODE           	0150	0000	19
+		_Audio_StopSound		CODE           	0CC7	0000	19
+		_Audio_SetVolume		CODE           	0A16	0000	24
+		_Audio_GetValue		CODE           	0888	0000	81
+		_Audio_SetPlayMode		CODE           	09FF	0000	24
+		_Audio_SelectSound		CODE           	0470	0000	28
+		_Audio_PlaySound		CODE           	045E	0000	19
 
 user/src/audio.c estimated size: 195
 

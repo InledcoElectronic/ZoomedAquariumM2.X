@@ -2,13 +2,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 "102 user/src/../inc/ir.h
 [s S963 :1 `uc 1 :1 `uc 1 :3 `uc 1 :3 `uc 1 `uc 1 `uc -> 4 `i `uc 1 ]
 [n S963 . mKeyRcv mKeyRpt mState mSet tmIdx time mSetDelay ]
-[v F8128 `ui ~T0 @X0 -> 5 `i t ]
+[v F8129 `ui ~T0 @X0 -> 5 `i t ]
 "46 user/src/../inc/led.h
-[s S964 :1 `uc 1 :1 `uc 1 :1 `uc 1 :4 `uc 1 :1 `uc 1 `uc 1 `ui -> 5 `i `F8128 -> 4 `i `ui 1 `ui -> 5 `i `ui 1 `ui -> 5 `i ]
-[n S964 . mAuto mOn mVolOn mMsc mDyn mVolume mBright mCustom mSunrise mDayBright mSunset mNightBright ]
-"76
+[s S964 :1 `uc 1 :1 `uc 1 :1 `uc 1 :4 `uc 1 :1 `uc 1 `ui 1 `uc 1 `ui -> 5 `i `F8129 -> 4 `i `ui 1 `ui -> 5 `i `ui 1 `ui -> 5 `i ]
+[n S964 . mAuto mOn mVolOn mMsc mDyn mFirstPowerUp mVolume mBright mCustom mSunrise mDayBright mSunset mNightBright ]
+"77
 [v _gLedPara `VS964 ~T0 @X0 0 e ]
-"553 /Applications/microchip/xc8/v1.40/include/pic16f18345.h
+"553 D:\Program Files\Microchip\xc8\v1.41\include\pic16f18345.h
 [s S41 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S41 . TMR1IF TMR2IF BCL1IF SSP1IF TXIF RCIF ADIF TMR1GIF ]
 "552
@@ -18,7 +18,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _PIR1bits `VS40 ~T0 @X0 0 e@17 ]
 "50 user/src/../inc/../../driver/inc/tmr1.h
 [v _TMR1_StopTimer `(v ~T0 @X0 0 ef ]
-"1221 /Applications/microchip/xc8/v1.40/include/pic16f18345.h
+"1221 D:\Program Files\Microchip\xc8\v1.41\include\pic16f18345.h
 [v _TMR1 `Vus ~T0 @X0 0 e@25 ]
 "46 user/src/../inc/../../driver/inc/tmr2.h
 [v _TMR2_EnableInterrupt `(v ~T0 @X0 0 ef ]
@@ -28,24 +28,24 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TMR2_DisableInterrupt `(v ~T0 @X0 0 ef ]
 "18 user/src/../inc/util.h
 [v _Util_IncValue `(v ~T0 @X0 0 ef3`*ui`ui`ui ]
-"62 user/src/../inc/led.h
+"63 user/src/../inc/led.h
 [s S965 `ui -> 5 `i `ui -> 5 `i :1 `uc 1 :1 `uc 1 :6 `uc 1 `uc 1 `ui 1 `uc 1 `uc 1 ]
 [n S965 . mCurrentBright mTargetBright mParaChanged mNoticeStatus mNoticeCount auto_state auto_num music_index music_state ]
-"77
+"78
 [v _gLedRunPara `VS965 ~T0 @X0 0 e ]
 "19 user/src/../inc/util.h
 [v _Util_DecValue `(v ~T0 @X0 0 ef3`*ui`ui`ui ]
-"84 user/src/../inc/led.h
+"85 user/src/../inc/led.h
 [v _Led_SetCustom `(v ~T0 @X0 0 ef2`uc`*ui ]
-"92
+"93
 [v _Led_StartNotice `(v ~T0 @X0 0 ef1`uc ]
-"81
+"82
 [v _Led_Initialize `(v ~T0 @X0 0 ef ]
 "38 user/src/../inc/audio.h
 [v _Audio_StopSound `(v ~T0 @X0 0 ef ]
 "41
 [v _Audio_SetVolume `(v ~T0 @X0 0 ef1`uc ]
-"78 user/src/../inc/led.h
+"79 user/src/../inc/led.h
 [v _VOLUME `Cuc ~T0 @X0 -> 0 `x e ]
 "20 user/src/../inc/rtc.h
 [s S967 `uc 1 `uc 1 `uc 1 ]
@@ -168,7 +168,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;pic16f18345.h: 49: extern volatile unsigned char INDF0 @ 0x000;
-"51 /Applications/microchip/xc8/v1.40/include/pic16f18345.h
+"51 D:\Program Files\Microchip\xc8\v1.41\include\pic16f18345.h
 [; ;pic16f18345.h: 51: asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
 [; ;pic16f18345.h: 54: typedef union {
@@ -7750,44 +7750,45 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;led.h: 49: unsigned mVolOn : 1;
 [; ;led.h: 50: unsigned mMsc : 4;
 [; ;led.h: 51: unsigned mDyn : 1;
-[; ;led.h: 52: uint8_t mVolume;
-[; ;led.h: 53: uint16_t mBright[5];
-[; ;led.h: 54: uint16_t mCustom[4][5];
-[; ;led.h: 56: uint16_t mSunrise;
-[; ;led.h: 57: uint16_t mDayBright[5];
-[; ;led.h: 58: uint16_t mSunset;
-[; ;led.h: 59: uint16_t mNightBright[5];
-[; ;led.h: 60: } LedPara_t;
-[; ;led.h: 62: typedef struct {
-[; ;led.h: 63: uint16_t mCurrentBright[5];
-[; ;led.h: 64: uint16_t mTargetBright[5];
-[; ;led.h: 65: unsigned mParaChanged : 1;
-[; ;led.h: 66: unsigned mNoticeStatus : 1;
-[; ;led.h: 67: unsigned mNoticeCount : 6;
-[; ;led.h: 68: uint8_t auto_state;
-[; ;led.h: 69: uint16_t auto_num;
-[; ;led.h: 70: uint8_t music_index;
-[; ;led.h: 71: uint8_t music_state;
-[; ;led.h: 72: } LedRunPara_t;
-[; ;led.h: 74: typedef void ( *Led_LoadDutyValue_t) (uint16_t duty);
-[; ;led.h: 76: extern volatile LedPara_t gLedPara;
-[; ;led.h: 77: extern volatile LedRunPara_t gLedRunPara;
-[; ;led.h: 78: extern const uint8_t VOLUME[5];
-[; ;led.h: 80: extern void Led_InitPara();
-[; ;led.h: 81: extern void Led_Initialize();
-[; ;led.h: 82: extern void Led_SaveParaIfChanged();
-[; ;led.h: 83: extern void Led_UpdateBright();
-[; ;led.h: 84: extern void Led_SetCustom(uint8_t idx, uint16_t* pValue);
-[; ;led.h: 85: extern void Led_TurnOnDirect();
-[; ;led.h: 86: extern void Led_TurnOffDirect();
-[; ;led.h: 87: extern void Led_TurnOnRamp();
-[; ;led.h: 88: extern void Led_TurnOffRamp();
-[; ;led.h: 89: extern void Led_Ramp();
-[; ;led.h: 90: extern void Led_CheckAutoStatus();
-[; ;led.h: 91: extern void Led_AutoRun();
-[; ;led.h: 92: extern void Led_StartNotice(uint8_t cnt);
-[; ;led.h: 93: extern void Led_Notice();
-[; ;led.h: 94: extern void Led_Run();
+[; ;led.h: 52: unsigned mFirstPowerUp;
+[; ;led.h: 53: uint8_t mVolume;
+[; ;led.h: 54: uint16_t mBright[5];
+[; ;led.h: 55: uint16_t mCustom[4][5];
+[; ;led.h: 57: uint16_t mSunrise;
+[; ;led.h: 58: uint16_t mDayBright[5];
+[; ;led.h: 59: uint16_t mSunset;
+[; ;led.h: 60: uint16_t mNightBright[5];
+[; ;led.h: 61: } LedPara_t;
+[; ;led.h: 63: typedef struct {
+[; ;led.h: 64: uint16_t mCurrentBright[5];
+[; ;led.h: 65: uint16_t mTargetBright[5];
+[; ;led.h: 66: unsigned mParaChanged : 1;
+[; ;led.h: 67: unsigned mNoticeStatus : 1;
+[; ;led.h: 68: unsigned mNoticeCount : 6;
+[; ;led.h: 69: uint8_t auto_state;
+[; ;led.h: 70: uint16_t auto_num;
+[; ;led.h: 71: uint8_t music_index;
+[; ;led.h: 72: uint8_t music_state;
+[; ;led.h: 73: } LedRunPara_t;
+[; ;led.h: 75: typedef void ( *Led_LoadDutyValue_t) (uint16_t duty);
+[; ;led.h: 77: extern volatile LedPara_t gLedPara;
+[; ;led.h: 78: extern volatile LedRunPara_t gLedRunPara;
+[; ;led.h: 79: extern const uint8_t VOLUME[5];
+[; ;led.h: 81: extern void Led_InitPara();
+[; ;led.h: 82: extern void Led_Initialize();
+[; ;led.h: 83: extern void Led_SaveParaIfChanged();
+[; ;led.h: 84: extern void Led_UpdateBright();
+[; ;led.h: 85: extern void Led_SetCustom(uint8_t idx, uint16_t* pValue);
+[; ;led.h: 86: extern void Led_TurnOnDirect();
+[; ;led.h: 87: extern void Led_TurnOffDirect();
+[; ;led.h: 88: extern void Led_TurnOnRamp();
+[; ;led.h: 89: extern void Led_TurnOffRamp();
+[; ;led.h: 90: extern void Led_Ramp();
+[; ;led.h: 91: extern void Led_CheckAutoStatus();
+[; ;led.h: 92: extern void Led_AutoRun();
+[; ;led.h: 93: extern void Led_StartNotice(uint8_t cnt);
+[; ;led.h: 94: extern void Led_Notice();
+[; ;led.h: 95: extern void Led_Run();
 [; ;rtc.h: 18: typedef union {
 [; ;rtc.h: 20: struct {
 [; ;rtc.h: 21: uint8_t hour;
@@ -8756,18 +8757,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;ir.c: 253: uint16_t hVal = TMR1;
 [e = _hVal -> _TMR1 `ui ]
 "254
-[v F8208 `ui ~T0 @X0 1 s codeVal ]
-[i F8208
+[v F8209 `ui ~T0 @X0 1 s codeVal ]
+[i F8209
 -> -> 0 `i `ui
 ]
 "255
-[v F8209 `uc ~T0 @X0 1 s nBit ]
-[i F8209
+[v F8210 `uc ~T0 @X0 1 s nBit ]
+[i F8210
 -> -> 0 `i `uc
 ]
 "256
-[v F8210 `uc ~T0 @X0 1 s rptCnt ]
-[i F8210
+[v F8211 `uc ~T0 @X0 1 s rptCnt ]
+[i F8211
 -> -> 0 `i `uc
 ]
 [; ;ir.c: 254: static uint16_t codeVal = 0;
@@ -8792,10 +8793,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . _ir_state 2 -> -> 1 `i `uc ]
 [; ;ir.c: 264: codeVal = 0;
 "264
-[e = F8208 -> -> 0 `i `ui ]
+[e = F8209 -> -> 0 `i `ui ]
 [; ;ir.c: 265: nBit = 0;
 "265
-[e = F8209 -> -> 0 `i `uc ]
+[e = F8210 -> -> 0 `i `uc ]
 [; ;ir.c: 266: TMR2_DisableInterrupt();
 "266
 [e ( _TMR2_DisableInterrupt ..  ]
@@ -8818,7 +8819,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;ir.c: 273: nBit++;
 "273
-[e ++ F8209 -> -> 1 `i `uc ]
+[e ++ F8210 -> -> 1 `i `uc ]
 "274
 }
 [; ;ir.c: 274: } else if (hVal > 720 && hVal < 960) {
@@ -8828,10 +8829,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;ir.c: 275: codeVal |= (1 << nBit);
 "275
-[e =| F8208 -> << -> 1 `i F8209 `ui ]
+[e =| F8209 -> << -> 1 `i F8210 `ui ]
 [; ;ir.c: 276: nBit++;
 "276
-[e ++ F8209 -> -> 1 `i `uc ]
+[e ++ F8210 -> -> 1 `i `uc ]
 "277
 }
 [; ;ir.c: 277: } else {
@@ -8848,7 +8849,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;ir.c: 279: }
 [; ;ir.c: 280: if (nBit >= 16) {
 "280
-[e $ ! >= -> F8209 `i -> 16 `i 1124  ]
+[e $ ! >= -> F8210 `i -> 16 `i 1124  ]
 {
 [; ;ir.c: 281: if (ir_state.mState == 1) {
 "281
@@ -8856,7 +8857,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;ir.c: 282: if (codeVal == 0xFF00) {
 "282
-[e $ ! == F8208 -> 65280 `ui 1126  ]
+[e $ ! == F8209 -> 65280 `ui 1126  ]
 {
 [; ;ir.c: 283: ir_state.mState = 2;
 "283
@@ -8886,10 +8887,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _TMR2_EnableInterrupt ..  ]
 [; ;ir.c: 289: keyNum = codeVal & 0xFF;
 "289
-[e = _keyNum -> & F8208 -> -> 255 `i `ui `uc ]
+[e = _keyNum -> & F8209 -> -> 255 `i `ui `uc ]
 [; ;ir.c: 290: revKeyNum = codeVal >> 8;
 "290
-[e = _revKeyNum -> >> F8208 -> 8 `i `uc ]
+[e = _revKeyNum -> >> F8209 -> 8 `i `uc ]
 [; ;ir.c: 291: if (keyNum ^ revKeyNum == 0xFF)
 "291
 [e $ ! != ^ -> _keyNum `i -> == -> _revKeyNum `i -> 255 `i `i -> 0 `i 1130  ]
@@ -8944,7 +8945,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . _ir_state 2 -> -> 3 `i `uc ]
 [; ;ir.c: 305: rptCnt = 0;
 "305
-[e = F8210 -> -> 0 `i `uc ]
+[e = F8211 -> -> 0 `i `uc ]
 "306
 }
 [; ;ir.c: 306: } else {
@@ -8980,10 +8981,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;ir.c: 311: }
 [; ;ir.c: 312: }
 [; ;ir.c: 313: codeVal = 0;
-[e = F8208 -> -> 0 `i `ui ]
+[e = F8209 -> -> 0 `i `ui ]
 [; ;ir.c: 314: nBit = 0;
 "314
-[e = F8209 -> -> 0 `i `uc ]
+[e = F8210 -> -> 0 `i `uc ]
 "315
 }
 [e :U 1124 ]
@@ -9000,11 +9001,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;ir.c: 320: if (rptCnt < 4) {
 "320
-[e $ ! < -> F8210 `i -> 4 `i 1140  ]
+[e $ ! < -> F8211 `i -> 4 `i 1140  ]
 {
 [; ;ir.c: 321: rptCnt++;
 "321
-[e ++ F8210 -> -> 1 `i `uc ]
+[e ++ F8211 -> -> 1 `i `uc ]
 "322
 }
 [; ;ir.c: 322: } else {
@@ -9058,8 +9059,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _IR_ScanLongPress ]
 [f ]
 "335
-[v F8212 `ui ~T0 @X0 1 s cnt ]
-[i F8212
+[v F8213 `ui ~T0 @X0 1 s cnt ]
+[i F8213
 -> -> 0 `i `ui
 ]
 "336
@@ -9073,7 +9074,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;ir.c: 338: cnt = 0;
 "338
-[e = F8212 -> -> 0 `i `ui ]
+[e = F8213 -> -> 0 `i `ui ]
 [; ;ir.c: 339: return;
 "339
 [e $UE 1143  ]
@@ -9112,7 +9113,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;ir.c: 350: gLedPara.mBright[idx] = gLedRunPara.mTargetBright[idx];
 "350
-[e = *U + &U . _gLedPara 6 * -> _idx `ux -> -> # *U &U . _gLedPara 6 `ui `ux *U + &U . _gLedRunPara 1 * -> _idx `ux -> -> # *U &U . _gLedRunPara 1 `ui `ux ]
+[e = *U + &U . _gLedPara 7 * -> _idx `ux -> -> # *U &U . _gLedPara 7 `ui `ux *U + &U . _gLedRunPara 1 * -> _idx `ux -> -> # *U &U . _gLedRunPara 1 `ui `ux ]
 "351
 }
 [e :U 1152 ]
@@ -9147,7 +9148,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;ir.c: 361: gLedPara.mBright[idx] = gLedRunPara.mTargetBright[idx];
 "361
-[e = *U + &U . _gLedPara 6 * -> _idx `ux -> -> # *U &U . _gLedPara 6 `ui `ux *U + &U . _gLedRunPara 1 * -> _idx `ux -> -> # *U &U . _gLedRunPara 1 `ui `ux ]
+[e = *U + &U . _gLedPara 7 * -> _idx `ux -> -> # *U &U . _gLedPara 7 `ui `ux *U + &U . _gLedRunPara 1 * -> _idx `ux -> -> # *U &U . _gLedRunPara 1 `ui `ux ]
 "362
 }
 [e :U 1158 ]
@@ -9169,10 +9170,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;ir.c: 367: case 0x4C:
 [; ;ir.c: 368: cnt++;
 "368
-[e ++ F8212 -> -> 1 `i `ui ]
+[e ++ F8213 -> -> 1 `i `ui ]
 [; ;ir.c: 369: if (cnt == 0x200) {
 "369
-[e $ ! == F8212 -> -> 512 `i `ui 1163  ]
+[e $ ! == F8213 -> -> 512 `i `ui 1163  ]
 {
 [; ;ir.c: 370: ir_state.mKeyRpt = 0;
 "370
@@ -9201,10 +9202,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 1164 ]
 [; ;ir.c: 379: cnt++;
 "379
-[e ++ F8212 -> -> 1 `i `ui ]
+[e ++ F8213 -> -> 1 `i `ui ]
 [; ;ir.c: 380: if (cnt == 0x200) {
 "380
-[e $ ! == F8212 -> -> 512 `i `ui 1165  ]
+[e $ ! == F8213 -> -> 512 `i `ui 1165  ]
 {
 [; ;ir.c: 381: ir_state.mKeyRpt = 0;
 "381
@@ -9230,10 +9231,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 1166 ]
 [; ;ir.c: 389: cnt++;
 "389
-[e ++ F8212 -> -> 1 `i `ui ]
+[e ++ F8213 -> -> 1 `i `ui ]
 [; ;ir.c: 390: if (cnt == 0x200) {
 "390
-[e $ ! == F8212 -> -> 512 `i `ui 1167  ]
+[e $ ! == F8213 -> -> 512 `i `ui 1167  ]
 {
 [; ;ir.c: 391: ir_state.mKeyRpt = 0;
 "391
@@ -9259,10 +9260,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 1168 ]
 [; ;ir.c: 399: cnt++;
 "399
-[e ++ F8212 -> -> 1 `i `ui ]
+[e ++ F8213 -> -> 1 `i `ui ]
 [; ;ir.c: 400: if (cnt == 0x200) {
 "400
-[e $ ! == F8212 -> -> 512 `i `ui 1169  ]
+[e $ ! == F8213 -> -> 512 `i `ui 1169  ]
 {
 [; ;ir.c: 401: ir_state.mKeyRpt = 0;
 "401
@@ -9281,7 +9282,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;ir.c: 404: gLedRunPara.mTargetBright[i] = gLedPara.mDayBright[i];
 "404
-[e = *U + &U . _gLedRunPara 1 * -> _i `ux -> -> # *U &U . _gLedRunPara 1 `ui `ux *U + &U . _gLedPara 9 * -> _i `ux -> -> # *U &U . _gLedPara 9 `ui `ux ]
+[e = *U + &U . _gLedRunPara 1 * -> _i `ux -> -> # *U &U . _gLedRunPara 1 `ui `ux *U + &U . _gLedPara 10 * -> _i `ux -> -> # *U &U . _gLedPara 10 `ui `ux ]
 "405
 }
 "403
@@ -9306,10 +9307,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 1173 ]
 [; ;ir.c: 410: cnt++;
 "410
-[e ++ F8212 -> -> 1 `i `ui ]
+[e ++ F8213 -> -> 1 `i `ui ]
 [; ;ir.c: 411: if (cnt == 0x200) {
 "411
-[e $ ! == F8212 -> -> 512 `i `ui 1174  ]
+[e $ ! == F8213 -> -> 512 `i `ui 1174  ]
 {
 [; ;ir.c: 412: ir_state.mKeyRpt = 0;
 "412
@@ -9328,7 +9329,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;ir.c: 415: gLedRunPara.mTargetBright[i] = gLedPara.mNightBright[i];
 "415
-[e = *U + &U . _gLedRunPara 1 * -> _i `ux -> -> # *U &U . _gLedRunPara 1 `ui `ux *U + &U . _gLedPara 11 * -> _i `ux -> -> # *U &U . _gLedPara 11 `ui `ux ]
+[e = *U + &U . _gLedRunPara 1 * -> _i `ux -> -> # *U &U . _gLedRunPara 1 `ui `ux *U + &U . _gLedPara 12 * -> _i `ux -> -> # *U &U . _gLedPara 12 `ui `ux ]
 "416
 }
 "414
@@ -9353,10 +9354,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 1178 ]
 [; ;ir.c: 421: cnt++;
 "421
-[e ++ F8212 -> -> 1 `i `ui ]
+[e ++ F8213 -> -> 1 `i `ui ]
 [; ;ir.c: 422: if (cnt == 0x200) {
 "422
-[e $ ! == F8212 -> -> 512 `i `ui 1179  ]
+[e $ ! == F8213 -> -> 512 `i `ui 1179  ]
 {
 [; ;ir.c: 423: ir_state.mKeyRpt = 0;
 "423
@@ -9730,7 +9731,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . _gLedPara 4 -> -> 0 `i `uc ]
 [; ;ir.c: 532: gLedPara.mBright[idx] = gLedRunPara.mTargetBright[idx];
 "532
-[e = *U + &U . _gLedPara 6 * -> _idx `ux -> -> # *U &U . _gLedPara 6 `ui `ux *U + &U . _gLedRunPara 1 * -> _idx `ux -> -> # *U &U . _gLedRunPara 1 `ui `ux ]
+[e = *U + &U . _gLedPara 7 * -> _idx `ux -> -> # *U &U . _gLedPara 7 `ui `ux *U + &U . _gLedRunPara 1 * -> _idx `ux -> -> # *U &U . _gLedRunPara 1 `ui `ux ]
 [; ;ir.c: 533: gLedRunPara.mParaChanged = 1;
 "533
 [e = . _gLedRunPara 2 -> -> 1 `i `uc ]
@@ -9789,7 +9790,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . _gLedPara 4 -> -> 0 `i `uc ]
 [; ;ir.c: 550: gLedPara.mBright[idx] = gLedRunPara.mTargetBright[idx];
 "550
-[e = *U + &U . _gLedPara 6 * -> _idx `ux -> -> # *U &U . _gLedPara 6 `ui `ux *U + &U . _gLedRunPara 1 * -> _idx `ux -> -> # *U &U . _gLedRunPara 1 `ui `ux ]
+[e = *U + &U . _gLedPara 7 * -> _idx `ux -> -> # *U &U . _gLedPara 7 `ui `ux *U + &U . _gLedRunPara 1 * -> _idx `ux -> -> # *U &U . _gLedRunPara 1 `ui `ux ]
 [; ;ir.c: 551: gLedRunPara.mParaChanged = 1;
 "551
 [e = . _gLedRunPara 2 -> -> 1 `i `uc ]
@@ -9838,7 +9839,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;ir.c: 563: gLedRunPara.mTargetBright[i] = gLedPara.mCustom[idx][i];
 "563
-[e = *U + &U . _gLedRunPara 1 * -> _i `ux -> -> # *U &U . _gLedRunPara 1 `ui `ux *U + &U *U + &U . _gLedPara 7 * -> _idx `ux -> * -> # *U &U *U &U . _gLedPara 7 `ui -> -> 5 `i `ui `ux * -> _i `ux -> -> # *U &U *U + &U . _gLedPara 7 * -> _idx `ux -> * -> # *U &U *U &U . _gLedPara 7 `ui -> -> 5 `i `ui `ux `ui `ux ]
+[e = *U + &U . _gLedRunPara 1 * -> _i `ux -> -> # *U &U . _gLedRunPara 1 `ui `ux *U + &U *U + &U . _gLedPara 8 * -> _idx `ux -> * -> # *U &U *U &U . _gLedPara 8 `ui -> -> 5 `i `ui `ux * -> _i `ux -> -> # *U &U *U + &U . _gLedPara 8 * -> _idx `ux -> * -> # *U &U *U &U . _gLedPara 8 `ui -> -> 5 `i `ui `ux `ui `ux ]
 "564
 }
 "562
@@ -9872,7 +9873,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;ir.c: 570: gLedPara.mBright[i] = gLedPara.mCustom[idx][i];
 "570
-[e = *U + &U . _gLedPara 6 * -> _i `ux -> -> # *U &U . _gLedPara 6 `ui `ux *U + &U *U + &U . _gLedPara 7 * -> _idx `ux -> * -> # *U &U *U &U . _gLedPara 7 `ui -> -> 5 `i `ui `ux * -> _i `ux -> -> # *U &U *U + &U . _gLedPara 7 * -> _idx `ux -> * -> # *U &U *U &U . _gLedPara 7 `ui -> -> 5 `i `ui `ux `ui `ux ]
+[e = *U + &U . _gLedPara 7 * -> _i `ux -> -> # *U &U . _gLedPara 7 `ui `ux *U + &U *U + &U . _gLedPara 8 * -> _idx `ux -> * -> # *U &U *U &U . _gLedPara 8 `ui -> -> 5 `i `ui `ux * -> _i `ux -> -> # *U &U *U + &U . _gLedPara 8 * -> _idx `ux -> * -> # *U &U *U &U . _gLedPara 8 `ui -> -> 5 `i `ui `ux `ui `ux ]
 "571
 }
 "569
@@ -9921,7 +9922,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _Util_IncValue (3 , , -> &U *U + &U . _gLedRunPara 1 * -> _i `ux -> -> # *U &U . _gLedRunPara 1 `ui `ux `*ui -> -> 1000 `i `ui -> -> 200 `i `ui ]
 [; ;ir.c: 581: gLedPara.mBright[i] = gLedRunPara.mTargetBright[i];
 "581
-[e = *U + &U . _gLedPara 6 * -> _i `ux -> -> # *U &U . _gLedPara 6 `ui `ux *U + &U . _gLedRunPara 1 * -> _i `ux -> -> # *U &U . _gLedRunPara 1 `ui `ux ]
+[e = *U + &U . _gLedPara 7 * -> _i `ux -> -> # *U &U . _gLedPara 7 `ui `ux *U + &U . _gLedRunPara 1 * -> _i `ux -> -> # *U &U . _gLedRunPara 1 `ui `ux ]
 "582
 }
 "579
@@ -9966,7 +9967,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _Util_DecValue (3 , , -> &U *U + &U . _gLedRunPara 1 * -> _i `ux -> -> # *U &U . _gLedRunPara 1 `ui `ux `*ui -> -> 0 `i `ui -> -> 200 `i `ui ]
 [; ;ir.c: 592: gLedPara.mBright[i] = gLedRunPara.mTargetBright[i];
 "592
-[e = *U + &U . _gLedPara 6 * -> _i `ux -> -> # *U &U . _gLedPara 6 `ui `ux *U + &U . _gLedRunPara 1 * -> _i `ux -> -> # *U &U . _gLedRunPara 1 `ui `ux ]
+[e = *U + &U . _gLedPara 7 * -> _i `ux -> -> # *U &U . _gLedPara 7 `ui `ux *U + &U . _gLedRunPara 1 * -> _i `ux -> -> # *U &U . _gLedRunPara 1 `ui `ux ]
 "593
 }
 "590
@@ -9996,10 +9997,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 1233 ]
 [; ;ir.c: 600: Util_DecValue((uint16_t*) & gLedPara.mVolume, 0, 1);
 "600
-[e ( _Util_DecValue (3 , , -> &U . _gLedPara 5 `*ui -> -> 0 `i `ui -> -> 1 `i `ui ]
+[e ( _Util_DecValue (3 , , -> &U . _gLedPara 6 `*ui -> -> 0 `i `ui -> -> 1 `i `ui ]
 [; ;ir.c: 601: Audio_SetVolume(VOLUME[ gLedPara.mVolume ]);
 "601
-[e ( _Audio_SetVolume (1 *U + &U _VOLUME * -> . _gLedPara 5 `ux -> -> # *U &U _VOLUME `ui `ux ]
+[e ( _Audio_SetVolume (1 *U + &U _VOLUME * -> . _gLedPara 6 `ux -> -> # *U &U _VOLUME `ui `ux ]
 [; ;ir.c: 602: gLedRunPara.mParaChanged = 1;
 "602
 [e = . _gLedRunPara 2 -> -> 1 `i `uc ]
@@ -10011,10 +10012,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 1234 ]
 [; ;ir.c: 605: Util_IncValue((uint16_t*) & gLedPara.mVolume, 4, 1);
 "605
-[e ( _Util_IncValue (3 , , -> &U . _gLedPara 5 `*ui -> -> 4 `i `ui -> -> 1 `i `ui ]
+[e ( _Util_IncValue (3 , , -> &U . _gLedPara 6 `*ui -> -> 4 `i `ui -> -> 1 `i `ui ]
 [; ;ir.c: 606: Audio_SetVolume(VOLUME[ gLedPara.mVolume ]);
 "606
-[e ( _Audio_SetVolume (1 *U + &U _VOLUME * -> . _gLedPara 5 `ux -> -> # *U &U _VOLUME `ui `ux ]
+[e ( _Audio_SetVolume (1 *U + &U _VOLUME * -> . _gLedPara 6 `ux -> -> # *U &U _VOLUME `ui `ux ]
 [; ;ir.c: 607: gLedRunPara.mParaChanged = 1;
 "607
 [e = . _gLedRunPara 2 -> -> 1 `i `uc ]
@@ -10118,7 +10119,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;ir.c: 635: gLedPara.mSunrise = ir_state.time[0]*600 + ir_state.time[1]*60 + ir_state.time[2]*10 + ir_state.time[3];
 "635
-[e = . _gLedPara 8 -> + + + * -> *U + &U . _ir_state 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _ir_state 5 `ui `ux `i -> 600 `i * -> *U + &U . _ir_state 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _ir_state 5 `ui `ux `i -> 60 `i * -> *U + &U . _ir_state 5 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _ir_state 5 `ui `ux `i -> 10 `i -> *U + &U . _ir_state 5 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _ir_state 5 `ui `ux `i `ui ]
+[e = . _gLedPara 9 -> + + + * -> *U + &U . _ir_state 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _ir_state 5 `ui `ux `i -> 600 `i * -> *U + &U . _ir_state 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _ir_state 5 `ui `ux `i -> 60 `i * -> *U + &U . _ir_state 5 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _ir_state 5 `ui `ux `i -> 10 `i -> *U + &U . _ir_state 5 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _ir_state 5 `ui `ux `i `ui ]
 [; ;ir.c: 636: gLedRunPara.mParaChanged = 1;
 "636
 [e = . _gLedRunPara 2 -> -> 1 `i `uc ]
@@ -10142,7 +10143,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;ir.c: 641: gLedPara.mSunset = ir_state.time[0]*600 + ir_state.time[1]*60 + ir_state.time[2]*10 + ir_state.time[3];
 "641
-[e = . _gLedPara 10 -> + + + * -> *U + &U . _ir_state 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _ir_state 5 `ui `ux `i -> 600 `i * -> *U + &U . _ir_state 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _ir_state 5 `ui `ux `i -> 60 `i * -> *U + &U . _ir_state 5 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _ir_state 5 `ui `ux `i -> 10 `i -> *U + &U . _ir_state 5 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _ir_state 5 `ui `ux `i `ui ]
+[e = . _gLedPara 11 -> + + + * -> *U + &U . _ir_state 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _ir_state 5 `ui `ux `i -> 600 `i * -> *U + &U . _ir_state 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _ir_state 5 `ui `ux `i -> 60 `i * -> *U + &U . _ir_state 5 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _ir_state 5 `ui `ux `i -> 10 `i -> *U + &U . _ir_state 5 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _ir_state 5 `ui `ux `i `ui ]
 [; ;ir.c: 642: gLedRunPara.mParaChanged = 1;
 "642
 [e = . _gLedRunPara 2 -> -> 1 `i `uc ]
@@ -10195,7 +10196,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;ir.c: 654: gLedPara.mDayBright[i] = gLedRunPara.mTargetBright[i];
 "654
-[e = *U + &U . _gLedPara 9 * -> _i `ux -> -> # *U &U . _gLedPara 9 `ui `ux *U + &U . _gLedRunPara 1 * -> _i `ux -> -> # *U &U . _gLedRunPara 1 `ui `ux ]
+[e = *U + &U . _gLedPara 10 * -> _i `ux -> -> # *U &U . _gLedPara 10 `ui `ux *U + &U . _gLedRunPara 1 * -> _i `ux -> -> # *U &U . _gLedRunPara 1 `ui `ux ]
 "655
 }
 "653
@@ -10229,7 +10230,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;ir.c: 660: gLedPara.mNightBright[i] = gLedRunPara.mTargetBright[i];
 "660
-[e = *U + &U . _gLedPara 11 * -> _i `ux -> -> # *U &U . _gLedPara 11 `ui `ux *U + &U . _gLedRunPara 1 * -> _i `ux -> -> # *U &U . _gLedRunPara 1 `ui `ux ]
+[e = *U + &U . _gLedPara 12 * -> _i `ux -> -> # *U &U . _gLedPara 12 `ui `ux *U + &U . _gLedRunPara 1 * -> _i `ux -> -> # *U &U . _gLedRunPara 1 `ui `ux ]
 "661
 }
 "659

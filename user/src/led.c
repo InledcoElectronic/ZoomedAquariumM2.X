@@ -14,7 +14,22 @@ const uint8_t GAIN[VOLUME_CNT] = {7, 5, 3, 1, 0};
 volatile LedPara_t gLedPara;
 volatile LedRunPara_t gLedRunPara;
 
+void Led_FirstPowerUp()
+{
+    if(gLedPara.mFirstPowerUp != 0x55){
+        gLedPara.mFirstPowerUp = 0x55;
+        for (uint8_t i = 0; i < CHANNEL_CNT; i++){
+            gLedPara.mDayBright[i] = BRIGHT_MAX;
+            gLedPara.mNightBright[i] = 0;
+        }
+        gLedPara.mSunrise = 390;
+        gLedPara.mSunset = 1110;
+        gLedPara.mNightBright[2] = BRIGHT_MAX;
+//        DATAEE_WriteBuffer(LEDPARA_EEPROM_ADDR,(uint8_t *) & gLedPara, sizeof ( gLedPara));
+    }
+}
 void Led_InitPara() {
+    Led_FirstPowerUp();
     DATAEE_ReadBuffer(LEDPARA_EEPROM_ADDR, (uint8_t *) & gLedPara, sizeof ( gLedPara));
     for (uint8_t i = 0; i < CHANNEL_CNT; i++) {
         if (gLedPara.mBright[i] > BRIGHT_MAX) {
@@ -52,13 +67,14 @@ void Led_InitPara() {
 }
 
 void Led_Initialize() {
-    __delay_ms(480);
+    __delay_ms(640);
+    CLRWDT();
     Audio_StopSound();
-    __delay_ms(48);
+    __delay_ms(64);
     Audio_SetVolume(gLedPara.mVolOn ? VOLUME[ gLedPara.mVolume ] : 0);
-    __delay_ms(48);
+    __delay_ms(64);
     Audio_SetPlayMode(MODE_SINGLE_CYCLE);
-    __delay_ms(48);
+    __delay_ms(64);
     uint16_t ct = RTC_GetTime()->hour * 60u + RTC_GetTime()->minute;
     if (!gLedPara.mAuto) {
         if (!gLedPara.mOn) {

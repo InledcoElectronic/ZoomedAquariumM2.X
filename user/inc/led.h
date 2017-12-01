@@ -49,6 +49,7 @@ extern "C" {
         unsigned mVolOn : 1;
         unsigned mMsc : 4;
         unsigned mDyn : 1;
+        unsigned mFirstPowerUp;
         uint8_t mVolume;
         uint16_t mBright[CHANNEL_CNT];                  //bright of manual mode
         uint16_t mCustom[CUSTOM_CNT][CHANNEL_CNT];      //custom light

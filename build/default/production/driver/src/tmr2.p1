@@ -1,6 +1,6 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [v F8018 `(v ~T0 @X0 0 tf ]
-"1443 /Applications/microchip/xc8/v1.40/include/pic16f18345.h
+"1443 D:\Program Files\Microchip\xc8\v1.41\include\pic16f18345.h
 [v _T2CON `Vuc ~T0 @X0 0 e@31 ]
 "1424
 [v _PR2 `Vuc ~T0 @X0 0 e@30 ]
@@ -146,7 +146,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;pic16f18345.h: 49: extern volatile unsigned char INDF0 @ 0x000;
-"51 /Applications/microchip/xc8/v1.40/include/pic16f18345.h
+"51 D:\Program Files\Microchip\xc8\v1.41\include\pic16f18345.h
 [; ;pic16f18345.h: 51: asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
 [; ;pic16f18345.h: 54: typedef union {

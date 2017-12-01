@@ -1,5 +1,5 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"6295 /Applications/microchip/xc8/v1.40/include/pic16f18345.h
+"6295 D:\Program Files\Microchip\xc8\v1.41\include\pic16f18345.h
 [v _CCP1CON `Vuc ~T0 @X0 0 e@659 ]
 "6251
 [v _CCPR1 `Vus ~T0 @X0 0 e@657 ]
@@ -30,7 +30,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _PWM5CON `Vuc ~T0 @X0 0 e@1561 ]
 "3 driver/src/pwm.c
 [v _PWM5DC `Vus ~T0 @X0 0 e@1559 ]
-"9112 /Applications/microchip/xc8/v1.40/include/pic16f18345.h
+"9112 D:\Program Files\Microchip\xc8\v1.41\include\pic16f18345.h
 [s S457 :2 `uc 1 :2 `uc 1 ]
 [n S457 . P5TSEL P6TSEL ]
 "9116
@@ -158,7 +158,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;pic16f18345.h: 49: extern volatile unsigned char INDF0 @ 0x000;
-"51 /Applications/microchip/xc8/v1.40/include/pic16f18345.h
+"51 D:\Program Files\Microchip\xc8\v1.41\include\pic16f18345.h
 [; ;pic16f18345.h: 51: asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
 [; ;pic16f18345.h: 54: typedef union {
