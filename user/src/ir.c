@@ -127,7 +127,8 @@ uint8_t IR_GetKeyType(uint8_t keynum) {
                     break;
                 case KEY_BRT_INC:
                 case KEY_BRT_DEC:
-                    if (gLedPara.mAuto || gLedPara.mMsc == 0) {
+                    if (gLedPara.mAuto || gLedPara.mMsc == 0 || gLedPara.mMsc == MUSIC_DAY_INDEX || gLedPara.mMsc == MUSIC_NIGHT_INDEX 
+                            || gLedPara.mMsc == MUSIC_FISH_INDEX || gLedPara.mMsc == MUSIC_PLANT_INDEX) {
                         result = KEY_SHORT;
                     }
                     break;
@@ -508,13 +509,16 @@ void IR_KeyAction() {
             Led_Initialize();
             break;
         case KEY_AUTO:
-            Audio_StopSound();
-            gLedPara.mOn = 1;
-            gLedPara.mAuto = 1;
-            gLedRunPara.mParaChanged = 1;
-            Led_Initialize();
-            for (uint8_t i = 0; i < CHANNEL_CNT; i++) {
-                gLedRunPara.mCurrentBright[i] = gLedRunPara.mTargetBright[i];
+            if(!gLedPara.mAuto)
+            {
+                Audio_StopSound();
+                gLedPara.mOn = 1;
+                gLedPara.mAuto = 1;
+                gLedRunPara.mParaChanged = 1;
+                Led_Initialize();
+                for (uint8_t i = 0; i < CHANNEL_CNT; i++) {
+                    gLedRunPara.mCurrentBright[i] = gLedRunPara.mTargetBright[i];
+                }
             }
             break;
         case KEYR_UP:
@@ -575,24 +579,80 @@ void IR_KeyAction() {
             }
             break;
         case KEY_BRT_INC:
-            Audio_StopSound();
-            for (uint8_t i = 0; i < CHANNEL_CNT; i++) {
-                Util_IncValue((uint16_t*) & gLedRunPara.mTargetBright[i], BRIGHT_MAX, BRIGHT_STEP_SEG);
-                gLedPara.mBright[i] = gLedRunPara.mTargetBright[i];
-            }
+//            Audio_StopSound();
+            if(gLedPara.mMsc == MUSIC_NONE_INDEX) {
+                for (uint8_t i = 0; i < CHANNEL_CNT; i++) {
+                    Util_IncValue((uint16_t*) & gLedRunPara.mTargetBright[i], BRIGHT_MAX, BRIGHT_STEP_SEG);
+                    gLedPara.mBright[i] = gLedRunPara.mTargetBright[i];
+                }
+            } else {
+                if(gLedPara.mMsc == MUSIC_DAY_INDEX) {
+                    for(uint8_t i = 0;i < CHANNEL_CNT; i++) {
+                        Util_IncValue((uint16_t*) & gLedRunPara.mTargetBright[i], BRIGHT_MAX, BRIGHT_STEP_SEG);
+                        gLedPara.mStaticDayBright[i] = gLedRunPara.mTargetBright[i];
+                    }
+                } else if (gLedPara.mMsc == MUSIC_NIGHT_INDEX) {
+                    Util_IncValue((uint16_t *) & gLedRunPara.mTargetBright[2],BRIGHT_MAX,BRIGHT_STEP_SEG);
+                    gLedPara.mStaticNightBright[2] = gLedRunPara.mTargetBright[2];
+                } else if (gLedPara.mMsc == MUSIC_FISH_INDEX) {
+                    Util_IncValue((uint16_t *) & gLedRunPara.mTargetBright[2],BRIGHT_MAX,BRIGHT_STEP_SEG);
+                    Util_IncValue((uint16_t *) & gLedRunPara.mTargetBright[3],BRIGHT_MAX,BRIGHT_STEP_SEG);
+                    Util_IncValue((uint16_t *) & gLedRunPara.mTargetBright[4],BRIGHT_MAX,BRIGHT_STEP_SEG);
+                    gLedPara.mStaticFishBright[2] = gLedRunPara.mTargetBright[2];
+                    gLedPara.mStaticFishBright[3] = gLedRunPara.mTargetBright[3];
+                    gLedPara.mStaticFishBright[4] = gLedRunPara.mTargetBright[4];
+                } else if (gLedPara.mMsc == MUSIC_PLANT_INDEX) {
+                    Util_IncValue((uint16_t *) & gLedRunPara.mTargetBright[0],BRIGHT_MAX,BRIGHT_STEP_SEG);
+                    Util_IncValue((uint16_t *) & gLedRunPara.mTargetBright[2],BRIGHT_MAX,BRIGHT_STEP_SEG);
+                    Util_IncValue((uint16_t *) & gLedRunPara.mTargetBright[3],BRIGHT_MAX,BRIGHT_STEP_SEG);
+                    Util_IncValue((uint16_t *) & gLedRunPara.mTargetBright[4],BRIGHT_MAX,BRIGHT_STEP_SEG);
+                    gLedPara.mStaticPlantBright[0] = gLedRunPara.mTargetBright[0];
+                    gLedPara.mStaticPlantBright[2] = gLedRunPara.mTargetBright[2];
+                    gLedPara.mStaticPlantBright[3] = gLedRunPara.mTargetBright[3];
+                    gLedPara.mStaticPlantBright[4] = gLedRunPara.mTargetBright[4];
+                }  
+            }     
             gLedPara.mAuto = 0;
-            gLedPara.mMsc = 0;
+//            gLedPara.mMsc = 0;
             gLedPara.mDyn = 0;
             gLedRunPara.mParaChanged = 1;
             break;
         case KEY_BRT_DEC:
-            Audio_StopSound();
-            for (uint8_t i = 0; i < CHANNEL_CNT; i++) {
-                Util_DecValue((uint16_t*) & gLedRunPara.mTargetBright[i], BRIGHT_MIN, BRIGHT_STEP_SEG);
-                gLedPara.mBright[i] = gLedRunPara.mTargetBright[i];
-            }
+//            Audio_StopSound();
+            if(gLedPara.mMsc == MUSIC_NONE_INDEX) {
+                for(uint8_t i = 0;i < CHANNEL_CNT; i++) {
+                    Util_DecValue((uint16_t*) & gLedRunPara.mTargetBright[i], BRIGHT_MIN, BRIGHT_STEP_SEG);
+                    gLedPara.mBright[i] = gLedRunPara.mTargetBright[i];
+                }
+            } else {
+                if(gLedPara.mMsc == MUSIC_DAY_INDEX) {
+                    for(uint8_t i = 0;i < CHANNEL_CNT; i++) {
+                        Util_DecValue((uint16_t*) & gLedRunPara.mTargetBright[i], 100, BRIGHT_STEP_SEG);
+                        gLedPara.mStaticDayBright[i] = gLedRunPara.mTargetBright[i];
+                    }
+                } else if (gLedPara.mMsc == MUSIC_NIGHT_INDEX) {
+                    Util_DecValue((uint16_t*) & gLedRunPara.mTargetBright[2], 100, BRIGHT_STEP_SEG);
+                    gLedPara.mStaticNightBright[2] = gLedRunPara.mTargetBright[2];
+                } else if (gLedPara.mMsc == MUSIC_FISH_INDEX) {
+                    Util_DecValue((uint16_t*) & gLedRunPara.mTargetBright[2], 100, BRIGHT_STEP_SEG);
+                    Util_DecValue((uint16_t*) & gLedRunPara.mTargetBright[3], 100, BRIGHT_STEP_SEG);
+                    Util_DecValue((uint16_t*) & gLedRunPara.mTargetBright[4], 100, BRIGHT_STEP_SEG);
+                    gLedPara.mStaticFishBright[2] = gLedRunPara.mTargetBright[2];
+                    gLedPara.mStaticFishBright[3] = gLedRunPara.mTargetBright[3];
+                    gLedPara.mStaticFishBright[4] = gLedRunPara.mTargetBright[4];
+                } else if (gLedPara.mMsc == MUSIC_PLANT_INDEX) {
+                    Util_DecValue((uint16_t*) & gLedRunPara.mTargetBright[0], 100, BRIGHT_STEP_SEG);
+                    Util_DecValue((uint16_t*) & gLedRunPara.mTargetBright[2], 100, BRIGHT_STEP_SEG);
+                    Util_DecValue((uint16_t*) & gLedRunPara.mTargetBright[3], 100, BRIGHT_STEP_SEG);
+                    Util_DecValue((uint16_t*) & gLedRunPara.mTargetBright[4], 100, BRIGHT_STEP_SEG);
+                    gLedPara.mStaticPlantBright[0] = gLedRunPara.mTargetBright[0];
+                    gLedPara.mStaticPlantBright[2] = gLedRunPara.mTargetBright[2];
+                    gLedPara.mStaticPlantBright[3] = gLedRunPara.mTargetBright[3];
+                    gLedPara.mStaticPlantBright[4] = gLedRunPara.mTargetBright[4];
+                } 
+            }                
             gLedPara.mAuto = 0;
-            gLedPara.mMsc = 0;
+//            gLedPara.mMsc = 0;
             gLedPara.mDyn = 0;
             gLedRunPara.mParaChanged = 1;
             break;

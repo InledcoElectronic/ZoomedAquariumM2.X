@@ -49,10 +49,14 @@ extern "C" {
         unsigned mVolOn : 1;
         unsigned mMsc : 4;
         unsigned mDyn : 1;
-        unsigned mFirstPowerUp;
+        uint8_t mFirstPowerUp;
         uint8_t mVolume;
         uint16_t mBright[CHANNEL_CNT];                  //bright of manual mode
         uint16_t mCustom[CUSTOM_CNT][CHANNEL_CNT];      //custom light
+        uint16_t mStaticDayBright[CHANNEL_CNT];               //static DayLight
+        uint16_t mStaticNightBright[CHANNEL_CNT];             //static NightLight
+        uint16_t mStaticFishBright[CHANNEL_CNT];              //static FishLight
+        uint16_t mStaticPlantBright[CHANNEL_CNT];             //static PlantLight
 
         uint16_t mSunrise;                              //minutes in the day
         uint16_t mDayBright[CHANNEL_CNT];               //day light bright in auto mode

@@ -10234,10 +10234,14 @@ unsigned mOn : 1;
 unsigned mVolOn : 1;
 unsigned mMsc : 4;
 unsigned mDyn : 1;
-unsigned mFirstPowerUp;
+uint8_t mFirstPowerUp;
 uint8_t mVolume;
 uint16_t mBright[5];
 uint16_t mCustom[4][5];
+uint16_t mStaticDayBright[5];
+uint16_t mStaticNightBright[5];
+uint16_t mStaticFishBright[5];
+uint16_t mStaticPlantBright[5];
 
 uint16_t mSunrise;
 uint16_t mDayBright[5];

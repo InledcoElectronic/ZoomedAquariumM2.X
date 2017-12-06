@@ -10205,10 +10205,14 @@ unsigned mOn : 1;
 unsigned mVolOn : 1;
 unsigned mMsc : 4;
 unsigned mDyn : 1;
-unsigned mFirstPowerUp;
+uint8_t mFirstPowerUp;
 uint8_t mVolume;
 uint16_t mBright[5];
 uint16_t mCustom[4][5];
+uint16_t mStaticDayBright[5];
+uint16_t mStaticNightBright[5];
+uint16_t mStaticFishBright[5];
+uint16_t mStaticPlantBright[5];
 
 uint16_t mSunrise;
 uint16_t mDayBright[5];
@@ -10315,18 +10319,24 @@ void Led_FirstPowerUp()
 {
 if(gLedPara.mFirstPowerUp != 0x55){
 gLedPara.mFirstPowerUp = 0x55;
-for (uint8_t i = 0; i < 5; i++){
+for (uint8_t i = 0; i < 5; i++) {
 gLedPara.mDayBright[i] = 1000;
 gLedPara.mNightBright[i] = 0;
+gLedPara.mStaticDayBright[i] = 1000;
+gLedPara.mStaticNightBright[i] = 0;
+gLedPara.mStaticFishBright[i] = 1000;
+gLedPara.mStaticPlantBright[i] = 1000;
 }
 gLedPara.mSunrise = 390;
 gLedPara.mSunset = 1110;
 gLedPara.mNightBright[2] = 1000;
-
+gLedPara.mStaticNightBright[2] = 1000;
+gLedPara.mStaticFishBright[0] = 0;
+gLedPara.mStaticFishBright[1] = 0;
+gLedPara.mStaticPlantBright[1] = 0;
 }
 }
 void Led_InitPara() {
-Led_FirstPowerUp();
 DATAEE_ReadBuffer(0x7010, (uint8_t *) & gLedPara, sizeof ( gLedPara));
 for (uint8_t i = 0; i < 5; i++) {
 if (gLedPara.mBright[i] > 1000) {
@@ -10337,6 +10347,18 @@ gLedPara.mDayBright[i] = 1000;
 }
 if (gLedPara.mNightBright[i] > 1000) {
 gLedPara.mNightBright[i] = 1000;
+}
+if (gLedPara.mStaticDayBright[i] > 1000) {
+gLedPara.mStaticDayBright[i] = 1000;
+}
+if (gLedPara.mStaticNightBright[i] > 1000) {
+gLedPara.mStaticNightBright[i] = 1000;
+}
+if (gLedPara.mStaticFishBright[i] > 1000) {
+gLedPara.mStaticFishBright[i] = 1000;
+}
+if (gLedPara.mStaticPlantBright[i] > 1000) {
+gLedPara.mStaticPlantBright[i] = 1000;
 }
 for (uint8_t j = 0; j < 4; j++) {
 if (gLedPara.mCustom[j][i] > 1000) {
@@ -10356,8 +10378,9 @@ if (gLedPara.mVolume > 4) {
 gLedPara.mVolume = 4;
 }
 
-# 66
+# 84
 }
+Led_FirstPowerUp();
 }
 
 void Led_Initialize() {
@@ -10379,36 +10402,36 @@ gLedRunPara.music_index = gLedPara.mMsc;
 gLedRunPara.music_state = 1;
 switch (gLedPara.mMsc) {
 case 1:
-gLedRunPara.mCurrentBright[0] = 1000;
-gLedRunPara.mCurrentBright[1] = 1000;
-gLedRunPara.mCurrentBright[2] = 1000;
-gLedRunPara.mCurrentBright[3] = 1000;
-gLedRunPara.mCurrentBright[4] = 1000;
-Led_UpdateBright();
+gLedRunPara.mTargetBright[0] = gLedPara.mStaticDayBright[0];
+gLedRunPara.mTargetBright[1] = gLedPara.mStaticDayBright[0];
+gLedRunPara.mTargetBright[2] = gLedPara.mStaticDayBright[0];
+gLedRunPara.mTargetBright[3] = gLedPara.mStaticDayBright[0];
+gLedRunPara.mTargetBright[4] = gLedPara.mStaticDayBright[0];
+
 break;
 case 2:
-gLedRunPara.mCurrentBright[0] = 0;
-gLedRunPara.mCurrentBright[1] = 0;
-gLedRunPara.mCurrentBright[2] = 1000;
-gLedRunPara.mCurrentBright[3] = 0;
-gLedRunPara.mCurrentBright[4] = 0;
-Led_UpdateBright();
+gLedRunPara.mTargetBright[0] = gLedPara.mStaticNightBright[0];
+gLedRunPara.mTargetBright[1] = gLedPara.mStaticNightBright[1];
+gLedRunPara.mTargetBright[2] = gLedPara.mStaticNightBright[2];
+gLedRunPara.mTargetBright[3] = gLedPara.mStaticNightBright[3];
+gLedRunPara.mTargetBright[4] = gLedPara.mStaticNightBright[4];
+
 break;
 case 3:
-gLedRunPara.mCurrentBright[0] = 0;
-gLedRunPara.mCurrentBright[1] = 0;
-gLedRunPara.mCurrentBright[2] = 1000;
-gLedRunPara.mCurrentBright[3] = 1000;
-gLedRunPara.mCurrentBright[4] = 1000;
-Led_UpdateBright();
+gLedRunPara.mTargetBright[0] = gLedPara.mStaticFishBright[0];
+gLedRunPara.mTargetBright[1] = gLedPara.mStaticFishBright[1];
+gLedRunPara.mTargetBright[2] = gLedPara.mStaticFishBright[2];
+gLedRunPara.mTargetBright[3] = gLedPara.mStaticFishBright[3];
+gLedRunPara.mTargetBright[4] = gLedPara.mStaticFishBright[4];
+
 break;
 case 4:
-gLedRunPara.mCurrentBright[0] = 1000;
-gLedRunPara.mCurrentBright[1] = 0;
-gLedRunPara.mCurrentBright[2] = 1000;
-gLedRunPara.mCurrentBright[3] = 1000;
-gLedRunPara.mCurrentBright[4] = 1000;
-Led_UpdateBright();
+gLedRunPara.mTargetBright[0] = gLedPara.mStaticPlantBright[0];
+gLedRunPara.mTargetBright[1] = gLedPara.mStaticPlantBright[1];
+gLedRunPara.mTargetBright[2] = gLedPara.mStaticPlantBright[2];
+gLedRunPara.mTargetBright[3] = gLedPara.mStaticPlantBright[3];
+gLedRunPara.mTargetBright[4] = gLedPara.mStaticPlantBright[4];
+
 break;
 default:
 break;
@@ -10487,7 +10510,7 @@ gLedRunPara.mTargetBright[i] = 0;
 }
 }
 
-# 256
+# 275
 void Led_SetCustom(uint8_t idx, uint16_t *pValue) {
 uint16_t value;
 if (idx >= 4) {
@@ -10520,7 +10543,7 @@ loadDuty[i](gLedRunPara.mCurrentBright[i]);
 
 }
 
-# 316
+# 335
 void Led_CheckAutoStatus() {
 uint16_t ct = RTC_GetTime()->hour * 60u + RTC_GetTime()->minute;
 uint16_t sunrise = gLedPara.mSunrise;
@@ -10560,7 +10583,6 @@ Util_IncValue((uint16_t *) & gLedRunPara.mCurrentBright[0], 1000, 4);
 Util_IncValue((uint16_t *) & gLedRunPara.mCurrentBright[0], 1000, 1);
 } else {
 gLedRunPara.auto_state = 0;
-gLedRunPara.auto_num = 0;
 if (gLedRunPara.mCurrentBright[0] < gLedRunPara.mTargetBright[0]) {
 gLedRunPara.mCurrentBright[0]++;
 } else if (gLedRunPara.mCurrentBright[0] > gLedRunPara.mTargetBright[0]) {
@@ -10580,7 +10602,7 @@ gLedRunPara.mCurrentBright[i]--;
 Led_UpdateBright();
 }
 
-# 397
+# 415
 void Led_StartNotice(uint8_t cnt) {
 gLedRunPara.mNoticeCount = cnt;
 TMR4_StartTimer();
@@ -10736,6 +10758,9 @@ if ((ir_state.mSet == 4) || (ir_state.mSet == 5)) {
 Led_Ramp();
 } else if (!gLedPara.mAuto) {
 if (gLedPara.mOn && gLedPara.mMsc) {
+if(gLedPara.mMsc == 1 || gLedPara.mMsc == 2 || gLedPara.mMsc == 3 || gLedPara.mMsc == 4) {
+Led_Ramp();
+}
 Led_RunMusic();
 } else {
 Led_Ramp();
