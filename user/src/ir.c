@@ -454,7 +454,7 @@ void IR_KeyAction() {
     TMR2_DisableInterrupt();
     switch (keyValue) {
         case KEY_LINK_DAY:
-            Audio_StopSound();
+//            Audio_StopSound();
             gLedPara.mMsc = MUSIC_DAY_INDEX;
             gLedPara.mDyn = 0;
             gLedPara.mAuto = 0;
@@ -463,7 +463,7 @@ void IR_KeyAction() {
             Led_Initialize();
             break;
         case KEY_LINK_NIGHT:
-            Audio_StopSound();
+//            Audio_StopSound();
             gLedPara.mMsc = MUSIC_NIGHT_INDEX;
             gLedPara.mDyn = 0;
             gLedPara.mAuto = 0;
@@ -472,7 +472,7 @@ void IR_KeyAction() {
             Led_Initialize();
             break;
         case KEY_LINK_FISH:
-            Audio_StopSound();
+//            Audio_StopSound();
             gLedPara.mMsc = MUSIC_FISH_INDEX;
             gLedPara.mDyn = 0;
             gLedPara.mAuto = 0;
@@ -481,7 +481,7 @@ void IR_KeyAction() {
             Led_Initialize();
             break;
         case KEY_LINK_PLANT:
-            Audio_StopSound();
+//            Audio_StopSound();
             gLedPara.mMsc = MUSIC_PLANT_INDEX;
             gLedPara.mDyn = 0;
             gLedPara.mAuto = 0;
@@ -493,7 +493,7 @@ void IR_KeyAction() {
         case KEY_LINK_MOON:
         case KEY_LINK_CLOUD:
         case KEY_LINK_STORM:
-            Audio_StopSound();
+//            Audio_StopSound();
             gLedPara.mMsc = IR_GetIndex(keyValue);
             gLedPara.mDyn = 1;
             gLedPara.mAuto = 0;

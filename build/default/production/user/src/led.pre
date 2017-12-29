@@ -10239,6 +10239,7 @@ extern volatile LedRunPara_t gLedRunPara;
 extern const uint8_t VOLUME[5];
 
 extern void Led_InitPara();
+extern void Audio_Initialize();
 extern void Led_Initialize();
 extern void Led_SaveParaIfChanged();
 extern void Led_UpdateBright();
@@ -10271,7 +10272,7 @@ extern bool RTC_SecondReady();
 extern bool RTC_MinuteReady();
 extern bool RTC_HourReady();
 
-# 35 "user/src/../inc/audio.h"
+# 32 "user/src/../inc/audio.h"
 extern volatile uint16_t audio_value;
 
 extern void Audio_PlaySound();
@@ -10336,6 +10337,7 @@ gLedPara.mStaticFishBright[1] = 0;
 gLedPara.mStaticPlantBright[1] = 0;
 }
 }
+
 void Led_InitPara() {
 DATAEE_ReadBuffer(0x7010, (uint8_t *) & gLedPara, sizeof ( gLedPara));
 for (uint8_t i = 0; i < 5; i++) {
@@ -10378,20 +10380,23 @@ if (gLedPara.mVolume > 4) {
 gLedPara.mVolume = 4;
 }
 
-# 84
+# 85
 }
 Led_FirstPowerUp();
 }
 
-void Led_Initialize() {
+void Audio_Initialize(){
 _delay((unsigned long)((640)*(16000000/4000.0)));
 asm("clrwdt");
 Audio_StopSound();
-_delay((unsigned long)((64)*(16000000/4000.0)));
+_delay((unsigned long)((480)*(16000000/4000.0)));
 Audio_SetVolume(gLedPara.mVolOn ? VOLUME[ gLedPara.mVolume ] : 0);
-_delay((unsigned long)((64)*(16000000/4000.0)));
-Audio_SetPlayMode(0x02);
-_delay((unsigned long)((64)*(16000000/4000.0)));
+_delay((unsigned long)((480)*(16000000/4000.0)));
+Audio_SetPlayMode(0x01);
+_delay((unsigned long)((480)*(16000000/4000.0)));
+}
+
+void Led_Initialize() {
 uint16_t ct = RTC_GetTime()->hour * 60u + RTC_GetTime()->minute;
 if (!gLedPara.mAuto) {
 if (!gLedPara.mOn) {
@@ -10403,10 +10408,10 @@ gLedRunPara.music_state = 1;
 switch (gLedPara.mMsc) {
 case 1:
 gLedRunPara.mTargetBright[0] = gLedPara.mStaticDayBright[0];
-gLedRunPara.mTargetBright[1] = gLedPara.mStaticDayBright[0];
-gLedRunPara.mTargetBright[2] = gLedPara.mStaticDayBright[0];
-gLedRunPara.mTargetBright[3] = gLedPara.mStaticDayBright[0];
-gLedRunPara.mTargetBright[4] = gLedPara.mStaticDayBright[0];
+gLedRunPara.mTargetBright[1] = gLedPara.mStaticDayBright[1];
+gLedRunPara.mTargetBright[2] = gLedPara.mStaticDayBright[2];
+gLedRunPara.mTargetBright[3] = gLedPara.mStaticDayBright[3];
+gLedRunPara.mTargetBright[4] = gLedPara.mStaticDayBright[4];
 
 break;
 case 2:
@@ -10510,7 +10515,7 @@ gLedRunPara.mTargetBright[i] = 0;
 }
 }
 
-# 275
+# 279
 void Led_SetCustom(uint8_t idx, uint16_t *pValue) {
 uint16_t value;
 if (idx >= 4) {
@@ -10543,7 +10548,7 @@ loadDuty[i](gLedRunPara.mCurrentBright[i]);
 
 }
 
-# 335
+# 339
 void Led_CheckAutoStatus() {
 uint16_t ct = RTC_GetTime()->hour * 60u + RTC_GetTime()->minute;
 uint16_t sunrise = gLedPara.mSunrise;
@@ -10602,7 +10607,7 @@ gLedRunPara.mCurrentBright[i]--;
 Led_UpdateBright();
 }
 
-# 415
+# 419
 void Led_StartNotice(uint8_t cnt) {
 gLedRunPara.mNoticeCount = cnt;
 TMR4_StartTimer();
@@ -10720,12 +10725,12 @@ void Led_RunMusic() {
 if (gLedRunPara.music_state < 32) {
 gLedRunPara.music_state++;
 } else if (gLedRunPara.music_state == 32) {
-Audio_SelectSound(gLedPara.mMsc);
+Audio_SelectSound(gLedPara.mMsc + 0x30);
 gLedRunPara.music_state++;
 } else if (gLedRunPara.music_state < 64) {
 gLedRunPara.music_state++;
 } else if (gLedRunPara.music_state == 64) {
-Audio_PlaySound();
+
 gLedRunPara.music_state++;
 }
 if (gLedPara.mDyn) {

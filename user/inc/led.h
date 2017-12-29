@@ -83,6 +83,7 @@ extern "C" {
     extern const uint8_t VOLUME[VOLUME_CNT];
     
     extern void Led_InitPara();
+    extern void Audio_Initialize();
     extern void Led_Initialize();
     extern void Led_SaveParaIfChanged();
     extern void Led_UpdateBright();

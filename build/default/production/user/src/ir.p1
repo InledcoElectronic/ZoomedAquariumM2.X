@@ -35,15 +35,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _gLedRunPara `VS965 ~T0 @X0 0 e ]
 "19 user/src/../inc/util.h
 [v _Util_DecValue `(v ~T0 @X0 0 ef3`*ui`ui`ui ]
-"89 user/src/../inc/led.h
+"90 user/src/../inc/led.h
 [v _Led_SetCustom `(v ~T0 @X0 0 ef2`uc`*ui ]
-"97
+"98
 [v _Led_StartNotice `(v ~T0 @X0 0 ef1`uc ]
-"86
+"87
 [v _Led_Initialize `(v ~T0 @X0 0 ef ]
-"38 user/src/../inc/audio.h
+"35 user/src/../inc/audio.h
 [v _Audio_StopSound `(v ~T0 @X0 0 ef ]
-"41
+"38
 [v _Audio_SetVolume `(v ~T0 @X0 0 ef1`uc ]
 "83 user/src/../inc/led.h
 [v _VOLUME `Cuc ~T0 @X0 -> 0 `x e ]
@@ -7779,20 +7779,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;led.h: 82: extern volatile LedRunPara_t gLedRunPara;
 [; ;led.h: 83: extern const uint8_t VOLUME[5];
 [; ;led.h: 85: extern void Led_InitPara();
-[; ;led.h: 86: extern void Led_Initialize();
-[; ;led.h: 87: extern void Led_SaveParaIfChanged();
-[; ;led.h: 88: extern void Led_UpdateBright();
-[; ;led.h: 89: extern void Led_SetCustom(uint8_t idx, uint16_t* pValue);
-[; ;led.h: 90: extern void Led_TurnOnDirect();
-[; ;led.h: 91: extern void Led_TurnOffDirect();
-[; ;led.h: 92: extern void Led_TurnOnRamp();
-[; ;led.h: 93: extern void Led_TurnOffRamp();
-[; ;led.h: 94: extern void Led_Ramp();
-[; ;led.h: 95: extern void Led_CheckAutoStatus();
-[; ;led.h: 96: extern void Led_AutoRun();
-[; ;led.h: 97: extern void Led_StartNotice(uint8_t cnt);
-[; ;led.h: 98: extern void Led_Notice();
-[; ;led.h: 99: extern void Led_Run();
+[; ;led.h: 86: extern void Audio_Initialize();
+[; ;led.h: 87: extern void Led_Initialize();
+[; ;led.h: 88: extern void Led_SaveParaIfChanged();
+[; ;led.h: 89: extern void Led_UpdateBright();
+[; ;led.h: 90: extern void Led_SetCustom(uint8_t idx, uint16_t* pValue);
+[; ;led.h: 91: extern void Led_TurnOnDirect();
+[; ;led.h: 92: extern void Led_TurnOffDirect();
+[; ;led.h: 93: extern void Led_TurnOnRamp();
+[; ;led.h: 94: extern void Led_TurnOffRamp();
+[; ;led.h: 95: extern void Led_Ramp();
+[; ;led.h: 96: extern void Led_CheckAutoStatus();
+[; ;led.h: 97: extern void Led_AutoRun();
+[; ;led.h: 98: extern void Led_StartNotice(uint8_t cnt);
+[; ;led.h: 99: extern void Led_Notice();
+[; ;led.h: 100: extern void Led_Run();
 [; ;rtc.h: 18: typedef union {
 [; ;rtc.h: 20: struct {
 [; ;rtc.h: 21: uint8_t hour;
@@ -7806,13 +7807,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;rtc.h: 30: extern bool RTC_SecondReady();
 [; ;rtc.h: 31: extern bool RTC_MinuteReady();
 [; ;rtc.h: 32: extern bool RTC_HourReady();
-[; ;audio.h: 35: extern volatile uint16_t audio_value;
-[; ;audio.h: 37: extern void Audio_PlaySound();
-[; ;audio.h: 38: extern void Audio_StopSound();
-[; ;audio.h: 39: extern void Audio_SelectSound(uint8_t index);
-[; ;audio.h: 40: extern void Audio_SetPlayMode(uint8_t type);
-[; ;audio.h: 41: extern void Audio_SetVolume(uint8_t vol);
-[; ;audio.h: 42: extern void Audio_GetValue();
+[; ;audio.h: 32: extern volatile uint16_t audio_value;
+[; ;audio.h: 34: extern void Audio_PlaySound();
+[; ;audio.h: 35: extern void Audio_StopSound();
+[; ;audio.h: 36: extern void Audio_SelectSound(uint8_t index);
+[; ;audio.h: 37: extern void Audio_SetPlayMode(uint8_t type);
+[; ;audio.h: 38: extern void Audio_SetVolume(uint8_t vol);
+[; ;audio.h: 39: extern void Audio_GetValue();
 "7 user/src/ir.c
 [v _ir_state `VS963 ~T0 @X0 1 e ]
 [; ;ir.c: 7: volatile IRState_t ir_state;
@@ -8762,18 +8763,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;ir.c: 254: uint16_t hVal = TMR1;
 [e = _hVal -> _TMR1 `ui ]
 "255
-[v F8213 `ui ~T0 @X0 1 s codeVal ]
-[i F8213
+[v F8214 `ui ~T0 @X0 1 s codeVal ]
+[i F8214
 -> -> 0 `i `ui
 ]
 "256
-[v F8214 `uc ~T0 @X0 1 s nBit ]
-[i F8214
+[v F8215 `uc ~T0 @X0 1 s nBit ]
+[i F8215
 -> -> 0 `i `uc
 ]
 "257
-[v F8215 `uc ~T0 @X0 1 s rptCnt ]
-[i F8215
+[v F8216 `uc ~T0 @X0 1 s rptCnt ]
+[i F8216
 -> -> 0 `i `uc
 ]
 [; ;ir.c: 255: static uint16_t codeVal = 0;
@@ -8798,10 +8799,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . _ir_state 2 -> -> 1 `i `uc ]
 [; ;ir.c: 265: codeVal = 0;
 "265
-[e = F8213 -> -> 0 `i `ui ]
+[e = F8214 -> -> 0 `i `ui ]
 [; ;ir.c: 266: nBit = 0;
 "266
-[e = F8214 -> -> 0 `i `uc ]
+[e = F8215 -> -> 0 `i `uc ]
 [; ;ir.c: 267: TMR2_DisableInterrupt();
 "267
 [e ( _TMR2_DisableInterrupt ..  ]
@@ -8824,7 +8825,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;ir.c: 274: nBit++;
 "274
-[e ++ F8214 -> -> 1 `i `uc ]
+[e ++ F8215 -> -> 1 `i `uc ]
 "275
 }
 [; ;ir.c: 275: } else if (hVal > 720 && hVal < 960) {
@@ -8834,10 +8835,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;ir.c: 276: codeVal |= (1 << nBit);
 "276
-[e =| F8213 -> << -> 1 `i F8214 `ui ]
+[e =| F8214 -> << -> 1 `i F8215 `ui ]
 [; ;ir.c: 277: nBit++;
 "277
-[e ++ F8214 -> -> 1 `i `uc ]
+[e ++ F8215 -> -> 1 `i `uc ]
 "278
 }
 [; ;ir.c: 278: } else {
@@ -8854,7 +8855,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;ir.c: 280: }
 [; ;ir.c: 281: if (nBit >= 16) {
 "281
-[e $ ! >= -> F8214 `i -> 16 `i 1124  ]
+[e $ ! >= -> F8215 `i -> 16 `i 1124  ]
 {
 [; ;ir.c: 282: if (ir_state.mState == 1) {
 "282
@@ -8862,7 +8863,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;ir.c: 283: if (codeVal == 0xFF00) {
 "283
-[e $ ! == F8213 -> 65280 `ui 1126  ]
+[e $ ! == F8214 -> 65280 `ui 1126  ]
 {
 [; ;ir.c: 284: ir_state.mState = 2;
 "284
@@ -8892,10 +8893,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _TMR2_EnableInterrupt ..  ]
 [; ;ir.c: 290: keyNum = codeVal & 0xFF;
 "290
-[e = _keyNum -> & F8213 -> -> 255 `i `ui `uc ]
+[e = _keyNum -> & F8214 -> -> 255 `i `ui `uc ]
 [; ;ir.c: 291: revKeyNum = codeVal >> 8;
 "291
-[e = _revKeyNum -> >> F8213 -> 8 `i `uc ]
+[e = _revKeyNum -> >> F8214 -> 8 `i `uc ]
 [; ;ir.c: 292: if (keyNum ^ revKeyNum == 0xFF)
 "292
 [e $ ! != ^ -> _keyNum `i -> == -> _revKeyNum `i -> 255 `i `i -> 0 `i 1130  ]
@@ -8950,7 +8951,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . _ir_state 2 -> -> 3 `i `uc ]
 [; ;ir.c: 306: rptCnt = 0;
 "306
-[e = F8215 -> -> 0 `i `uc ]
+[e = F8216 -> -> 0 `i `uc ]
 "307
 }
 [; ;ir.c: 307: } else {
@@ -8986,10 +8987,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;ir.c: 312: }
 [; ;ir.c: 313: }
 [; ;ir.c: 314: codeVal = 0;
-[e = F8213 -> -> 0 `i `ui ]
+[e = F8214 -> -> 0 `i `ui ]
 [; ;ir.c: 315: nBit = 0;
 "315
-[e = F8214 -> -> 0 `i `uc ]
+[e = F8215 -> -> 0 `i `uc ]
 "316
 }
 [e :U 1124 ]
@@ -9006,11 +9007,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;ir.c: 321: if (rptCnt < 4) {
 "321
-[e $ ! < -> F8215 `i -> 4 `i 1140  ]
+[e $ ! < -> F8216 `i -> 4 `i 1140  ]
 {
 [; ;ir.c: 322: rptCnt++;
 "322
-[e ++ F8215 -> -> 1 `i `uc ]
+[e ++ F8216 -> -> 1 `i `uc ]
 "323
 }
 [; ;ir.c: 323: } else {
@@ -9064,8 +9065,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _IR_ScanLongPress ]
 [f ]
 "336
-[v F8217 `ui ~T0 @X0 1 s cnt ]
-[i F8217
+[v F8218 `ui ~T0 @X0 1 s cnt ]
+[i F8218
 -> -> 0 `i `ui
 ]
 "337
@@ -9079,7 +9080,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;ir.c: 339: cnt = 0;
 "339
-[e = F8217 -> -> 0 `i `ui ]
+[e = F8218 -> -> 0 `i `ui ]
 [; ;ir.c: 340: return;
 "340
 [e $UE 1143  ]
@@ -9175,10 +9176,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;ir.c: 368: case 0x4C:
 [; ;ir.c: 369: cnt++;
 "369
-[e ++ F8217 -> -> 1 `i `ui ]
+[e ++ F8218 -> -> 1 `i `ui ]
 [; ;ir.c: 370: if (cnt == 0x200) {
 "370
-[e $ ! == F8217 -> -> 512 `i `ui 1163  ]
+[e $ ! == F8218 -> -> 512 `i `ui 1163  ]
 {
 [; ;ir.c: 371: ir_state.mKeyRpt = 0;
 "371
@@ -9207,10 +9208,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 1164 ]
 [; ;ir.c: 380: cnt++;
 "380
-[e ++ F8217 -> -> 1 `i `ui ]
+[e ++ F8218 -> -> 1 `i `ui ]
 [; ;ir.c: 381: if (cnt == 0x200) {
 "381
-[e $ ! == F8217 -> -> 512 `i `ui 1165  ]
+[e $ ! == F8218 -> -> 512 `i `ui 1165  ]
 {
 [; ;ir.c: 382: ir_state.mKeyRpt = 0;
 "382
@@ -9236,10 +9237,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 1166 ]
 [; ;ir.c: 390: cnt++;
 "390
-[e ++ F8217 -> -> 1 `i `ui ]
+[e ++ F8218 -> -> 1 `i `ui ]
 [; ;ir.c: 391: if (cnt == 0x200) {
 "391
-[e $ ! == F8217 -> -> 512 `i `ui 1167  ]
+[e $ ! == F8218 -> -> 512 `i `ui 1167  ]
 {
 [; ;ir.c: 392: ir_state.mKeyRpt = 0;
 "392
@@ -9265,10 +9266,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 1168 ]
 [; ;ir.c: 400: cnt++;
 "400
-[e ++ F8217 -> -> 1 `i `ui ]
+[e ++ F8218 -> -> 1 `i `ui ]
 [; ;ir.c: 401: if (cnt == 0x200) {
 "401
-[e $ ! == F8217 -> -> 512 `i `ui 1169  ]
+[e $ ! == F8218 -> -> 512 `i `ui 1169  ]
 {
 [; ;ir.c: 402: ir_state.mKeyRpt = 0;
 "402
@@ -9312,10 +9313,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 1173 ]
 [; ;ir.c: 411: cnt++;
 "411
-[e ++ F8217 -> -> 1 `i `ui ]
+[e ++ F8218 -> -> 1 `i `ui ]
 [; ;ir.c: 412: if (cnt == 0x200) {
 "412
-[e $ ! == F8217 -> -> 512 `i `ui 1174  ]
+[e $ ! == F8218 -> -> 512 `i `ui 1174  ]
 {
 [; ;ir.c: 413: ir_state.mKeyRpt = 0;
 "413
@@ -9359,10 +9360,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 1178 ]
 [; ;ir.c: 422: cnt++;
 "422
-[e ++ F8217 -> -> 1 `i `ui ]
+[e ++ F8218 -> -> 1 `i `ui ]
 [; ;ir.c: 423: if (cnt == 0x200) {
 "423
-[e $ ! == F8217 -> -> 512 `i `ui 1179  ]
+[e $ ! == F8218 -> -> 512 `i `ui 1179  ]
 {
 [; ;ir.c: 424: ir_state.mKeyRpt = 0;
 "424
@@ -9493,9 +9494,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;ir.c: 456: case 0x1C:
 "456
 [e :U 1186 ]
-[; ;ir.c: 457: Audio_StopSound();
-"457
-[e ( _Audio_StopSound ..  ]
 [; ;ir.c: 458: gLedPara.mMsc = 1;
 "458
 [e = . _gLedPara 3 -> -> 1 `i `uc ]
@@ -9520,9 +9518,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;ir.c: 465: case 0x1D:
 "465
 [e :U 1187 ]
-[; ;ir.c: 466: Audio_StopSound();
-"466
-[e ( _Audio_StopSound ..  ]
 [; ;ir.c: 467: gLedPara.mMsc = 2;
 "467
 [e = . _gLedPara 3 -> -> 2 `i `uc ]
@@ -9547,9 +9542,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;ir.c: 474: case 0x1E:
 "474
 [e :U 1188 ]
-[; ;ir.c: 475: Audio_StopSound();
-"475
-[e ( _Audio_StopSound ..  ]
 [; ;ir.c: 476: gLedPara.mMsc = 3;
 "476
 [e = . _gLedPara 3 -> -> 3 `i `uc ]
@@ -9574,9 +9566,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;ir.c: 483: case 0x1F:
 "483
 [e :U 1189 ]
-[; ;ir.c: 484: Audio_StopSound();
-"484
-[e ( _Audio_StopSound ..  ]
 [; ;ir.c: 485: gLedPara.mMsc = 4;
 "485
 [e = . _gLedPara 3 -> -> 4 `i `uc ]
@@ -9610,9 +9599,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;ir.c: 493: case 0x15:
 [; ;ir.c: 494: case 0x16:
 [; ;ir.c: 495: case 0x17:
-[; ;ir.c: 496: Audio_StopSound();
-"496
-[e ( _Audio_StopSound ..  ]
 [; ;ir.c: 497: gLedPara.mMsc = IR_GetIndex(keyValue);
 "497
 [e = . _gLedPara 3 ( _IR_GetIndex (1 _keyValue ]

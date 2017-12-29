@@ -10262,6 +10262,7 @@ extern volatile LedRunPara_t gLedRunPara;
 extern const uint8_t VOLUME[5];
 
 extern void Led_InitPara();
+extern void Audio_Initialize();
 extern void Led_Initialize();
 extern void Led_SaveParaIfChanged();
 extern void Led_UpdateBright();
@@ -10294,7 +10295,7 @@ extern bool RTC_SecondReady();
 extern bool RTC_MinuteReady();
 extern bool RTC_HourReady();
 
-# 35 "user/src/../inc/audio.h"
+# 32 "user/src/../inc/audio.h"
 extern volatile uint16_t audio_value;
 
 extern void Audio_PlaySound();
@@ -10755,7 +10756,7 @@ ir_state.mKeyRcv = 0;
 TMR2_DisableInterrupt();
 switch (keyValue) {
 case 0x1C:
-Audio_StopSound();
+
 gLedPara.mMsc = 1;
 gLedPara.mDyn = 0;
 gLedPara.mAuto = 0;
@@ -10764,7 +10765,7 @@ gLedRunPara.mParaChanged = 1;
 Led_Initialize();
 break;
 case 0x1D:
-Audio_StopSound();
+
 gLedPara.mMsc = 2;
 gLedPara.mDyn = 0;
 gLedPara.mAuto = 0;
@@ -10773,7 +10774,7 @@ gLedRunPara.mParaChanged = 1;
 Led_Initialize();
 break;
 case 0x1E:
-Audio_StopSound();
+
 gLedPara.mMsc = 3;
 gLedPara.mDyn = 0;
 gLedPara.mAuto = 0;
@@ -10782,7 +10783,7 @@ gLedRunPara.mParaChanged = 1;
 Led_Initialize();
 break;
 case 0x1F:
-Audio_StopSound();
+
 gLedPara.mMsc = 4;
 gLedPara.mDyn = 0;
 gLedPara.mAuto = 0;
@@ -10794,7 +10795,7 @@ case 0x14:
 case 0x15:
 case 0x16:
 case 0x17:
-Audio_StopSound();
+
 gLedPara.mMsc = IR_GetIndex(keyValue);
 gLedPara.mDyn = 1;
 gLedPara.mAuto = 0;

@@ -40,6 +40,7 @@ void main() {
     GlobleInterruptEnable();
     PeripheralInterruptEnable();
     Led_InitPara();
+    Audio_Initialize();
     Led_Initialize();
     TMR0_StartTimer();
     TMR1_StartTimer();

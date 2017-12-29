@@ -10217,7 +10217,7 @@ extern void IR_ScanLongPress();
 extern void IR_KeyAtionIfPressed();
 extern void IR_UpdateSetStatus();
 
-# 35 "user/src/../inc/audio.h"
+# 32 "user/src/../inc/audio.h"
 extern volatile uint16_t audio_value;
 
 extern void Audio_PlaySound();
@@ -10268,6 +10268,7 @@ extern volatile LedRunPara_t gLedRunPara;
 extern const uint8_t VOLUME[5];
 
 extern void Led_InitPara();
+extern void Audio_Initialize();
 extern void Led_Initialize();
 extern void Led_SaveParaIfChanged();
 extern void Led_UpdateBright();
@@ -10336,6 +10337,7 @@ Interrupt_Initialize();
 (INTCONbits.GIE = 1);
 (INTCONbits.PEIE = 1);
 Led_InitPara();
+Audio_Initialize();
 Led_Initialize();
 TMR0_StartTimer();
 TMR1_StartTimer();

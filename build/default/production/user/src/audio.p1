@@ -7683,13 +7683,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eusart.h: 47: extern void EUSART_Transmit_ISR();
 [; ;adc.h: 86: extern void ADC_Initialize_Default ();
 [; ;adc.h: 87: extern uint16_t ADC_Conversion ( uint8_t chn );
-[; ;audio.h: 35: extern volatile uint16_t audio_value;
-[; ;audio.h: 37: extern void Audio_PlaySound();
-[; ;audio.h: 38: extern void Audio_StopSound();
-[; ;audio.h: 39: extern void Audio_SelectSound(uint8_t index);
-[; ;audio.h: 40: extern void Audio_SetPlayMode(uint8_t type);
-[; ;audio.h: 41: extern void Audio_SetVolume(uint8_t vol);
-[; ;audio.h: 42: extern void Audio_GetValue();
+[; ;audio.h: 32: extern volatile uint16_t audio_value;
+[; ;audio.h: 34: extern void Audio_PlaySound();
+[; ;audio.h: 35: extern void Audio_StopSound();
+[; ;audio.h: 36: extern void Audio_SelectSound(uint8_t index);
+[; ;audio.h: 37: extern void Audio_SetPlayMode(uint8_t type);
+[; ;audio.h: 38: extern void Audio_SetVolume(uint8_t vol);
+[; ;audio.h: 39: extern void Audio_GetValue();
 "3 user/src/audio.c
 [v _audio_value `Vui ~T0 @X0 1 e ]
 [; ;audio.c: 3: volatile uint16_t audio_value;
@@ -7708,12 +7708,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;audio.c: 8: EUSART_Write ( 0x7E );
 "8
 [e ( _EUSART_Write (1 -> -> 126 `i `uc ]
-[; ;audio.c: 9: checksum ^= EUSART_Write ( 0x03 );
+[; ;audio.c: 9: checksum += EUSART_Write ( 0x03 );
 "9
-[e =^ _checksum ( _EUSART_Write (1 -> -> 3 `i `uc ]
-[; ;audio.c: 10: checksum ^= EUSART_Write ( 0x11 );
+[e =+ _checksum ( _EUSART_Write (1 -> -> 3 `i `uc ]
+[; ;audio.c: 10: checksum += EUSART_Write ( 0xAA );
 "10
-[e =^ _checksum ( _EUSART_Write (1 -> -> 17 `i `uc ]
+[e =+ _checksum ( _EUSART_Write (1 -> -> 170 `i `uc ]
 [; ;audio.c: 11: EUSART_Write ( checksum );
 "11
 [e ( _EUSART_Write (1 _checksum ]
@@ -7739,12 +7739,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;audio.c: 18: EUSART_Write ( 0x7E );
 "18
 [e ( _EUSART_Write (1 -> -> 126 `i `uc ]
-[; ;audio.c: 19: checksum ^= EUSART_Write ( 0x03 );
+[; ;audio.c: 19: checksum += EUSART_Write ( 0x03 );
 "19
-[e =^ _checksum ( _EUSART_Write (1 -> -> 3 `i `uc ]
-[; ;audio.c: 20: checksum ^= EUSART_Write ( 0x1E );
+[e =+ _checksum ( _EUSART_Write (1 -> -> 3 `i `uc ]
+[; ;audio.c: 20: checksum += EUSART_Write ( 0xAB );
 "20
-[e =^ _checksum ( _EUSART_Write (1 -> -> 30 `i `uc ]
+[e =+ _checksum ( _EUSART_Write (1 -> -> 171 `i `uc ]
 [; ;audio.c: 21: EUSART_Write ( checksum );
 "21
 [e ( _EUSART_Write (1 _checksum ]
@@ -7773,212 +7773,218 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;audio.c: 28: EUSART_Write ( 0x7E );
 "28
 [e ( _EUSART_Write (1 -> -> 126 `i `uc ]
-[; ;audio.c: 29: checksum ^= EUSART_Write ( 0x05 );
+[; ;audio.c: 29: checksum += EUSART_Write ( 0x07 );
 "29
-[e =^ _checksum ( _EUSART_Write (1 -> -> 5 `i `uc ]
-[; ;audio.c: 30: checksum ^= EUSART_Write ( 0x41 );
+[e =+ _checksum ( _EUSART_Write (1 -> -> 7 `i `uc ]
+[; ;audio.c: 30: checksum += EUSART_Write ( 0xA1 );
 "30
-[e =^ _checksum ( _EUSART_Write (1 -> -> 65 `i `uc ]
-[; ;audio.c: 31: checksum ^= EUSART_Write ( 0x00 );
+[e =+ _checksum ( _EUSART_Write (1 -> -> 161 `i `uc ]
+[; ;audio.c: 31: checksum += EUSART_Write ( 0x30 );
 "31
-[e =^ _checksum ( _EUSART_Write (1 -> -> 0 `i `uc ]
-[; ;audio.c: 32: checksum ^= EUSART_Write ( index );
+[e =+ _checksum ( _EUSART_Write (1 -> -> 48 `i `uc ]
+[; ;audio.c: 32: checksum += EUSART_Write ( 0x30 );
 "32
-[e =^ _checksum ( _EUSART_Write (1 _index ]
-[; ;audio.c: 33: EUSART_Write ( checksum );
+[e =+ _checksum ( _EUSART_Write (1 -> -> 48 `i `uc ]
+[; ;audio.c: 33: checksum += EUSART_Write ( 0x30 );
 "33
-[e ( _EUSART_Write (1 _checksum ]
-[; ;audio.c: 34: EUSART_Write ( 0xEF );
+[e =+ _checksum ( _EUSART_Write (1 -> -> 48 `i `uc ]
+[; ;audio.c: 34: checksum += EUSART_Write ( index );
 "34
-[e ( _EUSART_Write (1 -> -> 239 `i `uc ]
-[; ;audio.c: 35: }
+[e =+ _checksum ( _EUSART_Write (1 _index ]
+[; ;audio.c: 35: EUSART_Write ( checksum );
 "35
+[e ( _EUSART_Write (1 _checksum ]
+[; ;audio.c: 36: EUSART_Write ( 0xEF );
+"36
+[e ( _EUSART_Write (1 -> -> 239 `i `uc ]
+[; ;audio.c: 37: }
+"37
 [e :UE 965 ]
 }
-"37
-[v _Audio_SetPlayMode `(v ~T0 @X0 1 ef1`uc ]
-"38
-{
-[; ;audio.c: 37: void Audio_SetPlayMode ( uint8_t type )
-[; ;audio.c: 38: {
-[e :U _Audio_SetPlayMode ]
-"37
-[v _type `uc ~T0 @X0 1 r1 ]
-"38
-[f ]
 "39
-[v _checksum `uc ~T0 @X0 1 a ]
-[; ;audio.c: 39: uint8_t checksum = 0x00;
-[e = _checksum -> -> 0 `i `uc ]
-[; ;audio.c: 40: EUSART_Write ( 0x7E );
+[v _Audio_SetPlayMode `(v ~T0 @X0 1 ef1`uc ]
 "40
-[e ( _EUSART_Write (1 -> -> 126 `i `uc ]
-[; ;audio.c: 41: checksum ^= EUSART_Write ( 0x04 );
+{
+[; ;audio.c: 39: void Audio_SetPlayMode ( uint8_t type )
+[; ;audio.c: 40: {
+[e :U _Audio_SetPlayMode ]
+"39
+[v _type `uc ~T0 @X0 1 r1 ]
+"40
+[f ]
 "41
-[e =^ _checksum ( _EUSART_Write (1 -> -> 4 `i `uc ]
-[; ;audio.c: 42: checksum ^= EUSART_Write ( 0x33 );
+[v _checksum `uc ~T0 @X0 1 a ]
+[; ;audio.c: 41: uint8_t checksum = 0x00;
+[e = _checksum -> -> 0 `i `uc ]
+[; ;audio.c: 42: EUSART_Write ( 0x7E );
 "42
-[e =^ _checksum ( _EUSART_Write (1 -> -> 51 `i `uc ]
-[; ;audio.c: 43: checksum ^= EUSART_Write ( type );
+[e ( _EUSART_Write (1 -> -> 126 `i `uc ]
+[; ;audio.c: 43: checksum += EUSART_Write ( 0x04 );
 "43
-[e =^ _checksum ( _EUSART_Write (1 _type ]
-[; ;audio.c: 44: EUSART_Write ( checksum );
+[e =+ _checksum ( _EUSART_Write (1 -> -> 4 `i `uc ]
+[; ;audio.c: 44: checksum += EUSART_Write ( 0xAF );
 "44
-[e ( _EUSART_Write (1 _checksum ]
-[; ;audio.c: 45: EUSART_Write ( 0xEF );
+[e =+ _checksum ( _EUSART_Write (1 -> -> 175 `i `uc ]
+[; ;audio.c: 45: checksum += EUSART_Write ( type );
 "45
-[e ( _EUSART_Write (1 -> -> 239 `i `uc ]
-[; ;audio.c: 46: }
+[e =+ _checksum ( _EUSART_Write (1 _type ]
+[; ;audio.c: 46: EUSART_Write ( checksum );
 "46
+[e ( _EUSART_Write (1 _checksum ]
+[; ;audio.c: 47: EUSART_Write ( 0xEF );
+"47
+[e ( _EUSART_Write (1 -> -> 239 `i `uc ]
+[; ;audio.c: 48: }
+"48
 [e :UE 966 ]
 }
-"48
-[v _Audio_SetVolume `(v ~T0 @X0 1 ef1`uc ]
-"49
-{
-[; ;audio.c: 48: void Audio_SetVolume ( uint8_t vol )
-[; ;audio.c: 49: {
-[e :U _Audio_SetVolume ]
-"48
-[v _vol `uc ~T0 @X0 1 r1 ]
-"49
-[f ]
 "50
-[v _checksum `uc ~T0 @X0 1 a ]
-[; ;audio.c: 50: uint8_t checksum = 0x00;
-[e = _checksum -> -> 0 `i `uc ]
-[; ;audio.c: 51: EUSART_Write ( 0x7E );
+[v _Audio_SetVolume `(v ~T0 @X0 1 ef1`uc ]
 "51
-[e ( _EUSART_Write (1 -> -> 126 `i `uc ]
-[; ;audio.c: 52: checksum ^= EUSART_Write ( 0x04 );
+{
+[; ;audio.c: 50: void Audio_SetVolume ( uint8_t vol )
+[; ;audio.c: 51: {
+[e :U _Audio_SetVolume ]
+"50
+[v _vol `uc ~T0 @X0 1 r1 ]
+"51
+[f ]
 "52
-[e =^ _checksum ( _EUSART_Write (1 -> -> 4 `i `uc ]
-[; ;audio.c: 53: checksum ^= EUSART_Write ( 0x31 );
+[v _checksum `uc ~T0 @X0 1 a ]
+[; ;audio.c: 52: uint8_t checksum = 0x00;
+[e = _checksum -> -> 0 `i `uc ]
+[; ;audio.c: 53: EUSART_Write ( 0x7E );
 "53
-[e =^ _checksum ( _EUSART_Write (1 -> -> 49 `i `uc ]
-[; ;audio.c: 54: checksum ^= EUSART_Write ( vol );
+[e ( _EUSART_Write (1 -> -> 126 `i `uc ]
+[; ;audio.c: 54: checksum += EUSART_Write ( 0x04 );
 "54
-[e =^ _checksum ( _EUSART_Write (1 _vol ]
-[; ;audio.c: 55: EUSART_Write ( checksum );
+[e =+ _checksum ( _EUSART_Write (1 -> -> 4 `i `uc ]
+[; ;audio.c: 55: checksum += EUSART_Write ( 0xAE );
 "55
-[e ( _EUSART_Write (1 _checksum ]
-[; ;audio.c: 56: EUSART_Write ( 0xEF );
+[e =+ _checksum ( _EUSART_Write (1 -> -> 174 `i `uc ]
+[; ;audio.c: 56: checksum += EUSART_Write ( vol );
 "56
-[e ( _EUSART_Write (1 -> -> 239 `i `uc ]
-[; ;audio.c: 57: }
+[e =+ _checksum ( _EUSART_Write (1 _vol ]
+[; ;audio.c: 57: EUSART_Write ( checksum );
 "57
+[e ( _EUSART_Write (1 _checksum ]
+[; ;audio.c: 58: EUSART_Write ( 0xEF );
+"58
+[e ( _EUSART_Write (1 -> -> 239 `i `uc ]
+[; ;audio.c: 59: }
+"59
 [e :UE 967 ]
 }
-"59
+"61
 [v _Audio_GetValue `(v ~T0 @X0 1 ef ]
-"60
+"62
 {
-[; ;audio.c: 59: void Audio_GetValue ( )
-[; ;audio.c: 60: {
+[; ;audio.c: 61: void Audio_GetValue ( )
+[; ;audio.c: 62: {
 [e :U _Audio_GetValue ]
 [f ]
-"61
+"63
 [v F8114 `ui ~T0 @X0 1 s max ]
 [i F8114
 -> -> 0 `i `ui
 ]
-"62
+"64
 [v F8115 `ui ~T0 @X0 1 s min ]
 [i F8115
 -> -> 0 `i `ui
 ]
-"63
+"65
 [v F8116 `ui ~T0 @X0 1 s cnt ]
 [i F8116
 -> -> 0 `i `ui
 ]
-"64
-[v _value `ui ~T0 @X0 1 a ]
-[; ;audio.c: 61: static uint16_t max = 0;
-[; ;audio.c: 62: static uint16_t min = 0;
-[; ;audio.c: 63: static uint16_t cnt = 0;
-[; ;audio.c: 64: uint16_t value;
-[; ;audio.c: 66: value = ADC_Conversion ( 0x12 );
 "66
-[e = _value ( _ADC_Conversion (1 -> -> 18 `i `uc ]
-[; ;audio.c: 67: if ( cnt == 0 )
-"67
-[e $ ! == F8116 -> -> 0 `i `ui 969  ]
-[; ;audio.c: 68: {
+[v _value `ui ~T0 @X0 1 a ]
+[; ;audio.c: 63: static uint16_t max = 0;
+[; ;audio.c: 64: static uint16_t min = 0;
+[; ;audio.c: 65: static uint16_t cnt = 0;
+[; ;audio.c: 66: uint16_t value;
+[; ;audio.c: 68: value = ADC_Conversion ( 0x12 );
 "68
-{
-[; ;audio.c: 69: max = value;
+[e = _value ( _ADC_Conversion (1 -> -> 18 `i `uc ]
+[; ;audio.c: 69: if ( cnt == 0 )
 "69
-[e = F8114 _value ]
-[; ;audio.c: 70: min = value;
+[e $ ! == F8116 -> -> 0 `i `ui 969  ]
+[; ;audio.c: 70: {
 "70
-[e = F8115 _value ]
-"71
-}
-[; ;audio.c: 71: }
-[e $U 970  ]
-"72
-[e :U 969 ]
-[; ;audio.c: 72: else
-[; ;audio.c: 73: {
-"73
 {
-[; ;audio.c: 74: if ( max < value )
+[; ;audio.c: 71: max = value;
+"71
+[e = F8114 _value ]
+[; ;audio.c: 72: min = value;
+"72
+[e = F8115 _value ]
+"73
+}
+[; ;audio.c: 73: }
+[e $U 970  ]
 "74
-[e $ ! < F8114 _value 971  ]
+[e :U 969 ]
+[; ;audio.c: 74: else
 [; ;audio.c: 75: {
 "75
 {
-[; ;audio.c: 76: max = value;
+[; ;audio.c: 76: if ( max < value )
 "76
-[e = F8114 _value ]
+[e $ ! < F8114 _value 971  ]
+[; ;audio.c: 77: {
 "77
+{
+[; ;audio.c: 78: max = value;
+"78
+[e = F8114 _value ]
+"79
 }
 [e :U 971 ]
-[; ;audio.c: 77: }
-[; ;audio.c: 78: if ( min > value )
-"78
-[e $ ! > F8115 _value 972  ]
-[; ;audio.c: 79: {
-"79
-{
-[; ;audio.c: 80: min = value;
+[; ;audio.c: 79: }
+[; ;audio.c: 80: if ( min > value )
 "80
-[e = F8115 _value ]
+[e $ ! > F8115 _value 972  ]
+[; ;audio.c: 81: {
 "81
+{
+[; ;audio.c: 82: min = value;
+"82
+[e = F8115 _value ]
+"83
 }
 [e :U 972 ]
-"82
+"84
 }
 [e :U 970 ]
-[; ;audio.c: 81: }
-[; ;audio.c: 82: }
-[; ;audio.c: 83: cnt++;
-"83
-[e ++ F8116 -> -> 1 `i `ui ]
-[; ;audio.c: 84: if ( cnt >= 256 )
-"84
-[e $ ! >= F8116 -> -> 256 `i `ui 973  ]
-[; ;audio.c: 85: {
+[; ;audio.c: 83: }
+[; ;audio.c: 84: }
+[; ;audio.c: 85: cnt++;
 "85
-{
-[; ;audio.c: 86: cnt = 0;
+[e ++ F8116 -> -> 1 `i `ui ]
+[; ;audio.c: 86: if ( cnt >= 256 )
 "86
-[e = F8116 -> -> 0 `i `ui ]
-[; ;audio.c: 87: (INTCONbits.GIE = 0);
+[e $ ! >= F8116 -> -> 256 `i `ui 973  ]
+[; ;audio.c: 87: {
 "87
-[e = . . _INTCONbits 0 3 -> -> 0 `i `uc ]
-[; ;audio.c: 88: audio_value = ( audio_value * 15 + max - min ) >> 4;
+{
+[; ;audio.c: 88: cnt = 0;
 "88
-[e = _audio_value >> - + * _audio_value -> -> 15 `i `ui F8114 F8115 -> 4 `i ]
-[; ;audio.c: 89: (INTCONbits.GIE = 1);
+[e = F8116 -> -> 0 `i `ui ]
+[; ;audio.c: 89: (INTCONbits.GIE = 0);
 "89
-[e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
+[e = . . _INTCONbits 0 3 -> -> 0 `i `uc ]
+[; ;audio.c: 90: audio_value = ( audio_value * 15 + max - min ) >> 4;
 "90
+[e = _audio_value >> - + * _audio_value -> -> 15 `i `ui F8114 F8115 -> 4 `i ]
+[; ;audio.c: 91: (INTCONbits.GIE = 1);
+"91
+[e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
+"92
 }
 [e :U 973 ]
-[; ;audio.c: 90: }
-[; ;audio.c: 91: }
-"91
+[; ;audio.c: 92: }
+[; ;audio.c: 93: }
+"93
 [e :UE 968 ]
 }

@@ -10198,7 +10198,7 @@ extern void EUSART_Transmit_ISR();
 extern void ADC_Initialize_Default ();
 extern uint16_t ADC_Conversion ( uint8_t chn );
 
-# 35 "user/src/../inc/audio.h"
+# 32 "user/src/../inc/audio.h"
 extern volatile uint16_t audio_value;
 
 extern void Audio_PlaySound();
@@ -10215,8 +10215,8 @@ void Audio_PlaySound ( )
 {
 uint8_t checksum = 0x00;
 EUSART_Write ( 0x7E );
-checksum ^= EUSART_Write ( 0x03 );
-checksum ^= EUSART_Write ( 0x11 );
+checksum += EUSART_Write ( 0x03 );
+checksum += EUSART_Write ( 0xAA );
 EUSART_Write ( checksum );
 EUSART_Write ( 0xEF );
 }
@@ -10225,8 +10225,8 @@ void Audio_StopSound ( )
 {
 uint8_t checksum = 0x00;
 EUSART_Write ( 0x7E );
-checksum ^= EUSART_Write ( 0x03 );
-checksum ^= EUSART_Write ( 0x1E );
+checksum += EUSART_Write ( 0x03 );
+checksum += EUSART_Write ( 0xAB );
 EUSART_Write ( checksum );
 EUSART_Write ( 0xEF );
 }
@@ -10235,10 +10235,12 @@ void Audio_SelectSound ( uint8_t index )
 {
 uint8_t checksum = 0x00;
 EUSART_Write ( 0x7E );
-checksum ^= EUSART_Write ( 0x05 );
-checksum ^= EUSART_Write ( 0x41 );
-checksum ^= EUSART_Write ( 0x00 );
-checksum ^= EUSART_Write ( index );
+checksum += EUSART_Write ( 0x07 );
+checksum += EUSART_Write ( 0xA1 );
+checksum += EUSART_Write ( 0x30 );
+checksum += EUSART_Write ( 0x30 );
+checksum += EUSART_Write ( 0x30 );
+checksum += EUSART_Write ( index );
 EUSART_Write ( checksum );
 EUSART_Write ( 0xEF );
 }
@@ -10247,9 +10249,9 @@ void Audio_SetPlayMode ( uint8_t type )
 {
 uint8_t checksum = 0x00;
 EUSART_Write ( 0x7E );
-checksum ^= EUSART_Write ( 0x04 );
-checksum ^= EUSART_Write ( 0x33 );
-checksum ^= EUSART_Write ( type );
+checksum += EUSART_Write ( 0x04 );
+checksum += EUSART_Write ( 0xAF );
+checksum += EUSART_Write ( type );
 EUSART_Write ( checksum );
 EUSART_Write ( 0xEF );
 }
@@ -10258,9 +10260,9 @@ void Audio_SetVolume ( uint8_t vol )
 {
 uint8_t checksum = 0x00;
 EUSART_Write ( 0x7E );
-checksum ^= EUSART_Write ( 0x04 );
-checksum ^= EUSART_Write ( 0x31 );
-checksum ^= EUSART_Write ( vol );
+checksum += EUSART_Write ( 0x04 );
+checksum += EUSART_Write ( 0xAE );
+checksum += EUSART_Write ( vol );
 EUSART_Write ( checksum );
 EUSART_Write ( 0xEF );
 }

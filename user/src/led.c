@@ -35,6 +35,7 @@ void Led_FirstPowerUp()
         gLedPara.mStaticPlantBright[1] = 0; 
     }
 }
+
 void Led_InitPara() {
     DATAEE_ReadBuffer(LEDPARA_EEPROM_ADDR, (uint8_t *) & gLedPara, sizeof ( gLedPara));
     for (uint8_t i = 0; i < CHANNEL_CNT; i++) {
@@ -85,15 +86,18 @@ void Led_InitPara() {
     Led_FirstPowerUp();
 }
 
-void Led_Initialize() {
+void Audio_Initialize(){
     __delay_ms(640);
     CLRWDT();
     Audio_StopSound();
-    __delay_ms(64);
+    __delay_ms(480);
     Audio_SetVolume(gLedPara.mVolOn ? VOLUME[ gLedPara.mVolume ] : 0);
-    __delay_ms(64);
+    __delay_ms(480);
     Audio_SetPlayMode(MODE_SINGLE_CYCLE);
-    __delay_ms(64);
+    __delay_ms(480);
+}
+
+void Led_Initialize() {
     uint16_t ct = RTC_GetTime()->hour * 60u + RTC_GetTime()->minute;
     if (!gLedPara.mAuto) {
         if (!gLedPara.mOn) {
@@ -105,10 +109,10 @@ void Led_Initialize() {
                 switch (gLedPara.mMsc) {
                     case MUSIC_DAY_INDEX:
                         gLedRunPara.mTargetBright[0] = gLedPara.mStaticDayBright[0];
-                        gLedRunPara.mTargetBright[1] = gLedPara.mStaticDayBright[0];
-                        gLedRunPara.mTargetBright[2] = gLedPara.mStaticDayBright[0];
-                        gLedRunPara.mTargetBright[3] = gLedPara.mStaticDayBright[0];
-                        gLedRunPara.mTargetBright[4] = gLedPara.mStaticDayBright[0];
+                        gLedRunPara.mTargetBright[1] = gLedPara.mStaticDayBright[1];
+                        gLedRunPara.mTargetBright[2] = gLedPara.mStaticDayBright[2];
+                        gLedRunPara.mTargetBright[3] = gLedPara.mStaticDayBright[3];
+                        gLedRunPara.mTargetBright[4] = gLedPara.mStaticDayBright[4];
 //                        Led_UpdateBright();
                         break;
                     case MUSIC_NIGHT_INDEX:
@@ -529,12 +533,12 @@ void Led_RunMusic() {
     if (gLedRunPara.music_state < 32) {
         gLedRunPara.music_state++;
     } else if (gLedRunPara.music_state == 32) {
-        Audio_SelectSound(gLedPara.mMsc);
+        Audio_SelectSound(gLedPara.mMsc + 0x30);
         gLedRunPara.music_state++;
     } else if (gLedRunPara.music_state < 64) {
         gLedRunPara.music_state++;
     } else if (gLedRunPara.music_state == 64) {
-        Audio_PlaySound();
+//        Audio_PlaySound();
         gLedRunPara.music_state++;
     }
     if (gLedPara.mDyn) {
