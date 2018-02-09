@@ -10282,7 +10282,7 @@ extern void Audio_SetPlayMode(uint8_t type);
 extern void Audio_SetVolume(uint8_t vol);
 extern void Audio_GetValue();
 
-# 102 "user/src/../inc/ir.h"
+# 108 "user/src/../inc/ir.h"
 typedef struct{
 unsigned mKeyRcv : 1;
 unsigned mKeyRpt : 1;

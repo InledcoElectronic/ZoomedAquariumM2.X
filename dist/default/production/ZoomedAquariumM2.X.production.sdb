@@ -116,25 +116,25 @@
 "10 E:\Work\Program\252-ZoomedAquariumLamp\WT2003S-16S\ZoomedAquariumM2.X\user/src/ir.c
 [v _IR_GetIndex IR_GetIndex `(uc  1 e 1 0 ]
 [v i1_IR_GetIndex IR_GetIndex `(uc  1 e 1 0 ]
-"71
+"102
 [v _IR_IsValidTime IR_IsValidTime `(uc  1 e 1 0 ]
-"107
+"138
 [v _IR_GetKeyType IR_GetKeyType `(uc  1 e 1 0 ]
-"216
+"253
 [v _IR_ResetIfTMR1Overflow IR_ResetIfTMR1Overflow `(v  1 e 1 0 ]
-"251
+"288
 [v _IR_Decode IR_Decode `(v  1 e 1 0 ]
-"335
+"372
 [v _IR_ScanLongPress IR_ScanLongPress `(v  1 e 1 0 ]
-"435
+"472
 [v _IR_ExitSet IR_ExitSet `(v  1 e 1 0 ]
-"443
+"480
 [v _IR_ExitTimeout IR_ExitTimeout `(v  1 e 1 0 ]
-"451
+"488
 [v _IR_KeyAction IR_KeyAction `(v  1 e 1 0 ]
-"739
+"807
 [v _IR_KeyAtionIfPressed IR_KeyAtionIfPressed `(v  1 e 1 0 ]
-"748
+"816
 [v _IR_UpdateSetStatus IR_UpdateSetStatus `(v  1 e 1 0 ]
 "17 E:\Work\Program\252-ZoomedAquariumLamp\WT2003S-16S\ZoomedAquariumM2.X\user/src/led.c
 [v _Led_FirstPowerUp Led_FirstPowerUp `(v  1 e 1 0 ]
@@ -883,20 +883,20 @@
 [v TMR0_SetInterruptHandler@handler handler `*.37(v  1 p 2 13 ]
 "40
 } 0
-"748 E:\Work\Program\252-ZoomedAquariumLamp\WT2003S-16S\ZoomedAquariumM2.X\user/src/ir.c
+"816 E:\Work\Program\252-ZoomedAquariumLamp\WT2003S-16S\ZoomedAquariumM2.X\user/src/ir.c
 [v _IR_UpdateSetStatus IR_UpdateSetStatus `(v  1 e 1 0 ]
 {
-"755
+"823
 } 0
-"443
+"480
 [v _IR_ExitTimeout IR_ExitTimeout `(v  1 e 1 0 ]
 {
-"449
+"486
 } 0
-"216
+"253
 [v _IR_ResetIfTMR1Overflow IR_ResetIfTMR1Overflow `(v  1 e 1 0 ]
 {
-"249
+"286
 } 0
 "26 E:\Work\Program\252-ZoomedAquariumLamp\WT2003S-16S\ZoomedAquariumM2.X\driver/src/tmr1.c
 [v _TMR1_StopTimer TMR1_StopTimer `(v  1 e 1 0 ]
@@ -908,35 +908,37 @@
 {
 "24
 } 0
-"739 E:\Work\Program\252-ZoomedAquariumLamp\WT2003S-16S\ZoomedAquariumM2.X\user/src/ir.c
+"807 E:\Work\Program\252-ZoomedAquariumLamp\WT2003S-16S\ZoomedAquariumM2.X\user/src/ir.c
 [v _IR_KeyAtionIfPressed IR_KeyAtionIfPressed `(v  1 e 1 0 ]
 {
-"743
+"811
 } 0
-"451
+"488
 [v _IR_KeyAction IR_KeyAction `(v  1 e 1 0 ]
 {
-"629
-[v IR_KeyAction@i_1452 i `uc  1 a 1 18 ]
-"590
-[v IR_KeyAction@i_1450 i `uc  1 a 1 16 ]
-"719
-[v IR_KeyAction@i_1456 i `uc  1 a 1 14 ]
-"713
-[v IR_KeyAction@i_1455 i `uc  1 a 1 13 ]
-"623
-[v IR_KeyAction@i_1451 i `uc  1 a 1 17 ]
-"584
-[v IR_KeyAction@i_1449 i `uc  1 a 1 15 ]
-"573
-[v IR_KeyAction@i_1448 i `uc  1 a 1 12 ]
-"519
-[v IR_KeyAction@i i `uc  1 a 1 10 ]
-"566
+"697
+[v IR_KeyAction@i_1454 i `uc  1 a 1 10 ]
+"658
+[v IR_KeyAction@i_1452 i `uc  1 a 1 8 ]
+"787
+[v IR_KeyAction@i_1458 i `uc  1 a 1 6 ]
+"781
+[v IR_KeyAction@i_1457 i `uc  1 a 1 5 ]
+"691
+[v IR_KeyAction@i_1453 i `uc  1 a 1 9 ]
+"652
+[v IR_KeyAction@i_1451 i `uc  1 a 1 7 ]
+"641
+[v IR_KeyAction@i_1450 i `uc  1 a 1 4 ]
+"572
 [v IR_KeyAction@i_1447 i `uc  1 a 1 11 ]
-"452
-[v IR_KeyAction@idx idx `uc  1 a 1 19 ]
-"737
+"556
+[v IR_KeyAction@i i `uc  1 a 1 2 ]
+"634
+[v IR_KeyAction@i_1449 i `uc  1 a 1 3 ]
+"489
+[v IR_KeyAction@idx idx `uc  1 a 1 12 ]
+"805
 } 0
 "3 E:\Work\Program\252-ZoomedAquariumLamp\WT2003S-16S\ZoomedAquariumM2.X\user/src/util.c
 [v _Util_IncValue Util_IncValue `(v  1 e 1 0 ]
@@ -964,21 +966,21 @@
 {
 "43
 } 0
-"71 E:\Work\Program\252-ZoomedAquariumLamp\WT2003S-16S\ZoomedAquariumM2.X\user/src/ir.c
+"102 E:\Work\Program\252-ZoomedAquariumLamp\WT2003S-16S\ZoomedAquariumM2.X\user/src/ir.c
 [v _IR_IsValidTime IR_IsValidTime `(uc  1 e 1 0 ]
 {
 [v IR_IsValidTime@tm tm `*.4uc  1 a 1 wreg ]
-"73
+"104
 [v IR_IsValidTime@hour hour `uc  1 a 1 19 ]
-"72
+"103
 [v IR_IsValidTime@result result `uc  1 a 1 18 ]
-"74
+"105
 [v IR_IsValidTime@min min `uc  1 a 1 17 ]
-"71
+"102
 [v IR_IsValidTime@tm tm `*.4uc  1 a 1 wreg ]
 [v IR_IsValidTime@len len `uc  1 p 1 16 ]
 [v IR_IsValidTime@tm tm `*.4uc  1 a 1 20 ]
-"105
+"136
 } 0
 "4 D:\Program Files\Microchip\xc8\v1.41\sources\common\Umul8.c
 [v ___bmul __bmul `(uc  1 e 1 0 ]
@@ -998,16 +1000,16 @@
 {
 [v IR_GetIndex@keynum keynum `uc  1 a 1 wreg ]
 "11
-[v IR_GetIndex@idx idx `uc  1 a 1 13 ]
+[v IR_GetIndex@idx idx `uc  1 a 1 14 ]
 "10
 [v IR_GetIndex@keynum keynum `uc  1 a 1 wreg ]
-[v IR_GetIndex@keynum keynum `uc  1 a 1 14 ]
-"69
+[v IR_GetIndex@keynum keynum `uc  1 a 1 13 ]
+"100
 } 0
-"435
+"472
 [v _IR_ExitSet IR_ExitSet `(v  1 e 1 0 ]
 {
-"441
+"478
 } 0
 "419 E:\Work\Program\252-ZoomedAquariumLamp\WT2003S-16S\ZoomedAquariumM2.X\user/src/led.c
 [v _Led_StartNotice Led_StartNotice `(v  1 e 1 0 ]
@@ -1341,18 +1343,18 @@
 [v i1PWM5_LoadDutyValue@dutyValue dutyValue `ui  1 p 2 0 ]
 "64
 } 0
-"335 E:\Work\Program\252-ZoomedAquariumLamp\WT2003S-16S\ZoomedAquariumM2.X\user/src/ir.c
+"372 E:\Work\Program\252-ZoomedAquariumLamp\WT2003S-16S\ZoomedAquariumM2.X\user/src/ir.c
 [v _IR_ScanLongPress IR_ScanLongPress `(v  1 e 1 0 ]
 {
-"415
+"452
 [v IR_ScanLongPress@i_1441 i `uc  1 a 1 9 ]
-"404
+"441
 [v IR_ScanLongPress@i i `uc  1 a 1 8 ]
-"337
+"374
 [v IR_ScanLongPress@idx idx `uc  1 a 1 10 ]
-"336
+"373
 [v IR_ScanLongPress@cnt cnt `ui  1 s 2 cnt ]
-"433
+"470
 } 0
 "3 E:\Work\Program\252-ZoomedAquariumLamp\WT2003S-16S\ZoomedAquariumM2.X\user/src/util.c
 [v i1_Util_IncValue Util_IncValue `(v  1 e 1 0 ]
@@ -1387,10 +1389,10 @@
 [v i1_IR_GetIndex IR_GetIndex `(uc  1 e 1 0 ]
 {
 [v i1IR_GetIndex@keynum keynum `uc  1 a 1 wreg ]
-[v i1IR_GetIndex@idx IR_GetIndex `uc  1 a 1 0 ]
+[v i1IR_GetIndex@idx IR_GetIndex `uc  1 a 1 1 ]
 [v i1IR_GetIndex@keynum keynum `uc  1 a 1 wreg ]
-[v i1IR_GetIndex@keynum keynum `uc  1 a 1 1 ]
-"69
+[v i1IR_GetIndex@keynum keynum `uc  1 a 1 0 ]
+"100
 } 0
 "279 E:\Work\Program\252-ZoomedAquariumLamp\WT2003S-16S\ZoomedAquariumM2.X\user/src/led.c
 [v _Led_SetCustom Led_SetCustom `(v  1 e 1 0 ]
@@ -1420,24 +1422,24 @@
 {
 "47
 } 0
-"251 E:\Work\Program\252-ZoomedAquariumLamp\WT2003S-16S\ZoomedAquariumM2.X\user/src/ir.c
+"288 E:\Work\Program\252-ZoomedAquariumLamp\WT2003S-16S\ZoomedAquariumM2.X\user/src/ir.c
 [v _IR_Decode IR_Decode `(v  1 e 1 0 ]
 {
-"294
+"331
 [v IR_Decode@type type `uc  1 a 1 8 ]
-"254
+"291
 [v IR_Decode@hVal hVal `ui  1 a 2 10 ]
-"252
+"289
 [v IR_Decode@keyNum keyNum `uc  1 a 1 9 ]
-"253
+"290
 [v IR_Decode@revKeyNum revKeyNum `uc  1 a 1 7 ]
-"255
+"292
 [v IR_Decode@codeVal codeVal `ui  1 s 2 codeVal ]
-"256
+"293
 [v IR_Decode@nBit nBit `uc  1 s 1 nBit ]
-"257
+"294
 [v IR_Decode@rptCnt rptCnt `uc  1 s 1 rptCnt ]
-"333
+"370
 } 0
 "45 E:\Work\Program\252-ZoomedAquariumLamp\WT2003S-16S\ZoomedAquariumM2.X\driver/src/tmr2.c
 [v i1_TMR2_EnableInterrupt TMR2_EnableInterrupt `(v  1 e 1 0 ]
@@ -1449,16 +1451,16 @@
 {
 "43
 } 0
-"107 E:\Work\Program\252-ZoomedAquariumLamp\WT2003S-16S\ZoomedAquariumM2.X\user/src/ir.c
+"138 E:\Work\Program\252-ZoomedAquariumLamp\WT2003S-16S\ZoomedAquariumM2.X\user/src/ir.c
 [v _IR_GetKeyType IR_GetKeyType `(uc  1 e 1 0 ]
 {
 [v IR_GetKeyType@keynum keynum `uc  1 a 1 wreg ]
-"108
+"139
 [v IR_GetKeyType@result result `uc  1 a 1 1 ]
-"107
+"138
 [v IR_GetKeyType@keynum keynum `uc  1 a 1 wreg ]
 [v IR_GetKeyType@keynum keynum `uc  1 a 1 2 ]
-"214
+"251
 } 0
 "27 E:\Work\Program\252-ZoomedAquariumLamp\WT2003S-16S\ZoomedAquariumM2.X\driver/src/tmr0.c
 [v _TMR0_ISR TMR0_ISR `(v  1 e 1 0 ]

@@ -10198,7 +10198,7 @@ extern void EUSART_Transmit_ISR();
 extern void ADC_Initialize_Default ();
 extern uint16_t ADC_Conversion ( uint8_t chn );
 
-# 102 "user/src/../inc/ir.h"
+# 108 "user/src/../inc/ir.h"
 typedef struct{
 unsigned mKeyRcv : 1;
 unsigned mKeyRpt : 1;

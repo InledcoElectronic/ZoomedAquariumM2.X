@@ -32,9 +32,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _gLedPara `VS964 ~T0 @X0 0 e ]
 "39 user/src/../inc/audio.h
 [v _Audio_GetValue `(v ~T0 @X0 0 ef ]
-"117 user/src/../inc/ir.h
+"123 user/src/../inc/ir.h
 [v _IR_KeyAtionIfPressed `(v ~T0 @X0 0 ef ]
-"114
+"120
 [v _IR_ResetIfTMR1Overflow `(v ~T0 @X0 0 ef ]
 "88 user/src/../inc/led.h
 [v _Led_SaveParaIfChanged `(v ~T0 @X0 0 ef ]
@@ -46,14 +46,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _Led_CheckAutoStatus `(v ~T0 @X0 0 ef ]
 "30 user/src/../inc/rtc.h
 [v _RTC_SecondReady `(uc ~T0 @X0 0 ef ]
-"102 user/src/../inc/ir.h
+"108 user/src/../inc/ir.h
 [s S963 :1 `uc 1 :1 `uc 1 :3 `uc 1 :3 `uc 1 `uc 1 `uc -> 4 `i `uc 1 ]
 [n S963 . mKeyRcv mKeyRpt mState mSet tmIdx time mSetDelay ]
-"112
+"118
 [v _ir_state `VS963 ~T0 @X0 0 e ]
 "97 user/src/../inc/led.h
 [v _Led_AutoRun `(v ~T0 @X0 0 ef ]
-"118 user/src/../inc/ir.h
+"124 user/src/../inc/ir.h
 [v _IR_UpdateSetStatus `(v ~T0 @X0 0 ef ]
 "553 D:\Program Files\Microchip\xc8\v1.41\include\pic16f18345.h
 [s S41 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -251,7 +251,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v F8026 `(v ~T0 @X0 0 tf ]
 "54 user/src/../../driver/inc/tmr1.h
 [v _TMR1_Gate_SetInterruptHandler `(v ~T0 @X0 0 ef1`*F8026 ]
-"115 user/src/../inc/ir.h
+"121 user/src/../inc/ir.h
 [v _IR_Decode `(v ~T0 @X0 0 ef ]
 [v F8018 `(v ~T0 @X0 0 tf ]
 "71 user/src/../../driver/inc/tmr0.h
@@ -7940,21 +7940,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eusart.h: 47: extern void EUSART_Transmit_ISR();
 [; ;adc.h: 86: extern void ADC_Initialize_Default ();
 [; ;adc.h: 87: extern uint16_t ADC_Conversion ( uint8_t chn );
-[; ;ir.h: 102: typedef struct{
-[; ;ir.h: 103: unsigned mKeyRcv : 1;
-[; ;ir.h: 104: unsigned mKeyRpt : 1;
-[; ;ir.h: 105: unsigned mState : 3;
-[; ;ir.h: 106: unsigned mSet : 3;
-[; ;ir.h: 107: uint8_t tmIdx;
-[; ;ir.h: 108: uint8_t time[4];
-[; ;ir.h: 109: uint8_t mSetDelay;
-[; ;ir.h: 110: } IRState_t;
-[; ;ir.h: 112: extern volatile IRState_t ir_state;
-[; ;ir.h: 114: extern void IR_ResetIfTMR1Overflow();
-[; ;ir.h: 115: extern void IR_Decode();
-[; ;ir.h: 116: extern void IR_ScanLongPress();
-[; ;ir.h: 117: extern void IR_KeyAtionIfPressed();
-[; ;ir.h: 118: extern void IR_UpdateSetStatus();
+[; ;ir.h: 108: typedef struct{
+[; ;ir.h: 109: unsigned mKeyRcv : 1;
+[; ;ir.h: 110: unsigned mKeyRpt : 1;
+[; ;ir.h: 111: unsigned mState : 3;
+[; ;ir.h: 112: unsigned mSet : 3;
+[; ;ir.h: 113: uint8_t tmIdx;
+[; ;ir.h: 114: uint8_t time[4];
+[; ;ir.h: 115: uint8_t mSetDelay;
+[; ;ir.h: 116: } IRState_t;
+[; ;ir.h: 118: extern volatile IRState_t ir_state;
+[; ;ir.h: 120: extern void IR_ResetIfTMR1Overflow();
+[; ;ir.h: 121: extern void IR_Decode();
+[; ;ir.h: 122: extern void IR_ScanLongPress();
+[; ;ir.h: 123: extern void IR_KeyAtionIfPressed();
+[; ;ir.h: 124: extern void IR_UpdateSetStatus();
 [; ;audio.h: 32: extern volatile uint16_t audio_value;
 [; ;audio.h: 34: extern void Audio_PlaySound();
 [; ;audio.h: 35: extern void Audio_StopSound();

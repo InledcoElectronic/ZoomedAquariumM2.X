@@ -13,54 +13,85 @@ uint8_t IR_GetIndex(uint8_t keynum) {
         case KEYR_UP:
         case KEYR_DOWN:
         case KEY_P1:
+        case KEYR:
             idx = 0;
             break;
         case KEYG_UP:
         case KEYG_DOWN:
         case KEY_P2:
+        case KEYG:
             idx = 1;
             break;
         case KEYB_UP:
         case KEYB_DOWN:
         case KEY_P3:
+        case KEYB:
             idx = 2;
             break;
         case KEYW_DOWN:
         case KEYW_UP:
         case KEY_P4:
+        case KEYW:
             idx = 3;
             break;
         case KEYUV_UP:
         case KEYUV_DOWN:
+        case KEYUV:
             idx = 4;
             break;
         case KEY_LINK_DAY:
+            idx = 1;
+            break;
         case KEY_LINK_NIGHT:
+            idx = 2;
+            break;
         case KEY_LINK_FISH:
+            idx = 3;
+            break;
         case KEY_LINK_PLANT:
-            idx = keynum - KEY_LINK_DAY + 1;
+            idx = 4;
             break;
         case KEY_LINK_WAVE:
+            idx = 5;
+            break;
         case KEY_LINK_MOON:
+            idx = 6;
+            break;
         case KEY_LINK_CLOUD:
+            idx = 7;
+            break;
         case KEY_LINK_STORM:
-            idx = keynum - KEY_LINK_WAVE + 5;
+            idx = 8;
             break;
         case KEY_NUM_0:
+            idx = 0;
+            break;
         case KEY_NUM_1:
+            idx = 1;
+            break;
         case KEY_NUM_2:
+            idx = 2;
+            break;
         case KEY_NUM_3:
-            idx = keynum - KEY_NUM_0;
+            idx = 3;
             break;
         case KEY_NUM_4:
+            idx = 4;
+            break;
         case KEY_NUM_5:
+            idx = 5;
+            break;
         case KEY_NUM_6:
+            idx = 6;
+            break;
         case KEY_NUM_7:
-            idx = keynum - KEY_NUM_4 + 4;
+            idx = 7;
             break;
         case KEY_NUM_8:
+            idx = 8;
+            break;
         case KEY_NUM_9:
-            idx = keynum - KEY_NUM_8 + 8;
+            idx = 9;
             break;
         default:
             break;
@@ -115,6 +146,12 @@ uint8_t IR_GetKeyType(uint8_t keynum) {
             result = KEY_LONG;
         } else if (gLedPara.mOn) {
             switch (keynum) {
+                case KEYR:
+                case KEYG:
+                case KEYB:
+                case KEYW:
+                case KEYUV:
+                case KEY_VOL_MUTE:
                 case KEY_LINK_DAY:
                 case KEY_LINK_NIGHT:
                 case KEY_LINK_FISH:
@@ -519,6 +556,37 @@ void IR_KeyAction() {
                 for (uint8_t i = 0; i < CHANNEL_CNT; i++) {
                     gLedRunPara.mCurrentBright[i] = gLedRunPara.mTargetBright[i];
                 }
+            }
+            break;
+        case KEYR:
+        case KEYG:
+        case KEYB:
+        case KEYW:
+        case KEYUV:
+            Audio_StopSound();
+            idx = IR_GetIndex(keyValue);
+            if (ir_state.mSet == SET_NONE) {
+                gLedPara.mAuto = 0;
+                gLedPara.mMsc = 0;
+                gLedPara.mDyn = 0;
+                for(uint8_t i = 0;i < CHANNEL_CNT;i ++) {
+                    if(i == idx) {
+                        gLedRunPara.mTargetBright[i] = BRIGHT_MAX;
+                    } else {
+                        gLedRunPara.mTargetBright[i] = 0;
+                    }
+                    gLedPara.mBright[i] = gLedRunPara.mTargetBright[i];     
+                }
+                gLedRunPara.mParaChanged = 1;
+            } else {
+                ir_state.mSetDelay = 0;
+            }
+            break;
+        case KEY_VOL_MUTE:
+            if(gLedPara.mOn){
+                gLedPara.mVolOn = !gLedPara.mVolOn;
+                Audio_SetVolume(gLedPara.mVolOn ? VOLUME[gLedPara.mVolume] : 0);
+                gLedRunPara.mParaChanged = 1;
             }
             break;
         case KEYR_UP:
